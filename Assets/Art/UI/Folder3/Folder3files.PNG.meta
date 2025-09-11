@@ -1,0 +1,1911 @@
+fileFormatVersion: 2
+guid: 46518fd6304f9fd4699f570aa35f7c65
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7033272508217778457
+    second: Folder3files_0
+  - first:
+      213: 2672231590457708715
+    second: Folder3files_1
+  - first:
+      213: 6413164614635286148
+    second: Folder3files_2
+  - first:
+      213: 4921545178149024900
+    second: Folder3files_3
+  - first:
+      213: -9215803498399978316
+    second: Folder3files_4
+  - first:
+      213: -2604564708893415988
+    second: Folder3files_5
+  - first:
+      213: -8556907724737368711
+    second: Folder3files_6
+  - first:
+      213: 6983841668177855546
+    second: Folder3files_7
+  - first:
+      213: -4165230433601478087
+    second: Folder3files_8
+  - first:
+      213: 3911702157777599960
+    second: Folder3files_9
+  - first:
+      213: 5287173621652498323
+    second: Folder3files_10
+  - first:
+      213: 208129676538800753
+    second: Folder3files_11
+  - first:
+      213: -6755963364723946556
+    second: Folder3files_12
+  - first:
+      213: 5613451886024099273
+    second: Folder3files_13
+  - first:
+      213: 982177719081501367
+    second: Folder3files_14
+  - first:
+      213: 6013261112907827891
+    second: Folder3files_15
+  - first:
+      213: -1039732433629049866
+    second: Folder3files_16
+  - first:
+      213: 3142886914536427001
+    second: Folder3files_17
+  - first:
+      213: -1057727118112745932
+    second: Folder3files_18
+  - first:
+      213: -8574909438352924995
+    second: Folder3files_19
+  - first:
+      213: 6920973776419181716
+    second: Folder3files_20
+  - first:
+      213: 6750369042055932644
+    second: Folder3files_21
+  - first:
+      213: -4685284386383614463
+    second: Folder3files_22
+  - first:
+      213: 6858126422334558197
+    second: Folder3files_23
+  - first:
+      213: -2402116891641154528
+    second: Folder3files_24
+  - first:
+      213: -5224917382075240151
+    second: Folder3files_25
+  - first:
+      213: 7091401991440635567
+    second: Folder3files_26
+  - first:
+      213: -8419122261123752638
+    second: Folder3files_27
+  - first:
+      213: -6059407557769875883
+    second: Folder3files_28
+  - first:
+      213: 5759013955405875555
+    second: Folder3files_29
+  - first:
+      213: 5419015724532818077
+    second: Folder3files_30
+  - first:
+      213: 6653357715784647564
+    second: Folder3files_31
+  - first:
+      213: -8969776264965504577
+    second: Folder3files_32
+  - first:
+      213: -5296397241002520125
+    second: Folder3files_33
+  - first:
+      213: 6880023473088762574
+    second: Folder3files_34
+  - first:
+      213: 3129475861655427835
+    second: Folder3files_35
+  - first:
+      213: -1065230966075909201
+    second: Folder3files_36
+  - first:
+      213: -2728401941689444985
+    second: Folder3files_37
+  - first:
+      213: -8167211474933758538
+    second: Folder3files_38
+  - first:
+      213: 1846526540843456357
+    second: Folder3files_39
+  - first:
+      213: 4635181733306794485
+    second: Folder3files_40
+  - first:
+      213: -7674100104360855107
+    second: Folder3files_41
+  - first:
+      213: 7790948337481415325
+    second: Folder3files_42
+  - first:
+      213: 1366546601655748027
+    second: Folder3files_43
+  - first:
+      213: -5935976977439703646
+    second: Folder3files_44
+  - first:
+      213: -343105364358274655
+    second: Folder3files_45
+  - first:
+      213: 2550800377255788807
+    second: Folder3files_46
+  - first:
+      213: -7241153196201059614
+    second: Folder3files_47
+  - first:
+      213: -397742293788932924
+    second: Folder3files_48
+  - first:
+      213: 1056904409295696768
+    second: Folder3files_49
+  - first:
+      213: 4445939125061238536
+    second: Folder3files_50
+  - first:
+      213: 7173836357211819362
+    second: Folder3files_51
+  - first:
+      213: -7783483651535317831
+    second: Folder3files_52
+  - first:
+      213: -4075539147749714354
+    second: Folder3files_53
+  - first:
+      213: 1008686168358632785
+    second: Folder3files_54
+  - first:
+      213: 902046188381559431
+    second: Folder3files_55
+  - first:
+      213: 3100954133340460662
+    second: Folder3files_56
+  - first:
+      213: 8807398581302427139
+    second: Folder3files_57
+  - first:
+      213: 1061436617078980191
+    second: Folder3files_58
+  - first:
+      213: 5475303659146072890
+    second: Folder3files_59
+  - first:
+      213: 7132969454335430686
+    second: Folder3files_60
+  - first:
+      213: -2888857966936396557
+    second: Folder3files_61
+  - first:
+      213: -5039781014077082694
+    second: Folder3files_62
+  - first:
+      213: -507496933823265478
+    second: Folder3files_63
+  - first:
+      213: 6725100234615385822
+    second: Folder3files_64
+  - first:
+      213: 2086025422750220319
+    second: Folder3files_65
+  - first:
+      213: -3523905528821546496
+    second: Folder3files_66
+  - first:
+      213: 7140977064836415899
+    second: Folder3files_67
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Folder3files_0
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 1249
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee982beaebc46e90800000000000000
+      internalID: -7033272508217778457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_1
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 1003
+        width: 161
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba01fc2397ca51520800000000000000
+      internalID: 2672231590457708715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_2
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 1025
+        width: 137
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ee0751d33200950800000000000000
+      internalID: 6413164614635286148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_3
+      rect:
+        serializedVersion: 2
+        x: 1899
+        y: 1232
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 484fb999347dc4440800000000000000
+      internalID: 4921545178149024900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_4
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1232
+        width: 92
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc211eab83ea1080800000000000000
+      internalID: -9215803498399978316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_5
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1209
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc5a3e3623abadbd0800000000000000
+      internalID: -2604564708893415988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_6
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 1024
+        width: 129
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97dab33c2c1cf3980800000000000000
+      internalID: -8556907724737368711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_7
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1024
+        width: 145
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a340057cef69be060800000000000000
+      internalID: 6983841668177855546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_8
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 1199
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932a98d2df02236c0800000000000000
+      internalID: -4165230433601478087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_9
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 1025
+        width: 160
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd767d2368294630800000000000000
+      internalID: 3911702157777599960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_10
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 1011
+        width: 183
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 397a9607560df5940800000000000000
+      internalID: 5287173621652498323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_11
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1157
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17aef4d86dc63e200800000000000000
+      internalID: 208129676538800753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_12
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 1025
+        width: 131
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb831a4d1ffd32a0800000000000000
+      internalID: -6755963364723946556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_13
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 1031
+        width: 32
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5863ebfbcf6ed40800000000000000
+      internalID: 5613451886024099273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_14
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 999
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b208248e6561ad00800000000000000
+      internalID: 982177719081501367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_15
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 999
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba8a806f15637350800000000000000
+      internalID: 6013261112907827891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_16
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 996
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb86104cd02291f0800000000000000
+      internalID: -1039732433629049866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_17
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 999
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fdca2e3ff6cd9b20800000000000000
+      internalID: 3142886914536427001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_18
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 1001
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43697974ac23251f0800000000000000
+      internalID: -1057727118112745932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_19
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1001
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe54d13c4dcff880800000000000000
+      internalID: -8574909438352924995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_20
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 998
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49452431bfc3c0060800000000000000
+      internalID: 6920973776419181716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_21
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1001
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eaa986f0e02ead50800000000000000
+      internalID: 6750369042055932644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_22
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 998
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10eabed9ca68afeb0800000000000000
+      internalID: -4685284386383614463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_23
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 1003
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffc8fb25a5fc2f50800000000000000
+      internalID: 6858126422334558197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_24
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 1003
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02473ccf967f9aed0800000000000000
+      internalID: -2402116891641154528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_25
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1000
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92134a4e25d5d77b0800000000000000
+      internalID: -5224917382075240151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_26
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 766
+        width: 129
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa611531a88b96260800000000000000
+      internalID: 7091401991440635567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_27
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 1002
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24d9221f8e4492b80800000000000000
+      internalID: -8419122261123752638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_28
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 1002
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e2fc92ee8a8eba0800000000000000
+      internalID: -6059407557769875883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_29
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1002
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3690c7c0ea02cef40800000000000000
+      internalID: 5759013955405875555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_30
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 1002
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90e80d1716343b40800000000000000
+      internalID: 5419015724532818077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_31
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 1002
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83c2fc6799755c50800000000000000
+      internalID: 6653357715784647564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_32
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 1002
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1400cc204f48380800000000000000
+      internalID: -8969776264965504577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_33
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 1002
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c19fa455ca6f76b0800000000000000
+      internalID: -5296397241002520125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_34
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1001
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec21ec795e0ca7f50800000000000000
+      internalID: 6880023473088762574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_35
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 1001
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfa912b27b12e6b20800000000000000
+      internalID: 3129475861655427835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_36
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 986
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab9c47841a8731f0800000000000000
+      internalID: -1065230966075909201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_37
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 986
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7855d15c3e4c22ad0800000000000000
+      internalID: -2728401941689444985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_38
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 986
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5441f6f6c38ae80800000000000000
+      internalID: -8167211474933758538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_39
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 986
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5671e470b1e20a910800000000000000
+      internalID: 1846526540843456357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_40
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 986
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1812b6a39735040800000000000000
+      internalID: 4635181733306794485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_41
+      rect:
+        serializedVersion: 2
+        x: 1857
+        y: 1001
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db978cc3d9e108590800000000000000
+      internalID: -7674100104360855107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_42
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1001
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9afff61c320f1c60800000000000000
+      internalID: 7790948337481415325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_43
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 986
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb545b8d4e2f6f210800000000000000
+      internalID: 1366546601655748027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_44
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 1007
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad3fc0a36c2f9da0800000000000000
+      internalID: -5935976977439703646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_45
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 986
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1e4ec2d7b0d3bf0800000000000000
+      internalID: -343105364358274655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_46
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 986
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701834bad63466320800000000000000
+      internalID: 2550800377255788807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_47
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 986
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea50488881428b90800000000000000
+      internalID: -7241153196201059614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_48
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 987
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4cf8abd7fea7af0800000000000000
+      internalID: -397742293788932924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_49
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 767
+        width: 184
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0833d95e5f0eaae00800000000000000
+      internalID: 1056904409295696768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_50
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 794
+        width: 130
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f3942241623bd30800000000000000
+      internalID: 4445939125061238536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_51
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 928
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d846488269e8360800000000000000
+      internalID: 7173836357211819362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_52
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 767
+        width: 130
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b45d2b8bd28bf390800000000000000
+      internalID: -7783483651535317831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_53
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 794
+        width: 130
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e461e2efcb6c077c0800000000000000
+      internalID: -4075539147749714354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_54
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 878
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15dbdd2d9b29ffd00800000000000000
+      internalID: 1008686168358632785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_55
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 769
+        width: 59
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a5a75aa36b48c00800000000000000
+      internalID: 902046188381559431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_56
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 769
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 676998eca5dc80b20800000000000000
+      internalID: 3100954133340460662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_57
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 769
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30e7fc9985a2a3a70800000000000000
+      internalID: 8807398581302427139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_58
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 769
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5eb590cafafabe00800000000000000
+      internalID: 1061436617078980191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_59
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 769
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a335cc82baf2cfb40800000000000000
+      internalID: 5475303659146072890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_60
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 751
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1010673de56df260800000000000000
+      internalID: 7132969454335430686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_61
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 751
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fce2322cf6b8e7d0800000000000000
+      internalID: -2888857966936396557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_62
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 751
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab37d2e9ed91f0ab0800000000000000
+      internalID: -5039781014077082694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_63
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 751
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a354dde3a3205f8f0800000000000000
+      internalID: -507496933823265478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_64
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 763
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede6523480b545d50800000000000000
+      internalID: 6725100234615385822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_65
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 711
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10067bd11d03fc10800000000000000
+      internalID: 2086025422750220319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_66
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 711
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0028e8c8792981fc0800000000000000
+      internalID: -3523905528821546496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Folder3files_67
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 711
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9149c25ec8d91360800000000000000
+      internalID: 7140977064836415899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Folder3files_0: -7033272508217778457
+      Folder3files_1: 2672231590457708715
+      Folder3files_10: 5287173621652498323
+      Folder3files_11: 208129676538800753
+      Folder3files_12: -6755963364723946556
+      Folder3files_13: 5613451886024099273
+      Folder3files_14: 982177719081501367
+      Folder3files_15: 6013261112907827891
+      Folder3files_16: -1039732433629049866
+      Folder3files_17: 3142886914536427001
+      Folder3files_18: -1057727118112745932
+      Folder3files_19: -8574909438352924995
+      Folder3files_2: 6413164614635286148
+      Folder3files_20: 6920973776419181716
+      Folder3files_21: 6750369042055932644
+      Folder3files_22: -4685284386383614463
+      Folder3files_23: 6858126422334558197
+      Folder3files_24: -2402116891641154528
+      Folder3files_25: -5224917382075240151
+      Folder3files_26: 7091401991440635567
+      Folder3files_27: -8419122261123752638
+      Folder3files_28: -6059407557769875883
+      Folder3files_29: 5759013955405875555
+      Folder3files_3: 4921545178149024900
+      Folder3files_30: 5419015724532818077
+      Folder3files_31: 6653357715784647564
+      Folder3files_32: -8969776264965504577
+      Folder3files_33: -5296397241002520125
+      Folder3files_34: 6880023473088762574
+      Folder3files_35: 3129475861655427835
+      Folder3files_36: -1065230966075909201
+      Folder3files_37: -2728401941689444985
+      Folder3files_38: -8167211474933758538
+      Folder3files_39: 1846526540843456357
+      Folder3files_4: -9215803498399978316
+      Folder3files_40: 4635181733306794485
+      Folder3files_41: -7674100104360855107
+      Folder3files_42: 7790948337481415325
+      Folder3files_43: 1366546601655748027
+      Folder3files_44: -5935976977439703646
+      Folder3files_45: -343105364358274655
+      Folder3files_46: 2550800377255788807
+      Folder3files_47: -7241153196201059614
+      Folder3files_48: -397742293788932924
+      Folder3files_49: 1056904409295696768
+      Folder3files_5: -2604564708893415988
+      Folder3files_50: 4445939125061238536
+      Folder3files_51: 7173836357211819362
+      Folder3files_52: -7783483651535317831
+      Folder3files_53: -4075539147749714354
+      Folder3files_54: 1008686168358632785
+      Folder3files_55: 902046188381559431
+      Folder3files_56: 3100954133340460662
+      Folder3files_57: 8807398581302427139
+      Folder3files_58: 1061436617078980191
+      Folder3files_59: 5475303659146072890
+      Folder3files_6: -8556907724737368711
+      Folder3files_60: 7132969454335430686
+      Folder3files_61: -2888857966936396557
+      Folder3files_62: -5039781014077082694
+      Folder3files_63: -507496933823265478
+      Folder3files_64: 6725100234615385822
+      Folder3files_65: 2086025422750220319
+      Folder3files_66: -3523905528821546496
+      Folder3files_67: 7140977064836415899
+      Folder3files_7: 6983841668177855546
+      Folder3files_8: -4165230433601478087
+      Folder3files_9: 3911702157777599960
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
