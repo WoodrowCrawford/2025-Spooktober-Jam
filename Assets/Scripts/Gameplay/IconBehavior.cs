@@ -81,7 +81,8 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             if (_timeHeldDown >= 0.2f)
             {
                 //move the icon to the mouse position
-                this.transform.position = Mouse.current.position.ReadValue();
+                //this.transform.position = new Vector3(Mouse.current.position.ReadValue().x, this.transform.position.y, this.transform.position.z);
+                this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 10f));
             }
 
         }
