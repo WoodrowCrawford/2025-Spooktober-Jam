@@ -66,5 +66,8 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "2025-Spooktober-Jam.sln"
+    "dotnet.defaultSolution": "2025-Spooktober-Jam.sln",
+    "cSpell.words": [
+        "Verything"
+    ]
 }

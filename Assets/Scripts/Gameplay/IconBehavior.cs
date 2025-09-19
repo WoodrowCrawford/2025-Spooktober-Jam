@@ -4,32 +4,48 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
+public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 
-   
+    public delegate void IconClickHandler();
+    public static event IconClickHandler OnWebpageIconClicked;
+
 
     [Header("Icon Settings")]
     [SerializeField] private Color _hoverColor = Color.lightGray;
     [SerializeField] private Color _clickedColor = Color.gray;
     [SerializeField] private float _timeHeldDown = 0f;
 
+
     [Header("Bool settings")]
     [SerializeField] private bool _isClicked = false;
 
-    public UnityEvent onIconClicked;
-
+    
 
 
 
     //what happens when the icon is clicked
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        //if the wbebsite icon is clicked
+        if (gameObject.name == "WebIcon")
+        {
+            Debug.Log("Web Icon Clicked, open webpage");
+           OnWebpageIconClicked?.Invoke();
+          
+        }
+    }
+
+
+
+    //what happens when the icon is clicked down
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Pointer down on icon: " + gameObject.name);
         _isClicked = true;
 
         GetComponent<Image>().color = _clickedColor;
-    
+
     }
 
 
@@ -37,13 +53,12 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     public void OnPointerUp(PointerEventData eventData)
     {
-       
+
         Debug.Log("Pointer released on icon: " + gameObject.name);
         _isClicked = false;
 
         GetComponent<Image>().color = Color.white;
-
-   
+        
     }
 
 
@@ -96,7 +111,6 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         
 
     }
-
 
     
 }

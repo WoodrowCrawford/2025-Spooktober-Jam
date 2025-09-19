@@ -12,6 +12,7 @@ public class StartButtonBehavior : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _clickableArea;
 
+
     public void OnPointerClick(PointerEventData eventData)
     {
         //if the clickable area is clicked
@@ -20,8 +21,8 @@ public class StartButtonBehavior : MonoBehaviour, IPointerClickHandler
             Debug.Log("Clickable area clicked.");
             OnOptionsButtonClicked?.Invoke();
         }
-        
-        
+
+
     }
 
 
