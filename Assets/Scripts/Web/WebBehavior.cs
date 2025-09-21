@@ -11,10 +11,14 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [Header("Web References")]
 
     //the actual webpage object
-    public GameObject webpage;
+    public GameObject currentWebsite;
+    public GameObject previousWebsite;
+    [SerializeField] private GameObject _veryThingWebsite;
+    [SerializeField] private GameObject _redditWebsite;
 
-    
 
+    [Header("Webpage Pages")]
+    [SerializeField] private GameObject _scrollView;
     [SerializeField] private GameObject _currentPage;
     [SerializeField] private GameObject _previousPage;
     [SerializeField] private GameObject _backButton;
@@ -26,7 +30,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private float _timeHeldDown = 0f;
 
 
-   
+
 
 
     void OnEnable()
@@ -78,6 +82,11 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
 
 
+    void Start()
+    {
+        ChangeWebsite(_veryThingWebsite);
+    }
+
 
     private void Update()
     {
@@ -107,7 +116,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void ChangeWebsitePage(GameObject newWebsitePage)
     {
 
-       Debug.Log("Changing website page to: " + newWebsitePage.name);
+        Debug.Log("Changing website page to: " + newWebsitePage.name);
 
         //set the previous page to the current page
         _previousPage = _currentPage;
@@ -116,16 +125,54 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         _currentPage = newWebsitePage;
 
         //deactivate all children of the webpage object
-        foreach (Transform child in webpage.transform)
+        foreach (Transform child in currentWebsite.transform)
         {
             child.gameObject.SetActive(false);
         }
 
         //activate the new page
         newWebsitePage.SetActive(true);
-       
 
-        
+
+
+    }
+
+
+    public void ChangeWebsite(GameObject newWebsite)
+    {
+
+        //deactivate all children of the webpage object
+        foreach (Transform child in currentWebsite.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
+        //set the current website to the new website
+        currentWebsite = newWebsite;
+
+
+        //deactivate all children of the webpage object
+        foreach (Transform child in currentWebsite.transform)
+        {
+            //if the first child, activate it
+            if (child == currentWebsite.transform.GetChild(0))
+            {
+                child.gameObject.SetActive(true);
+            }
+
+            else
+            {
+                child.gameObject.SetActive(false);
+            }
+
+
+        }
+
+        //activate the new page
+        newWebsite.SetActive(true);
+
+        //set the scroll view to the new page's rect transform
+        _scrollView.GetComponent<ScrollRect>().content = currentWebsite.GetComponent<RectTransform>();
     }
     
    
