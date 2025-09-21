@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 public class VerythingWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
     // Define a delegate and event for website changes
-    public delegate void WebsiteChangeHandler(GameObject newWebsitePage);
-    public static event WebsiteChangeHandler OnWebsiteChange;
+    public delegate void VeryThingWebsiteEventHandler(GameObject newWebsitePage);
+    public static event VeryThingWebsiteEventHandler OnWebsiteChange;
 
 
     [Header("Verything pages")]

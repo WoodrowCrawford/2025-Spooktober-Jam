@@ -14,7 +14,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject currentWebsite;
     public GameObject previousWebsite;
     [SerializeField] private GameObject _veryThingWebsite;
-    [SerializeField] private GameObject _redditWebsite;
+    [SerializeField] private GameObject _chatterWebsite;
 
 
     [Header("Webpage Pages")]
@@ -23,6 +23,9 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private GameObject _previousPage;
     [SerializeField] private GameObject _backButton;
     [SerializeField] private GameObject _exitButton;
+
+    
+
 
 
     [Header("Bools")]
@@ -84,7 +87,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Start()
     {
-        ChangeWebsite(_veryThingWebsite);
+        ChangeWebsite(_chatterWebsite);
     }
 
 
