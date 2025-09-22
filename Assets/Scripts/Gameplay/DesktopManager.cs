@@ -20,10 +20,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     void OnEnable()
     {
         IconBehavior.OnWebpageIconClicked += OpenApplication;
-
-
-        //chatter website event subscription
-        ChatterWebsiteBehavior.OnImageInteracted += ShowZoomedInImage;
+        WebsiteEvents.OnWebsiteImageChange += ShowZoomedInImage;
     }
 
 
@@ -31,9 +28,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     void OnDisable()
     {
         IconBehavior.OnWebpageIconClicked -= OpenApplication;
-
-        //chatter website event unsubscription
-        ChatterWebsiteBehavior.OnImageInteracted -= ShowZoomedInImage;
+        WebsiteEvents.OnWebsiteImageChange -= ShowZoomedInImage;
     }
 
 

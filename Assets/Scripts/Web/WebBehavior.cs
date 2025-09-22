@@ -8,21 +8,34 @@ using UnityEngine.InputSystem;
 public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
 
-    [Header("Web References")]
+    [Header("Website Parameters")]
 
     //the actual webpage object
-    public GameObject currentWebsite;
+    [SerializeField] private GameObject _currentWebsite;
     public GameObject previousWebsite;
+
+
+
+    [Header("Web Sites")]
+
     [SerializeField] private GameObject _veryThingWebsite;
+    [SerializeField] private GameObject _clickWebsite;
     [SerializeField] private GameObject _chatterWebsite;
+    [SerializeField] private GameObject _cloverWebsite;
+    [SerializeField] private GameObject _salvaVeritateWebsite;
 
 
     [Header("Webpage Pages")]
-    [SerializeField] private GameObject _scrollView;
+   
     [SerializeField] private GameObject _currentPage;
     [SerializeField] private GameObject _previousPage;
     [SerializeField] private GameObject _backButton;
     [SerializeField] private GameObject _exitButton;
+
+    [Header("Scroll Parameters")]
+    [SerializeField] private GameObject _scrollView;
+    [SerializeField] private Scrollbar _scrollBar;
+
 
     
 
@@ -36,22 +49,12 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void OnEnable()
     {
-        //verything website event subscription
-        VerythingWebsiteBehavior.OnWebsiteChange += ChangeWebsitePage;
-
-        //chatter website event subscription
-        ChatterWebsiteBehavior.OnWebsiteChange += ChangeWebsitePage;
-    
+        WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
     }
 
     void OnDisable()
     {
-        //verything website event unsubscription
-        VerythingWebsiteBehavior.OnWebsiteChange -= ChangeWebsitePage;
-
-        //chatter website event unsubscription
-        ChatterWebsiteBehavior.OnWebsiteChange -= ChangeWebsitePage;
-       
+        WebsiteEvents.OnWebsiteChange -= ChangeWebsitePage;
     }
 
 
@@ -79,7 +82,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
         }
 
-        
+
 
 
     }
@@ -97,8 +100,11 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Start()
     {
-        ChangeWebsite(_chatterWebsite);
+        ChangeWebsite(_clickWebsite);
+        _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+
     }
+
 
 
     private void Update()
@@ -138,15 +144,32 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         _currentPage = newWebsitePage;
 
         //deactivate all children of the webpage object
-        foreach (Transform child in currentWebsite.transform)
+        foreach (Transform child in _currentWebsite.transform)
         {
             child.gameObject.SetActive(false);
         }
+
+        //set the scrollbar value to 1 (top)
+        _scrollBar.value = 1f;
 
         //activate the new page
         newWebsitePage.SetActive(true);
 
 
+        if (_currentPage.name == "SalvaVeritate-EndlessFunPage" || _currentPage.name == "SalvaVeritate-ChristianSchoolPage" || _currentPage.name == "SalvaVeritate-AIChangingLifePage")
+        {
+            //set the sensitivity to 0 (lock it)
+            _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 0f;
+
+            _scrollBar.interactable = false;
+        }
+        else
+        {
+            //set the sensitivity to 1
+            _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
+
+            _scrollBar.interactable = true;
+        }
 
     }
 
@@ -154,41 +177,59 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void ChangeWebsite(GameObject newWebsite)
     {
 
-        //deactivate all children of the webpage object
-        foreach (Transform child in currentWebsite.transform)
+        if (newWebsite == null)
         {
-            child.gameObject.SetActive(false);
+            Debug.LogWarning("ChangeWebsite called with null newWebsite");
+            return;
         }
 
-        //set the current website to the new website
-        currentWebsite = newWebsite;
+        // store previous
+        previousWebsite = _currentWebsite;
 
-
-        //deactivate all children of the webpage object
-        foreach (Transform child in currentWebsite.transform)
+        // deactivate children of the old current website (if any)
+        if (_currentWebsite != null)
         {
-            //if the first child, activate it
-            if (child == currentWebsite.transform.GetChild(0))
-            {
-                child.gameObject.SetActive(true);
-            }
-
-            else
+            foreach (Transform child in _currentWebsite.transform)
             {
                 child.gameObject.SetActive(false);
             }
-
-
         }
 
-        //activate the new page
-        newWebsite.SetActive(true);
+        // set the current website to the new website first
+        _currentWebsite = newWebsite;
 
-        //set the scroll view to the new page's rect transform
-        _scrollView.GetComponent<ScrollRect>().content = currentWebsite.GetComponent<RectTransform>();
+        // ensure the new website GameObject is active
+        _currentWebsite.SetActive(true);
+
+        // activate first child of the new current website and deactivate others
+        if (_currentWebsite.transform.childCount > 0)
+        {
+            for (int i = 0; i < _currentWebsite.transform.childCount; i++)
+            {
+                var child = _currentWebsite.transform.GetChild(i).gameObject;
+                child.SetActive(i == 0);
+            }
+        }
+
+        // set the scroll view to the new page's rect transform (if available)
+        if (_scrollView != null)
+        {
+            var scrollRect = _scrollView.GetComponent<ScrollRect>();
+            if (scrollRect != null)
+            {
+                var rect = _currentWebsite.GetComponent<RectTransform>();
+                if (rect != null)
+                    scrollRect.content = rect;
+            }
+        }
+
+        // reset scrollbar to top if provided
+        if (_scrollBar != null)
+            _scrollBar.value = 1f;
+
     }
 
-
+    
    
     
    

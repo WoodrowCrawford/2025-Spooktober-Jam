@@ -4,10 +4,7 @@ using UnityEngine.EventSystems;
 
 public class VerythingWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
-    // Define a delegate and event for website changes
-    public delegate void VeryThingWebsiteEventHandler(GameObject newWebsitePage);
-    public static event VeryThingWebsiteEventHandler OnWebsiteChange;
-
+    
 
     [Header("Verything pages")]
     [SerializeField] private GameObject _veryThingMainPage;
@@ -20,24 +17,18 @@ public class VerythingWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 
 
 
-
-
     public void OnPointerClick(PointerEventData eventData)
     {
         // Handle pointer click events here
         //if the found things button is clicked
         if (eventData.pointerCurrentRaycast.gameObject == _foundThingsButton.gameObject)
         {
-            //invoke the event to change the webpage to the found things page
-            OnWebsiteChange?.Invoke(veryThingFoundPage);
-            Debug.Log("Found Things Button Clicked");
+            WebsiteEvents.RaiseWebsiteChange(veryThingFoundPage);
         }
 
         else if (eventData.pointerCurrentRaycast.gameObject == _governmentButton.gameObject)
         {
-            //invoke the event to change the webpage to the government control page
-            OnWebsiteChange?.Invoke(_veryThingControlPage);
-            Debug.Log("Government Button Clicked");
+            WebsiteEvents.RaiseWebsiteChange(_veryThingControlPage);
         }
     }
 

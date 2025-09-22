@@ -4,15 +4,7 @@ using UnityEngine.EventSystems;
 
 public class ChatterWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
-    // Define a delegate and event for website changes
-    public delegate void ChatterWebsiteEventHandler(GameObject newWebsitePage);
-    public delegate void ChatterWebsiteImageEventHandler(Sprite interactedImage);
-
-
-    public static event ChatterWebsiteEventHandler OnWebsiteChange;
-    public static event ChatterWebsiteImageEventHandler OnImageInteracted;
-
-
+   
     [Header("Chatter pages")]
     [SerializeField] private GameObject _chatterMainPage;
 
@@ -41,19 +33,17 @@ public class ChatterWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         if (eventData.pointerCurrentRaycast.gameObject == _picture1Button.gameObject)
         {
             //invoke the event to notify that an image has been interacted with
-            OnImageInteracted?.Invoke(_picture1);
+            WebsiteEvents.RaiseWebsiteImageChange(_picture1);
         }
 
         else if (eventData.pointerCurrentRaycast.gameObject == _picture2Button.gameObject)
         {
-            //invoke the event to notify that an image has been interacted with
-           OnImageInteracted?.Invoke(_picture2);
+           WebsiteEvents.RaiseWebsiteImageChange(_picture2);
         }
 
         else if (eventData.pointerCurrentRaycast.gameObject == _picture3Button.gameObject)
         {
-            //invoke the event to notify that an image has been interacted with
-           OnImageInteracted?.Invoke(_picture3);
+           WebsiteEvents.RaiseWebsiteImageChange(_picture3);
         }
 
     }
