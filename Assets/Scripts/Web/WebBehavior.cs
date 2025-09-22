@@ -26,8 +26,6 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     
 
-
-
     [Header("Bools")]
     [SerializeField] private bool _isClicked = false;
     [SerializeField] private float _timeHeldDown = 0f;
@@ -38,12 +36,22 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void OnEnable()
     {
+        //verything website event subscription
         VerythingWebsiteBehavior.OnWebsiteChange += ChangeWebsitePage;
+
+        //chatter website event subscription
+        ChatterWebsiteBehavior.OnWebsiteChange += ChangeWebsitePage;
+    
     }
 
     void OnDisable()
     {
+        //verything website event unsubscription
         VerythingWebsiteBehavior.OnWebsiteChange -= ChangeWebsitePage;
+
+        //chatter website event unsubscription
+        ChatterWebsiteBehavior.OnWebsiteChange -= ChangeWebsitePage;
+       
     }
 
 
@@ -70,6 +78,8 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 Debug.Log("No previous page to go back to");
             }
         }
+
+        
 
 
     }
@@ -177,6 +187,9 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         //set the scroll view to the new page's rect transform
         _scrollView.GetComponent<ScrollRect>().content = currentWebsite.GetComponent<RectTransform>();
     }
+
+
+   
     
    
 }
