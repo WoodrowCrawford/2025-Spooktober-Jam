@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Naninovel;
 
 public class DesktopManager : MonoBehaviour, IPointerClickHandler
 {
@@ -14,11 +15,9 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
 
 
-   
-
-
     void OnEnable()
-    {
+    {   
+        Engine.OnInitializationFinished += HandleInitializationFinished;
         IconBehavior.OnWebpageIconClicked += OpenApplication;
         WebsiteEvents.OnWebsiteImageChange += ShowZoomedInImage;
     }
@@ -27,6 +26,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
     void OnDisable()
     {
+        Engine.OnInitializationFinished -= HandleInitializationFinished;
         IconBehavior.OnWebpageIconClicked -= OpenApplication;
         WebsiteEvents.OnWebsiteImageChange -= ShowZoomedInImage;
     }
@@ -40,6 +40,12 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
             //hide the zoomed in image
             _zoomedInImage.SetActive(false);
         }
+    }
+
+    
+    private void HandleInitializationFinished()
+    {
+        var stateManager = Engine.GetService<IStateManager>();
     }
 
     public void OpenApplication()
