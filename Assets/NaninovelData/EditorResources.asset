@@ -147,11 +147,14 @@ MonoBehaviour:
     - name: ScriptNavigatorUI
       pathPrefix: UI
       guid: 735d6aa767879aa469134858c5b2f0a7
+    - name: WelcomeScreen
+      pathPrefix: UI
+      guid: c4fc650bbbda24301b9e9ef7be90b4c8
   - Id: Scripts
     Resources:
-    - name: NewScript
+    - name: StoryScript
       pathPrefix: Scripts
-      guid: b36479a626572482daeb1b0b4fd628b8
+      guid: 33a5bd9c914784b4ba74f322c19eb5e2
   - Id: Audio
     Resources: []
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7

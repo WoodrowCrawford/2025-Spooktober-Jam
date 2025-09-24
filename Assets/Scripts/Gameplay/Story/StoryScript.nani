@@ -1,0 +1,31 @@
+#Start_ofstory
+
+
+
+
+All events in this game are entirely fictional.
+For now.
+
+@char Yuni
+
+#play fade in computer screen sound, 
+
+#show welcome screen
+@showUI WelcomeScreen
+
+@wait 1.0
+
+Yuni: Ugh, my head. Scilla sure knows how to drink.
+Yuni: Shame she isn’t taking apprentices.
+
+# Fade in to desktop, SFX humming computer on the background ON LOOP
+
+Yuni: Alright, let’s see what horrors awoke while I was out.
+
+@hideUI WelcomeScreen
+@showUI Desktop
+
+this is the desktop
+
+@hideUI Dialogue
+@stop

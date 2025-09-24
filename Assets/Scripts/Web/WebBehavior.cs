@@ -100,7 +100,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Start()
     {
-        ChangeWebsite(_clickWebsite);
+        ChangeWebsite(_salvaVeritateWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
 
     }

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ScriptGraphState
   m_EditorClassIdentifier: Elringus.Naninovel.Editor::Naninovel.ScriptGraphState
   NodesState:
-  - scriptGuid: b36479a626572482daeb1b0b4fd628b8
+  - scriptGuid: 33a5bd9c914784b4ba74f322c19eb5e2
     position:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 105.5
-      height: 77
+      width: 114.5
+      height: 149

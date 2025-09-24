@@ -16,10 +16,13 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
 
     void OnEnable()
-    {   
+    {
         Engine.OnInitializationFinished += HandleInitializationFinished;
         IconBehavior.OnWebpageIconClicked += OpenApplication;
         WebsiteEvents.OnWebsiteImageChange += ShowZoomedInImage;
+        
+        //change this objects render camera to the Naninovel camera
+        GetComponent<Canvas>().worldCamera = GameObject.Find("UICamera").GetComponent<Camera>();
     }
 
 
@@ -42,10 +45,12 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    
+
     private void HandleInitializationFinished()
     {
         var stateManager = Engine.GetService<IStateManager>();
+        
+        
     }
 
     public void OpenApplication()

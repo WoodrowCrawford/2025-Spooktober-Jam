@@ -17,8 +17,8 @@ MonoBehaviour:
   DefaultGlobalSlotId: GlobalSave
   SaveSlotMask: GameSave{0:000}
   QuickSaveSlotMask: GameQuickSave{0:000}
-  SaveSlotLimit: 99
-  QuickSaveSlotLimit: 18
+  SaveSlotLimit: 6
+  QuickSaveSlotLimit: 6
   BinarySaveFiles: 1
   ResetOnGoto: 0
   EnableStateRollback: 1

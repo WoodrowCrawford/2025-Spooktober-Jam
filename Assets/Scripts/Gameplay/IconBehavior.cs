@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Naninovel;
 
 public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -15,12 +16,24 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     [SerializeField] private Color _hoverColor = Color.lightGray;
     [SerializeField] private Color _clickedColor = Color.gray;
     [SerializeField] private float _timeHeldDown = 0f;
+    [SerializeField] private Camera _uiCamera;
 
 
     [Header("Bool settings")]
     [SerializeField] private bool _isClicked = false;
 
-    
+
+
+
+    void OnEnable()
+    {
+        _uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
+    }
+
+    void OnDisable()
+    {
+        _uiCamera = null;
+    }
 
 
 
@@ -31,8 +44,8 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         if (gameObject.name == "WebIcon")
         {
             Debug.Log("Web Icon Clicked, open webpage");
-           OnWebpageIconClicked?.Invoke();
-          
+            OnWebpageIconClicked?.Invoke();
+
         }
     }
 
@@ -95,9 +108,10 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             //after a while, make the icon draggable
             if (_timeHeldDown >= 0.2f)
             {
+            
                 //move the icon to the mouse position
                 //this.transform.position = new Vector3(Mouse.current.position.ReadValue().x, this.transform.position.y, this.transform.position.z);
-                this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 10f));
+                this.transform.position = _uiCamera.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 10f));
             }
 
         }
