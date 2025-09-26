@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 
 public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
+    [Header("UI Camera")]
+    [SerializeField] private Camera _uiCamera;
 
     [Header("Website Parameters")]
-
-    //the actual webpage object
     [SerializeField] private GameObject _currentWebsite;
     public GameObject previousWebsite;
 
@@ -51,12 +51,17 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews += ChangeWebpageToSalvaVeritate;
+
+        //change this objects render camera to the Naninovel camera
+        _uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
     }
 
     void OnDisable()
     {
         WebsiteEvents.OnWebsiteChange -= ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews -= ChangeWebpageToSalvaVeritate;
+
+        _uiCamera = null;
     }
 
 

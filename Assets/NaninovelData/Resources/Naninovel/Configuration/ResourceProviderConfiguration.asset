@@ -18,7 +18,7 @@ MonoBehaviour:
   EnableBuildProcessing: 1
   UseAddressables: 1
   AutoBuildBundles: 1
-  AllowAddressableInEditor: 0
+  AllowAddressableInEditor: 1
   LabelByScripts: 1
   GroupByCategory: 0
   ExtraLabels: []

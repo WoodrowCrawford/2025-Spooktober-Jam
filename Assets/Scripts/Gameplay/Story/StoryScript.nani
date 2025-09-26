@@ -2,8 +2,8 @@
 ; Start_of story
 
 ; create the variables
-@char Yuni
-@hideChars
+@char Noa visible:false
+
 
 @hidePrinter Dialogue
 @onDialogueClosedCommand
@@ -31,8 +31,8 @@ For now.
 @showPrinter Dialogue
 @onDialogueOpenedCommand
 
-Yuni: Ugh, my head. Scilla sure knows how to drink.
-Yuni: Shame she isn’t taking apprentices.
+Noa: Ugh, my head. Scilla sure knows how to drink.
+Noa: Shame she isn’t taking apprentices.
 
 ; hide dialogue box
 @hidePrinter Dialogue
@@ -43,7 +43,7 @@ Yuni: Shame she isn’t taking apprentices.
 @showUI Desktop
 @hideUI WelcomeScreen
 
-@sfx Pc_humming_sfx loop!
+@sfx Pc_hum_sfx loop!
 
 @wait 0.5
 
@@ -52,10 +52,10 @@ Yuni: Shame she isn’t taking apprentices.
 @showPrinter Dialogue
 @onDialogueOpenedCommand
 
-Yuni: Alright, let’s see what horrors awoke while I was out.
+Noa: Alright, let’s see what horrors awoke while I was out.
 
 @hidePrinter Dialogue
-@onDialogueClosedCommand
+
 
 
 ;;;; SALVA VERITATE SECTION ;;;
@@ -64,7 +64,22 @@ Yuni: Alright, let’s see what horrors awoke while I was out.
 @onOpenWebCommand
 @onOpenNewsCommand
 
+@wait 2
 
+; show dialogue box
+@showPrinter Dialogue
+@onDialogueOpenedCommand
+
+Noa: ...
+Noa: ...
+Noa: Top 10 cutest cat leaders? Celebrities with a solid moral compass?
+Noa: Who’s even interested in this crap?
+Noa: ...
+Noa: ...
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
 
 
 @stop

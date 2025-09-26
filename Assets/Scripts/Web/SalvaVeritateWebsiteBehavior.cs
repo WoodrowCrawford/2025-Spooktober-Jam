@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Naninovel;
+using System.Threading.Tasks;
 
 public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
@@ -29,6 +31,10 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Endless Fun Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_endlessFunPage);
+
+
+            var scriptHandler = Engine.GetService<IScriptPlayer>();
+            scriptHandler.LoadAndPlay("EndlessFunDialogue");
         }
 
         // Change the image on the main page to endless fun image
@@ -44,10 +50,10 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             Debug.Log("AI Changing Life Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_aiChangingLifePage);
 
-            
+
         }
     }
 
 
-   
+
 }

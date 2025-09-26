@@ -1,0 +1,22 @@
+; What happens when the player goes to the endless fun webpage
+
+; show dialogue
+@showPrinter Dialogue
+@onDialogueOpenedCommand
+
+Noa: ...
+Noa: ...
+Noa: By Beata, my favorite creeps-giver.
+Noa: I wonder what the guy who came up with its design was thinking.
+Noa: Probably something along the lines of, “When will my automatic feeder dispense more of these rainbow blotters?”
+Noa: ...
+Noa: ...
+Noa: Subscribe? Since when? Open-access journalism my ass.
+
+
+
+
+
+
+
+@stop
