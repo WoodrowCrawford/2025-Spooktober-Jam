@@ -1,0 +1,24 @@
+; What happens when the player goes to the new school webpage
+
+; set variables
+@set playerInteractedWithChristianSchool=false
+
+; show dialogue
+@showPrinter Dialogue
+@onDialogueOpenedCommand
+
+Noa: ...
+Noa: ...
+Noa: The current administration sure knows a lot about kids.
+Noa: I saw their emails. Couldn’t sleep for days after.
+Noa: ...
+Noa: ...
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+
+@set playerInteractedWithChristianSchool=true
+
+@stop

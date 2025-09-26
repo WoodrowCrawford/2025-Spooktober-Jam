@@ -155,9 +155,15 @@ MonoBehaviour:
     - name: StoryScript
       pathPrefix: Scripts
       guid: 33a5bd9c914784b4ba74f322c19eb5e2
+    - name: AIChangingLifeDialogue
+      pathPrefix: Scripts
+      guid: 0c113736f41254bd9b83d096ea6f1971
     - name: EndlessFunDialogue
       pathPrefix: Scripts
       guid: 6d706a22ed0764206af2eaa576e585b2
+    - name: NewSchoolDialogue
+      pathPrefix: Scripts
+      guid: 1f4a15feeac784099811d0844e671f38
   - Id: Audio
     Resources:
     - name: Pc_Welcome_sfx
@@ -166,6 +172,9 @@ MonoBehaviour:
     - name: Pc_hum_sfx
       pathPrefix: Audio
       guid: ca8f9406d059341a6952e17df6b6a9ac
+    - name: Popup_alert_sfx
+      pathPrefix: Audio
+      guid: 267856a1bd79a44b09ad5c0676def1ce
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7
     Resources: []
   - Id: Movies

@@ -592,8 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f246ef4bad177490f9d0a76d2ea9c15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatIconTaskbarBehavior
-  _unreadIcon: {fileID: -8397151441765387532, guid: 4d52e6576eb98a5429add220a89b9cb3, type: 3}
-  _newMessageIcon: {fileID: -5958875034722781445, guid: feb6d6676a71f1f4ab1357a6e2c20ad7, type: 3}
+  _unreadIcon: {fileID: -5958875034722781445, guid: feb6d6676a71f1f4ab1357a6e2c20ad7, type: 3}
+  _newMessageIcon: {fileID: -8397151441765387532, guid: 4d52e6576eb98a5429add220a89b9cb3, type: 3}
 --- !u!1 &3751263994968423694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 3574957026489367259}
   - component: {fileID: -4214688917714682967}
   - component: {fileID: -891225100989239425}
+  - component: {fileID: -2629138876419661226}
   m_Layer: 5
   m_Name: Desktop
   m_TagString: Untagged
@@ -1306,6 +1307,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &-2629138876419661226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446344046383721876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03edefcfc37f4924b15fee3b00ecb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryManagerBehavior
 --- !u!1 &6007188593420919541
 GameObject:
   m_ObjectHideFlags: 0

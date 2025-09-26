@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
+
+    private IScriptPlayer scriptPlayer;
+
     [Header("Salva Veritate pages")]
     [SerializeField] private GameObject _salvaVeritateMainPage;
     [SerializeField] private GameObject _endlessFunPage;
@@ -21,7 +24,15 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 
 
 
+    void OnEnable()
+    {
+        scriptPlayer = Engine.GetService<IScriptPlayer>();
+    }
 
+    void OnDisable()
+    {
+        scriptPlayer = null;
+    }
 
 
     public void OnPointerClick(PointerEventData eventData)
@@ -32,16 +43,24 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             Debug.Log("Endless Fun Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_endlessFunPage);
 
-
-            var scriptHandler = Engine.GetService<IScriptPlayer>();
-            scriptHandler.LoadAndPlay("EndlessFunDialogue");
+            //start the endless fun dialogue if it hasn't played yet
+            if (!StoryManagerBehavior.HasReadEndlessFunPage)
+            {
+                scriptPlayer.LoadAndPlay("EndlessFunDialogue");
+            }
         }
 
-        // Change the image on the main page to endless fun image
+        // if the Christian School button is clicked
         else if (eventData.pointerCurrentRaycast.gameObject == _christianSchoolButton.gameObject)
         {
             Debug.Log("Christian School Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_christianSchoolPage);
+
+            //start the new school dialogue if it hasn't played yet
+            if (!StoryManagerBehavior.HasReadChristianSchoolPage)
+            {
+                scriptPlayer.LoadAndPlay("NewSchoolDialogue");
+            }
         }
 
         //if the AI Changing Life button is clicked
@@ -50,6 +69,11 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             Debug.Log("AI Changing Life Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_aiChangingLifePage);
 
+            //start the AI Changing Life dialogue if it hasn't played yet
+            if (!StoryManagerBehavior.HasReadAIChangingLifePage)
+            {
+                scriptPlayer.LoadAndPlay("AIChangingLifeDialogue");
+            }
 
         }
     }

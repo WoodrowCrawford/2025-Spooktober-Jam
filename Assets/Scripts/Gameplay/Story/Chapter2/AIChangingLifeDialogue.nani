@@ -1,0 +1,23 @@
+; Start the AI Changing Life dialogue
+
+@set playerInteractedWithAIChangingLife=false
+
+; show dialogue
+@showPrinter Dialogue
+@onDialogueOpenedCommand
+
+Noa: ...
+Noa: ...
+Noa: You know what else changes our life for the better?
+Noa: And yet I don’t see them sing odes to booze in those fancy reports of theirs.
+Noa: ...
+Noa: ...
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@set playerInteractedWithAIChangingLife=true
+
+
+@stop

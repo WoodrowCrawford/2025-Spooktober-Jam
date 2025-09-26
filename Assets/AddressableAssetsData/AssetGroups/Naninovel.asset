@@ -22,6 +22,12 @@ MonoBehaviour:
     - Naninovel
     - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c113736f41254bd9b83d096ea6f1971
+    m_Address: Naninovel/Scripts/Chapter2/AIChangingLifeDialogue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e61df696cabbea448510879ee732b00
     m_Address: Naninovel/ChoiceHandlers/ChatReply
     m_ReadOnly: 0
@@ -45,11 +51,19 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter2/AIChangingLifeDialogue
     - Scripts/Chapter2/EndlessFunDialogue
+    - Scripts/Chapter2/NewSchoolDialogue
     - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c5b86cf3cfbb1f44ae5641699077da4
     m_Address: Naninovel/Spawn/ShakeCamera
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f4a15feeac784099811d0844e671f38
+    m_Address: Naninovel/Scripts/Chapter2/NewSchoolDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
