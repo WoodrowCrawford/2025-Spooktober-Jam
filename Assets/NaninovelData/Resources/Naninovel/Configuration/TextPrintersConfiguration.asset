@@ -94,7 +94,7 @@ MonoBehaviour:
         width: 1
         height: 1
       AutoReset: 1
-      AutoDefault: 1
+      AutoDefault: 0
       AutoWait: 1
       WaitAfterRevealSkip: 1
       AddToBacklog: 1
@@ -199,7 +199,7 @@ MonoBehaviour:
         width: 1
         height: 1
       AutoReset: 0
-      AutoDefault: 1
+      AutoDefault: 0
       AutoWait: 1
       WaitAfterRevealSkip: 1
       AddToBacklog: 1
@@ -217,7 +217,7 @@ MonoBehaviour:
           Culture=neutral, PublicKeyToken=null
         - Naninovel.ProjectResourceProvider, Elringus.Naninovel.Runtime, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      guid: 0eee320e-6c13-4fcd-b9c7-b08c69a9b7be
+      guid: bb8c70fc-4e2f-41eb-ad3e-cffa8d5c7c25
       customData:
         rid: -2
       Pivot: {x: 0.5, y: 0.5}
@@ -234,7 +234,7 @@ MonoBehaviour:
         width: 1
         height: 1
       AutoReset: 1
-      AutoDefault: 1
+      AutoDefault: 0
       AutoWait: 1
       WaitAfterRevealSkip: 1
       AddToBacklog: 1

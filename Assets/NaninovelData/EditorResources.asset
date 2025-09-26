@@ -178,7 +178,15 @@ MonoBehaviour:
     - name: Popup_alert_sfx
       pathPrefix: Audio
       guid: 267856a1bd79a44b09ad5c0676def1ce
+    - name: dog_bark_sfx
+      pathPrefix: Audio
+      guid: b4cb20ee8098c41669ca90cb479f4269
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7
     Resources: []
   - Id: Movies
     Resources: []
+  - Id: TextPrinters/bb8c70fc-4e2f-41eb-ad3e-cffa8d5c7c25
+    Resources:
+    - name: Bubble
+      pathPrefix: TextPrinters
+      guid: 

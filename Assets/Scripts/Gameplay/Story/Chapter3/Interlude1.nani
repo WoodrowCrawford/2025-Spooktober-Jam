@@ -9,19 +9,96 @@
 
 ; open the chat window
 @showPrinter Chat
+@onDialogueOpenedCommand
+
 @printer Chat
-ChatBot: Hello, Noa! How are you feeling today?
-Noa: Ugh, like I got hit by a truck. Why do you ask?
-ChatBot: Just checking in! Remember to take it easy today. You deserve a break.
-Noa: Yeah, yeah. Thanks, I guess.
+Maurice: noa
+Maurice: noa
+Maurice: noa
+Maurice: Noanoanoanoa
 
-@choice "Sounds great! I love horror." handler:ChatReply
+; show choices
+@choice "shut up." handler:ChatReply goto:.shut_up
+@choice "what's up??" handler:ChatReply goto:.what's_up
+@stop
 
-ChatBot: Awesome! I'll send you some recommendations later. Enjoy your day, Noa!
-Noa: Thanks, ChatBot.
 
-@choice "Erm... maybe not. I get scared too easily." handler:ChatReply
-ChatBot: No worries! If you change your mind, just let me know. I'm here to help!
-Noa: Will do, ChatBot.
+; if the player chooses shut up
+# shut_up
+@printer Chat
+Noa: ******* Maurice
+
+; print dialogue
+@printer Dialogue !hideOther
+Noa: The fuck?
+@goto .Continue
+
+
+# what's_up
+@printer Chat
+Noa: what's up?
+@goto .Continue
+
+
+# Continue
+; print chat
+@printer Chat 
+Maurice: Tahnk goodness youre still here
+Maurice: you saw it already?
+
+Noa: ?
+
+Maurice: the web noa it
+Maurice: it happened
+Maurice: the *********************************
+Maurice: ****
+
+;  Black screen. HUMMING COMPUTER SFX STOP. BARKING DOGS SFX ON. 
+
+@hideAll
+
+@stopSfx Pc_hum_sfx
+@sfx dog_bark_sfx
+
+
+@wait 3
+
+; show dialogue box
+@showPrinter Dialogue 
+@printer Dialogue hideOther!
+@onDialogueOpenedCommand
+
+Noa: Bloody hell.
+
+; hide dialogue box
+@hidePrinter Dialogue
+
+; Computer boosting noices. Fade in Welcome screen. Fade in the desktop screen. SFX HUMMING PC ON THE LOOP. MAIN MUSIC OST ON THE LOOP. PLAYER NOT IN CONTROL. Chat window opens. There is following message
+
+@sfx Pc_Welcome_sfx
+@wait 0.2
+
+; fade in the welcome screen
+@showUI WelcomeScreen
+
+@wait 5
+
+; fade in the desktop screen with pc hum on loop
+@showUI Desktop
+@sfx Pc_hum_sfx loop:true
+
+; Play main music on the loop here when asset is ready
+
+
+; open chat window
+@showPrinter Chat
+@onDialogueOpenedCommand
+@resetText Chat
+
+@printer Chat
+We detected suspicious activity.
+You will be able to exchange messages again in 10 minutes.
+
+
 
 @stop

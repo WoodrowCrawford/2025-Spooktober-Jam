@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ProjectStats
   m_EditorClassIdentifier: Elringus.Naninovel.Runtime::Naninovel.ProjectStats
   TotalScriptsCount: 5
-  TotalCommandCount: 95
-  TotalWordsCount: 222
+  TotalCommandCount: 113
+  TotalWordsCount: 172

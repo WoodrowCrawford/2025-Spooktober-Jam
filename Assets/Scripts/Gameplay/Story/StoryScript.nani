@@ -3,6 +3,7 @@
 
 ; create the variables
 @char Noa visible:false
+@char Maurice visible:false
 
 
 @hidePrinter Dialogue
