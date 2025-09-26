@@ -23,7 +23,7 @@ MonoBehaviour:
     - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c113736f41254bd9b83d096ea6f1971
-    m_Address: Naninovel/Scripts/Chapter2/AIChangingLifeDialogue
+    m_Address: Naninovel/Scripts/AIChangingLifeDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -33,6 +33,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1224d69e1592d624cbde93d0f7383d91
     m_Address: Naninovel/Spawn/ShakeCharacter
@@ -54,6 +55,7 @@ MonoBehaviour:
     - Scripts/Chapter2/AIChangingLifeDialogue
     - Scripts/Chapter2/EndlessFunDialogue
     - Scripts/Chapter2/NewSchoolDialogue
+    - Scripts/Chapter3/Interlude1
     - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c5b86cf3cfbb1f44ae5641699077da4
@@ -63,13 +65,19 @@ MonoBehaviour:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f4a15feeac784099811d0844e671f38
-    m_Address: Naninovel/Scripts/Chapter2/NewSchoolDialogue
+    m_Address: Naninovel/Scripts/NewSchoolDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f6aa29000e839c409e6a9c0704adc96
     m_Address: Naninovel/ChoiceHandlers/ButtonList
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 267856a1bd79a44b09ad5c0676def1ce
+    m_Address: Naninovel/Audio/Popup_alert_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -82,6 +90,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33a5bd9c914784b4ba74f322c19eb5e2
     m_Address: Naninovel/Scripts/StoryScript
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43e1dac9130ab49ecbdcf0e26bdb6b64
+    m_Address: Naninovel/Scripts/Chapter3/Interlude1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -123,7 +137,7 @@ MonoBehaviour:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d706a22ed0764206af2eaa576e585b2
-    m_Address: Naninovel/Scripts/Chapter2/EndlessFunDialogue
+    m_Address: Naninovel/Scripts/EndlessFunDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -133,6 +147,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 702c32b2de0c0784b9a66ec90601874f
     m_Address: Naninovel/UI/ClickThroughPanel

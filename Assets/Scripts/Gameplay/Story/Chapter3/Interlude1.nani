@@ -1,0 +1,27 @@
+; Start of interlude 1 (chapter 3)
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+; close the website if it's open
+@onCloseWebCommand
+
+; open the chat window
+@showPrinter Chat
+@printer Chat
+ChatBot: Hello, Noa! How are you feeling today?
+Noa: Ugh, like I got hit by a truck. Why do you ask?
+ChatBot: Just checking in! Remember to take it easy today. You deserve a break.
+Noa: Yeah, yeah. Thanks, I guess.
+
+@choice "Sounds great! I love horror." handler:ChatReply
+
+ChatBot: Awesome! I'll send you some recommendations later. Enjoy your day, Noa!
+Noa: Thanks, ChatBot.
+
+@choice "Erm... maybe not. I get scared too easily." handler:ChatReply
+ChatBot: No worries! If you change your mind, just let me know. I'm here to help!
+Noa: Will do, ChatBot.
+
+@stop

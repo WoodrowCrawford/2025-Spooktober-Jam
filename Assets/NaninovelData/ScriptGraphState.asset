@@ -41,3 +41,10 @@ MonoBehaviour:
       y: 194
       width: 272
       height: 117
+  - scriptGuid: 43e1dac9130ab49ecbdcf0e26bdb6b64
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 180.5
+      height: 103.5

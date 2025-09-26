@@ -66,6 +66,9 @@ public class StoryManagerBehavior : MonoBehaviour
                 HasReadAllArticles = true;
 
                 OnPlayerReadAllArticles?.Invoke();
+
+                //play chapter 3 interlude 1
+                scriptPlayer.LoadAndPlay("Chapter3/Interlude1");
             }
             return;
         }

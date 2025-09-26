@@ -22,9 +22,10 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         OnDialogueOpenedCommand.OnDialogueOpened += UnblockCanvasRaycast;
         OnDialogueClosedCommand.OnDialogueClosed += BlockCanvasRaycast;
 
-        OnOpenWebCommand.OnOpenWeb += OpenApplication;
+        OnOpenWebCommand.OnOpenWeb += OpenWebApplication;
+        OnCloseWebCommand.OnCloseWeb += CloseWebApplication;
 
-        IconBehavior.OnWebpageIconClicked += OpenApplication;
+        IconBehavior.OnWebpageIconClicked += OpenWebApplication;
         WebsiteEvents.OnWebsiteImageChange += ShowZoomedInImage;
 
         //change this objects render camera to the Naninovel camera
@@ -39,10 +40,12 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         OnDialogueClosedCommand.OnDialogueClosed -= BlockCanvasRaycast;
         OnDialogueOpenedCommand.OnDialogueOpened -= UnblockCanvasRaycast;
-        OnOpenWebCommand.OnOpenWeb -= OpenApplication;
+
+        OnOpenWebCommand.OnOpenWeb -= OpenWebApplication;
+        OnCloseWebCommand.OnCloseWeb -= CloseWebApplication;
 
         
-        IconBehavior.OnWebpageIconClicked -= OpenApplication;
+        IconBehavior.OnWebpageIconClicked -= OpenWebApplication;
         WebsiteEvents.OnWebsiteImageChange -= ShowZoomedInImage;
     }
 
@@ -65,9 +68,14 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
     }
 
-    public void OpenApplication()
+    public void OpenWebApplication()
     {
         _webBrowserApp.SetActive(true);
+    }
+    
+    public void CloseWebApplication()
+    {
+        _webBrowserApp.SetActive(false);
     }
 
 

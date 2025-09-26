@@ -106,6 +106,7 @@ MonoBehaviour:
     - Scripts/StoryScript
     - Scripts/Chapter2/NewSchoolDialogue
     - Scripts/Chapter2/AIChangingLifeDialogue
+    - Scripts/Chapter3/Interlude1
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: ffa455320325b49298d94e3dfe20ccd7, type: 2}
