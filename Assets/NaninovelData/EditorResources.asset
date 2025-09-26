@@ -189,4 +189,9 @@ MonoBehaviour:
     Resources:
     - name: Bubble
       pathPrefix: TextPrinters
-      guid: 
+      guid: b47d9659b2be5ee4e95a776f213c9d4b
+  - Id: Voice
+    Resources:
+    - name: Chapter3/Interlude1/~4cc3a794
+      pathPrefix: Voice
+      guid: 8aaae49970337455e8ac7b4752cc8896

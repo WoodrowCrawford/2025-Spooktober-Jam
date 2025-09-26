@@ -20,6 +20,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
+    - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c113736f41254bd9b83d096ea6f1971
     m_Address: Naninovel/Scripts/AIChangingLifeDialogue
@@ -55,6 +57,7 @@ MonoBehaviour:
     - Scripts/Chapter2/EndlessFunDialogue
     - Scripts/Chapter2/NewSchoolDialogue
     - Scripts/Chapter3/Interlude1
+    - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c5b86cf3cfbb1f44ae5641699077da4
     m_Address: Naninovel/Spawn/ShakeCamera
@@ -224,12 +227,14 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4cb20ee8098c41669ca90cb479f4269
     m_Address: Naninovel/Audio/dog_bark_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb95f484e341dcd4391a572f22b7d067
     m_Address: Naninovel/UI/VariableInputUI
@@ -254,6 +259,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
+    - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c87cebd3f0d4f174789cd351ce9591c4
     m_Address: Naninovel/TextPrinters/Fullscreen
@@ -267,12 +274,15 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     - Scripts/Chapter3/Interlude1
+    - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb25a2545d6914451859bddef8e37499
     m_Address: Naninovel/Audio/Pc_Welcome_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    - Scripts/Chapter3/Interlude1
+    - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd85ce99288c2f8488447fa511b1c0d6
     m_Address: Naninovel/UI/ToastUI

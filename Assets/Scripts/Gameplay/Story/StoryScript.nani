@@ -4,6 +4,7 @@
 ; create the variables
 @char Noa visible:false
 @char Maurice visible:false
+@char Beata visible:false
 
 
 @hidePrinter Dialogue

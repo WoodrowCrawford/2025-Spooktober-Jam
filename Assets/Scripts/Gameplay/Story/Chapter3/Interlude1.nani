@@ -1,5 +1,7 @@
 ; Start of interlude 1 (chapter 3)
 
+@goto .Beata
+
 ; hide dialogue box
 @hidePrinter Dialogue
 @onDialogueClosedCommand
@@ -99,6 +101,65 @@ Noa: Bloody hell.
 We detected suspicious activity.
 You will be able to exchange messages again in 10 minutes.
 
+; show dialogue box
+@showPrinter Dialogue
+@onDialogueOpenedCommand
+
+@printer Dialogue !hideOther
+Noa: Fuck.
+
+; hide dialogue box
+@hidePrinter Dialogue
+@hidePrinter Chat
+@onDialogueClosedCommand
+
+# Beata
+; show beata
+@printer Bubble.Left pos:-5,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Left pos:40,70
+
+Beata: Good morning! I’m Beata, your favorite virtual assistant!
+Beata: I hope you’re enjoying your day!
+Beata: Please, let me know if there’s anything I can help you with.
+
+
+; show dialogue box
+@printer Dialogue !hideOther
+Noa: "What the fuck?"
+Noa: "How did you get on my computer?"
+
+; hide dialogue box
+@hidePrinter Dialogue
+
+
+@printer Bubble.Left
+@onDialogueOpenedCommand
+@resetText Bubble
+
+@wait 0.5
+Beata: We’ve noticed that you don’t have Beata of your own!
+Beata: According to the Online Safety Act, Clause 4(a), if you can’t install Beata, Daystar will do it for you!
+Beata: I’m now fully integrated with your system. We’re going to be best friends forever!
+
+; Beata disappears
+@printer Bubble.Left pos:-10,70
+@wait 0.5
+@hidePrinter Bubble
+@onDialogueClosedCommand
+
+; wait for a moment
+@wait 1
+
+; show dialogue box
+@showPrinter Dialogue
+@onDialogueOpenedCommand
+
+@printer Dialogue
+Noa: I should ignore it – and the itch to throw my computer out of the window – for now.
+Noa: I need to contact Maurice.
 
 
 @stop
