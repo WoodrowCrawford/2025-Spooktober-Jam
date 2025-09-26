@@ -156,7 +156,13 @@ MonoBehaviour:
       pathPrefix: Scripts
       guid: 33a5bd9c914784b4ba74f322c19eb5e2
   - Id: Audio
-    Resources: []
+    Resources:
+    - name: Pc_Welcome_sfx
+      pathPrefix: Audio
+      guid: cb25a2545d6914451859bddef8e37499
+    - name: Pc_hum_sfx
+      pathPrefix: Audio
+      guid: ca8f9406d059341a6952e17df6b6a9ac
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7
     Resources: []
   - Id: Movies

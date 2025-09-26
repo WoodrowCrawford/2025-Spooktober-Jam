@@ -166,6 +166,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1 &993965904934146825
 GameObject:
@@ -258,6 +259,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1 &1849503428048070723
 GameObject:
@@ -425,6 +427,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1 &2808666432575549994
 GameObject:
@@ -757,6 +760,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1 &4384496318663653902
 GameObject:
@@ -1081,6 +1085,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1 &5446344046383721876
 GameObject:
@@ -1097,6 +1102,7 @@ GameObject:
   - component: {fileID: 8487626339847424824}
   - component: {fileID: 3574957026489367259}
   - component: {fileID: -4214688917714682967}
+  - component: {fileID: -891225100989239425}
   m_Layer: 5
   m_Name: Desktop
   m_TagString: Untagged
@@ -1226,7 +1232,7 @@ MonoBehaviour:
   disableInteraction: 0
   visibleOnAwake: 0
   controlOpacity: 1
-  fadeTime: 2.45
+  fadeTime: 1
   ignoreTimeScale: 0
   focusObject: {fileID: 0}
   focusMode: 0
@@ -1260,7 +1266,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  hideOnLoad: 1
+  hideOnLoad: 0
   hideInThumbnail: 0
   saveVisibilityState: 1
   blockInputWhenVisible: 0
@@ -1288,6 +1294,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &-891225100989239425
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446344046383721876}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &6007188593420919541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1397,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1 &6068312901658105214
 GameObject:
@@ -1601,6 +1620,7 @@ MonoBehaviour:
   _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
   _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
   _isClicked: 0
 --- !u!1001 &3669986362712146043
 PrefabInstance:

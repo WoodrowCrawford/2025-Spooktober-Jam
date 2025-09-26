@@ -1,31 +1,70 @@
-#Start_ofstory
 
+; Start_of story
 
+; create the variables
+@char Yuni
+@hideChars
 
+@hidePrinter Dialogue
+@onDialogueClosedCommand
 
 All events in this game are entirely fictional.
 For now.
 
-@char Yuni
+;hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
 
-#play fade in computer screen sound, 
 
-#show welcome screen
+
+; play fade in computer screen sound
+@sfx Pc_Welcome_sfx
+
+; show welcome screen
 @showUI WelcomeScreen
 
-@wait 1.0
+; wait for 5 seconds
+@wait 5
+
+
+; show dialogue box
+@showPrinter Dialogue
+@onDialogueOpenedCommand
 
 Yuni: Ugh, my head. Scilla sure knows how to drink.
 Yuni: Shame she isn’t taking apprentices.
 
-# Fade in to desktop, SFX humming computer on the background ON LOOP
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+
+; Fade in to desktop, SFX humming computer on the background ON LOOP
+@showUI Desktop
+@hideUI WelcomeScreen
+
+@sfx Pc_humming_sfx loop!
+
+@wait 0.5
+
+
+; show dialogue box
+@showPrinter Dialogue
+@onDialogueOpenedCommand
 
 Yuni: Alright, let’s see what horrors awoke while I was out.
 
-@hideUI WelcomeScreen
-@showUI Desktop
+@hidePrinter Dialogue
+@onDialogueClosedCommand
 
-this is the desktop
 
-@hideUI Dialogue
+;;;; SALVA VERITATE SECTION ;;;
+
+; web browser is already open on desktop
+@onOpenWebCommand
+@onOpenNewsCommand
+
+
+
+
 @stop

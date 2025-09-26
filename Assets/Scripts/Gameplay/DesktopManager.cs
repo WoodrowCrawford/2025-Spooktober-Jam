@@ -18,9 +18,15 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     void OnEnable()
     {
         Engine.OnInitializationFinished += HandleInitializationFinished;
+
+        OnDialogueOpenedCommand.OnDialogueOpened += UnblockCanvasRaycast;
+        OnDialogueClosedCommand.OnDialogueClosed += BlockCanvasRaycast;
+
+        OnOpenWebCommand.OnOpenWeb += OpenApplication;
+
         IconBehavior.OnWebpageIconClicked += OpenApplication;
         WebsiteEvents.OnWebsiteImageChange += ShowZoomedInImage;
-        
+
         //change this objects render camera to the Naninovel camera
         GetComponent<Canvas>().worldCamera = GameObject.Find("UICamera").GetComponent<Camera>();
     }
@@ -30,6 +36,12 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     void OnDisable()
     {
         Engine.OnInitializationFinished -= HandleInitializationFinished;
+
+        OnDialogueClosedCommand.OnDialogueClosed -= BlockCanvasRaycast;
+        OnDialogueOpenedCommand.OnDialogueOpened -= UnblockCanvasRaycast;
+        OnOpenWebCommand.OnOpenWeb -= OpenApplication;
+
+        
         IconBehavior.OnWebpageIconClicked -= OpenApplication;
         WebsiteEvents.OnWebsiteImageChange -= ShowZoomedInImage;
     }
@@ -49,8 +61,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     private void HandleInitializationFinished()
     {
         var stateManager = Engine.GetService<IStateManager>();
-        
-        
+
+
     }
 
     public void OpenApplication()
@@ -60,13 +72,23 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
 
 
-     public void ShowZoomedInImage(Sprite imageToShow)
+    public void ShowZoomedInImage(Sprite imageToShow)
     {
         //show the zoomed in image
         _zoomedInImage.SetActive(true);
 
         //set the zoomed in image to the interacted image
         _zoomedInImage.GetComponent<Image>().sprite = imageToShow;
+    }
+
+    public void BlockCanvasRaycast()
+    {
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+
+    public void UnblockCanvasRaycast()
+    {
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
 }

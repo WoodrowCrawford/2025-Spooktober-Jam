@@ -26,7 +26,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 
     [Header("Webpage Pages")]
-   
+
     [SerializeField] private GameObject _currentPage;
     [SerializeField] private GameObject _previousPage;
     [SerializeField] private GameObject _backButton;
@@ -37,7 +37,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private Scrollbar _scrollBar;
 
 
-    
+
 
     [Header("Bools")]
     [SerializeField] private bool _isClicked = false;
@@ -50,11 +50,13 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void OnEnable()
     {
         WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
+        OnOpenNewsCommand.OnOpenNews += ChangeWebpageToSalvaVeritate;
     }
 
     void OnDisable()
     {
         WebsiteEvents.OnWebsiteChange -= ChangeWebsitePage;
+        OnOpenNewsCommand.OnOpenNews -= ChangeWebpageToSalvaVeritate;
     }
 
 
@@ -229,8 +231,17 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     }
 
-    
-   
-    
-   
+
+    public void ChangeWebpageToSalvaVeritate()
+    {
+        ChangeWebsite(_salvaVeritateWebsite);
+        _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+
+        //reset scrollbar to top
+        if (_scrollBar != null)
+        {
+            _scrollBar.value = 1f;
+        }
+    }
+
 }
