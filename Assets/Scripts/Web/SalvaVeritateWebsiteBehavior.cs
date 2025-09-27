@@ -60,6 +60,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             if (!StoryManagerBehavior.HasReadChristianSchoolPage)
             {
                 scriptPlayer.LoadAndPlay("NewSchoolDialogue");
+            
             }
         }
 

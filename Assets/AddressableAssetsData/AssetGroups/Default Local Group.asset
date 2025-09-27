@@ -14,7 +14,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: aa73849032af5483f934231fb588f3a1
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0baf5f8d028519f46bc5883ada98714d
+    m_Address: Assets/Scripts
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1116d60fbdb6d48b9be3f4bb4fba35e2
+    m_Address: Assets/Scripts/Gameplay/Story/Chapter2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 732623680a1a84fe7a4400f581f0357e
+    m_Address: Assets/VoiceLines
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c489d8b8bb2a4fd4a6d704da875c5b2
+    m_Address: Assets/Scripts/Web
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86187d7efe42b584abeac6893f8c0fc5
+    m_Address: Assets/Scripts/Gameplay
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5cf69825e3b4487aa74bb7ed3059281
+    m_Address: Assets/Scripts/Gameplay/Story/Chapter3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b33df91f8d5c044e69467a163204754f
+    m_Address: Assets/Scripts/Gameplay/Story
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2865422d7adc443b99f7abba036ba13
+    m_Address: Assets/Scripts/UI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fac55923fb0b542ccbf7d15b126d311e
+    m_Address: Assets/Scripts/Commands
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb73f7ceaa26643958193779560df0f9
+    m_Address: Assets/SFX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 90b9d70fb6b4d467a8d09e4c3c00b515, type: 2}
   m_SchemaSet:

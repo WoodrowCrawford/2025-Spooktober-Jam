@@ -5,7 +5,7 @@
 @char Noa visible:false
 @char Maurice visible:false
 @char Beata visible:false
-
+@set currentChapter=1
 
 @hidePrinter Dialogue
 @onDialogueClosedCommand

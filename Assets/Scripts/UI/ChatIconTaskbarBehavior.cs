@@ -35,6 +35,6 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
     public void ChangeToNewMessageIcon()
     {
         GetComponent<UnityEngine.UI.Image>().sprite = _newMessageIcon;
-        audioManager.PlaySfx("Popup_alert_sfx");
+        audioManager.PlaySfx("Notification_sfx");
     }
 }

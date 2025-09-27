@@ -1,6 +1,7 @@
 ; Start the AI Changing Life dialogue
 
 @set playerInteractedWithAIChangingLife=false
+@set currentChapter=2
 
 ; show dialogue
 @showPrinter Dialogue

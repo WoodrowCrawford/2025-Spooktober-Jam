@@ -1,6 +1,8 @@
 ; Start of interlude 1 (chapter 3)
+@set currentChapter=3
 
-@goto .Beata
+; jump to open folder section
+@goto .open_folder
 
 ; hide dialogue box
 @hidePrinter Dialogue
@@ -57,10 +59,13 @@ Maurice: ****
 
 ;  Black screen. HUMMING COMPUTER SFX STOP. BARKING DOGS SFX ON. 
 
-@hideAll
+@clearBacklog
+@hideUI Desktop
+@hideUI WelcomeScreen
 
 @stopSfx Pc_hum_sfx
 @sfx dog_bark_sfx
+@hidePrinter Chat
 
 
 @wait 3
@@ -154,12 +159,155 @@ Beata: I’m now fully integrated with your system. We’re going to be best fri
 @wait 1
 
 ; show dialogue box
+@resetText Dialogue
 @showPrinter Dialogue
 @onDialogueOpenedCommand
 
 @printer Dialogue
 Noa: I should ignore it – and the itch to throw my computer out of the window – for now.
 Noa: I need to contact Maurice.
+
+; hide dialogue box
+@hidePrinter Dialogue
+
+@wait 2
+
+; show call window
+@onShowCallWindowCommand
+
+@printer Dialogue
+Noa: "Sorry, dude. My PC crashed."
+Noa: "You were saying?"
+
+@printer FriendDialogue
+Maurice: "How are you so calm???"
+
+@printer Dialogue
+Noa: "Probably because I still have no idea what’s going on?"
+Noa: "Enlighten me."
+
+; call event here that changes the call window to glitch 1 effect with glitch sound
+@onChangeCallWindowToGlitch1Command
+@sfx glitch_1_sfx
+
+@printer FriendDialogue
+Maurice: ******************************
+Maurice: *********************
+
+; call event here that changes the call window to glitch 2 effect with glitch sound
+@onChangeCallWindowToGlitch2Command
+@sfx glitch_2_sfx
+
+Maurice: **************************
+
+@printer Dialogue
+Noa: "Dude, I can’t hear you."
+
+; call event here that changes the call window back to normal effect with glitch sound
+@onChangeCallWindowToNormalCommand
+@sfx glitch_1_sfx
+
+@printer FriendDialogue
+Maurice: "********** guess they’re doing the same thing as with the chat."
+Maurice: "So I’m gonna be very vague."
+Maurice: "The thing we were..."
+Maurice: "cautious?"
+Maurice: "about"
+Maurice: "It happened."
+Maurice: "You haven’t checked out Verything or Clover yet?"
+
+
+@printer Dialogue
+Noa: "No."
+
+@printer FriendDialogue
+Maurice: "It’s all whitewashed."
+
+@printer Dialogue
+Noa: "I see. I get it now why I suddenly need to call pest control."
+
+;  Beata appears on the left side of the screen. 
+@printer Bubble.Left pos:-5,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Left pos:40,70
+Beata: "Butterflies aren’t pests!"
+Beata: "Although some caterpillars can be destructive to crops."
+Beata: "But you have nothing to fear! Beata, your favorite virtual assistant, is a fully mature butterfly!"
+Baeta: "Your crops are safe!""
+
+; Beata disappears
+@printer Bubble.Left pos:-10,70
+@wait 0.5
+@hidePrinter Bubble
+
+; wait for a moment
+@wait 1
+
+@showPrinter FriendDialogue
+@onDialogueOpenedCommand
+@printer FriendDialogue
+Maurice: "Yeah. There’s also that."
+
+@printer Dialogue
+Noa: "And our friends?"
+
+@printer FriendDialogue
+Maurice: "Unavailable. I think..."
+Maurice: "I don’t want to think about it."
+Maurice: "Check the files?"
+
+@printer Dialogue
+Noa: "Sure. Give me a sec."
+
+
+# open_folder
+; delete when finished!!!!
+@showUI Desktop
+
+
+; hide call window and dialogue box
+@onHideCallWindowCommand
+@hidePrinter Dialogue
+@hidePrinter FriendDialogue
+@onDialogueClosedCommand
+
+@stop
+
+; player is now in control and can check the files on the desktop
+
+# Start_Archives_Section
+@onDialogueOpenedCommand
+@wait 1
+
+@showPrinter Dialogue
+@printer Dialogue
+Noa: "No luck."
+Noa: We planned for this. In case something happens...
+Noa: Step one: download summer photos from Archives.
+Noa: Step two: find passwords on their pages.
+Noa: Step three: get access to the folder.
+
+;  Folder3 window closes. Player not in control. 
+@onCloseFolder3AppCommand
+@onShowCallWindowCommand
+
+@printer Dialogue
+Noa: "I’ll take Alex and Sawyer. You do the rest."
+Noa: "Got it. Text me if anything comes up."
+Noa: "Stay safe, Maurice."
+
+@showPrinter FriendDialogue
+@printer FriendDialogue
+Maurice: "Thanks, dude. You too."
+
+; Call and chat closes. 
+@onHideCallWindowCommand
+@hidePrinter FriendDialogue
+@hidePrinter Chat
+@onDialogueClosedCommand
+
 
 
 @stop

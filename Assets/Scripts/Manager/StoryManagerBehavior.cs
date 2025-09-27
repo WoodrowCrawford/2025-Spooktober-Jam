@@ -9,6 +9,8 @@ public class StoryManagerBehavior : MonoBehaviour
     public delegate void StoryManagerHandler();
     public static event StoryManagerHandler OnPlayerReadAllArticles;
 
+    private int _currentChapter;
+
     private IScriptPlayer scriptPlayer;
     private ICharacterManager characterManager;
     private IStateManager stateManager;
@@ -21,6 +23,9 @@ public class StoryManagerBehavior : MonoBehaviour
     public static bool HasReadEndlessFunPage = false;
     public static bool HasReadAllArticles = false;
 
+    //Chapter 3 variables
+    public static bool HasInteractedWithFolder3Files = false;
+
 
 
 
@@ -30,6 +35,8 @@ public class StoryManagerBehavior : MonoBehaviour
         characterManager = Engine.GetService<ICharacterManager>();
         stateManager = Engine.GetService<IStateManager>();
         customVariableManager = Engine.GetService<ICustomVariableManager>();
+
+        DesktopManager.OnPopUpErrorClosed += CheckIfPlayerInteractedWithFolder3Files;
     }
 
 
@@ -39,7 +46,7 @@ public class StoryManagerBehavior : MonoBehaviour
         characterManager = null;
         stateManager = null;
         customVariableManager = null;
-
+        DesktopManager.OnPopUpErrorClosed -= CheckIfPlayerInteractedWithFolder3Files;
     }
 
 
@@ -71,6 +78,19 @@ public class StoryManagerBehavior : MonoBehaviour
                 scriptPlayer.LoadAndPlay("Chapter3/Interlude1");
             }
             return;
+        }
+    }
+
+
+    public void CheckIfPlayerInteractedWithFolder3Files()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 3 && !HasInteractedWithFolder3Files)
+            {
+                scriptPlayer.LoadAndPlayAtLabel("Chapter3/Interlude1", "Start_Archives_Section");
+                HasInteractedWithFolder3Files = true;
+            }
         }
     }
 }

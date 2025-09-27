@@ -2,6 +2,7 @@
 
 ; set variables
 @set playerInteractedWithEndlessFun=false
+@set currentChapter=2
 
 ; show dialogue
 @showPrinter Dialogue

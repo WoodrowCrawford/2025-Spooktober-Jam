@@ -10,6 +10,10 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     public delegate void IconClickHandler();
     public static event IconClickHandler OnWebpageIconClicked;
+    public static event IconClickHandler OnFolderIconClicked;
+    public static event IconClickHandler OnChatIconClicked;
+
+    public static event IconClickHandler OnIconWantsToSendErrorEvent;
 
 
     [Header("Icon Settings")]
@@ -21,6 +25,7 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     [Header("Bool settings")]
     [SerializeField] private bool _isClicked = false;
+    [SerializeField] private bool _isDraggable = true;
 
 
 
@@ -47,6 +52,97 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             OnWebpageIconClicked?.Invoke();
 
         }
+
+        //if the folder icon is clicked
+        else if (gameObject.name == "FolderIcon")
+        {
+            Debug.Log("Folder Icon Clicked, open folder app");
+            OnFolderIconClicked?.Invoke();
+        }
+
+        //if the chat icon is clicked
+        else if (gameObject.name == "ChatIcon")
+        {
+            Debug.Log("Chat Icon Clicked, open chat app");
+            OnChatIconClicked?.Invoke();
+        }
+
+        else if (gameObject.name == "SouthwingFile")
+        {
+           
+
+            //fire an event that has a pop up error message
+            OnIconWantsToSendErrorEvent?.Invoke();
+
+        }
+
+        else if (gameObject.name == "CodeForXFile")
+        {
+            Debug.Log("Code for X file clicked, open code for x webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "MapsFile")
+        {
+            Debug.Log("Maps file clicked, open maps webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "Maps4File")
+        {
+            Debug.Log("Maps 4 file clicked, open maps 4 webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "NotesFile")
+        {
+            Debug.Log("Notes file clicked, open notes webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "PngFile")
+        {
+            Debug.Log("PNG file clicked, open png webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "ServicePassFile")
+        {
+            Debug.Log("Service Pass file clicked, open service pass webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "FilesHelpFile")
+        {
+            Debug.Log("Help file clicked, open help webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "Png49File")
+        {
+            Debug.Log("PNG 49 file clicked, open png 49 webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "ListNamesFile")
+        {
+            Debug.Log("List Names file clicked, open list names webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "Png52File")
+        {
+            Debug.Log("PNG 52 file clicked, open png 52 webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+
+        else if (gameObject.name == "Png53File")
+        {
+            Debug.Log("PNG 53 file clicked, open png 53 webpage");
+            OnIconWantsToSendErrorEvent?.Invoke();
+        }
+    
+    
     }
 
 
@@ -100,7 +196,7 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     {
 
         //use a timer based feature to determine if the icon is draggable
-        if (_isClicked)
+        if (_isClicked && _isDraggable)
         {
             //start a timer
             _timeHeldDown += Time.deltaTime;

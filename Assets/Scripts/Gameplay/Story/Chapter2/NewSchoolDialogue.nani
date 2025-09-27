@@ -2,6 +2,7 @@
 
 ; set variables
 @set playerInteractedWithChristianSchool=false
+@set currentChapter=2
 
 ; show dialogue
 @showPrinter Dialogue

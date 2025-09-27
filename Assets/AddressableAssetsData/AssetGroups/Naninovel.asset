@@ -24,7 +24,7 @@ MonoBehaviour:
     - Scripts/StoryScript
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c113736f41254bd9b83d096ea6f1971
-    m_Address: Naninovel/Scripts/AIChangingLifeDialogue
+    m_Address: Naninovel/Scripts/Chapter2/AIChangingLifeDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -66,7 +66,7 @@ MonoBehaviour:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f4a15feeac784099811d0844e671f38
-    m_Address: Naninovel/Scripts/NewSchoolDialogue
+    m_Address: Naninovel/Scripts/Chapter2/NewSchoolDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -89,11 +89,25 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a5ac108db33b4f4cba252a59bc35d6a
+    m_Address: Naninovel/Audio/glitch_2_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    - Scripts/Chapter3/Interlude1
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33a5bd9c914784b4ba74f322c19eb5e2
     m_Address: Naninovel/Scripts/StoryScript
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39f1ca1dc814e4590acedf3e4885e693
+    m_Address: Naninovel/TextPrinters/FriendDialogue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    - Scripts/Chapter3/Interlude1
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43e1dac9130ab49ecbdcf0e26bdb6b64
     m_Address: Naninovel/Scripts/Chapter3/Interlude1
@@ -138,7 +152,7 @@ MonoBehaviour:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d706a22ed0764206af2eaa576e585b2
-    m_Address: Naninovel/Scripts/EndlessFunDialogue
+    m_Address: Naninovel/Scripts/Chapter2/EndlessFunDialogue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -192,6 +206,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8aaae49970337455e8ac7b4752cc8896
+    m_Address: Naninovel/Voice/Chapter3/Interlude1/~4cc3a794
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d53726b3d08433479398f02b4780e7f
     m_Address: Naninovel/UI/SaveLoadUI
     m_ReadOnly: 0
@@ -215,6 +235,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a79e8daf9b2204276ab9f5bd20624df1
+    m_Address: Naninovel/Audio/glitch_1_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    - Scripts/Chapter3/Interlude1
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a9117e2fa90704d45b3e1461596c11ee
     m_Address: Naninovel/Spawn/Rain
@@ -286,6 +313,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd85ce99288c2f8488447fa511b1c0d6
     m_Address: Naninovel/UI/ToastUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df94db46eba6f4f8bb971d519d0af159
+    m_Address: Naninovel/Audio/Notification_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel

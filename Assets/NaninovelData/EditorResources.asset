@@ -155,13 +155,13 @@ MonoBehaviour:
     - name: StoryScript
       pathPrefix: Scripts
       guid: 33a5bd9c914784b4ba74f322c19eb5e2
-    - name: AIChangingLifeDialogue
+    - name: Chapter2/AIChangingLifeDialogue
       pathPrefix: Scripts
       guid: 0c113736f41254bd9b83d096ea6f1971
-    - name: EndlessFunDialogue
+    - name: Chapter2/EndlessFunDialogue
       pathPrefix: Scripts
       guid: 6d706a22ed0764206af2eaa576e585b2
-    - name: NewSchoolDialogue
+    - name: Chapter2/NewSchoolDialogue
       pathPrefix: Scripts
       guid: 1f4a15feeac784099811d0844e671f38
     - name: Chapter3/Interlude1
@@ -175,12 +175,21 @@ MonoBehaviour:
     - name: Pc_hum_sfx
       pathPrefix: Audio
       guid: ca8f9406d059341a6952e17df6b6a9ac
-    - name: Popup_alert_sfx
+    - name: Notification_sfx
       pathPrefix: Audio
-      guid: 267856a1bd79a44b09ad5c0676def1ce
+      guid: df94db46eba6f4f8bb971d519d0af159
     - name: dog_bark_sfx
       pathPrefix: Audio
       guid: b4cb20ee8098c41669ca90cb479f4269
+    - name: glitch_1_sfx
+      pathPrefix: Audio
+      guid: a79e8daf9b2204276ab9f5bd20624df1
+    - name: glitch_2_sfx
+      pathPrefix: Audio
+      guid: 2a5ac108db33b4f4cba252a59bc35d6a
+    - name: Popup_alert_sfx
+      pathPrefix: Audio
+      guid: 267856a1bd79a44b09ad5c0676def1ce
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7
     Resources: []
   - Id: Movies
@@ -195,3 +204,8 @@ MonoBehaviour:
     - name: Chapter3/Interlude1/~4cc3a794
       pathPrefix: Voice
       guid: 8aaae49970337455e8ac7b4752cc8896
+  - Id: TextPrinters/bad71a1c-0364-4498-9db7-dd7fd25b7dc2
+    Resources:
+    - name: FriendDialogue
+      pathPrefix: TextPrinters
+      guid: 39f1ca1dc814e4590acedf3e4885e693
