@@ -9,6 +9,9 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 {
     public delegate void DesktopManagerHandler();
     public static event DesktopManagerHandler OnPopUpErrorClosed;
+    public static event DesktopManagerHandler OnPlayerWantsToUploadIDPhoto;
+    public static event DesktopManagerHandler OnVerificationPopUpShown;
+    public static event DesktopManagerHandler OnVerificationPopUpClosed;
 
 
     [Header("Desktop Icons")]
@@ -55,6 +58,15 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
 
 
+    [Header("Verification Pop Up")]
+    [SerializeField] private Image _verificationPopUp;
+    [SerializeField] private Sprite _verificationPopUpImage;
+    [SerializeField] private Sprite _verificationPopUpSuccessImage;
+    [SerializeField] private Image _exitVerificationPopUpButton;
+    [SerializeField] private Image _uploadPhotoButton;
+
+    [SerializeField] private bool _canCloseVerificationPopUp = false;
+
     void OnEnable()
     {
         Engine.OnInitializationFinished += HandleInitializationFinished;
@@ -67,6 +79,9 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         OnOpenWebCommand.OnOpenWeb += OpenWebApplication;
         OnCloseWebCommand.OnCloseWeb += CloseWebApplication;
         OnCloseFolder3AppCommand.OnCloseFolder3App += CloseFolderApplication;
+
+        OnShowConfirmIDCommand.OnShowConfirmID += ShowVerificationPopUp;
+        OnVerificationCompleteCommand.OnVerificationComplete += ShowVerificationPopUpComplete;
 
         IconBehavior.OnWebpageIconClicked += OpenWebApplication;
         IconBehavior.OnFolderIconClicked += OpenFolderApplication;
@@ -107,6 +122,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         OnCloseWebCommand.OnCloseWeb -= CloseWebApplication;
         OnCloseFolder3AppCommand.OnCloseFolder3App -= CloseFolderApplication;
 
+        OnShowConfirmIDCommand.OnShowConfirmID -= ShowVerificationPopUp;
+
         IconBehavior.OnWebpageIconClicked -= OpenWebApplication;
         IconBehavior.OnFolderIconClicked -= OpenFolderApplication;
         IconBehavior.OnChatIconClicked -= OpenChatApplication;
@@ -138,6 +155,32 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         {
             //hide the error pop up
             HideErrorPopUp();
+        }
+
+        else if (eventData.pointerCurrentRaycast.gameObject == _exitVerificationPopUpButton.gameObject)
+        {
+            //hide the verification pop up
+
+            if (_canCloseVerificationPopUp)
+            {
+                _verificationPopUp.gameObject.SetActive(false);
+                _canCloseVerificationPopUp = false;
+                OnVerificationPopUpClosed?.Invoke();
+                
+            }
+            else
+            {
+                Debug.Log("Player cannot close the verification pop up yet");
+            }
+
+           
+        }
+
+        else if (eventData.pointerCurrentRaycast.gameObject == _uploadPhotoButton.gameObject)
+        {
+            //fire an event that the player wants to upload their ID photo
+            Debug.Log("Player wants to upload their ID photo");
+            OnPlayerWantsToUploadIDPhoto?.Invoke();
         }
     }
 
@@ -327,6 +370,36 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         audioManager.PlaySfx("Popup_alert_sfx");
 
         _canClosePopUp = true;
+    }
+
+    public void ShowVerificationPopUp()
+    {
+        _verificationPopUp.gameObject.SetActive(true);
+        _verificationPopUp.sprite = _verificationPopUpImage;
+
+        //play a pop up sound
+        var audioManager = Engine.GetService<IAudioManager>();
+        audioManager.PlaySfx("Popup_alert_sfx");
+
+        //fire an event that the verification pop up is shown
+        OnVerificationPopUpShown?.Invoke();
+
+    }
+
+    public void ShowVerificationPopUpComplete()
+    {
+        _verificationPopUp.sprite = _verificationPopUpSuccessImage;
+
+        //play a pop up sound
+        var audioManager = Engine.GetService<IAudioManager>();
+        audioManager.PlaySfx("Popup_alert_sfx");
+
+       //let the player close the pop up
+        _canCloseVerificationPopUp = true;
+
+        
+
+        
     }
 
     public void UnlockSummerPhotos()

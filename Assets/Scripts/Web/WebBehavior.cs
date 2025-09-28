@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
-    
+
 
     [Header("UI Camera")]
     [SerializeField] private Camera _uiCamera;
@@ -51,11 +51,16 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 
 
+
     void OnEnable()
     {
+        DesktopManager.OnVerificationPopUpShown += UnblockWebpageInteraction;
+        DesktopManager.OnVerificationPopUpClosed += BlockWebpageInteraction;
+
         WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews += ChangeWebpageToSalvaVeritate;
         OnOpenCloverCommand.OnOpenClover += ChangeWebpageToClover;
+        OnOpenChatterCommand.OnOpenChatter += ChangeWebpageToChatter;
 
         //change this objects render camera to the Naninovel camera
         _uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
@@ -65,9 +70,13 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void OnDisable()
     {
+        DesktopManager.OnVerificationPopUpShown -= UnblockWebpageInteraction;
+        DesktopManager.OnVerificationPopUpClosed -= BlockWebpageInteraction;
+
         WebsiteEvents.OnWebsiteChange -= ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews -= ChangeWebpageToSalvaVeritate;
         OnOpenCloverCommand.OnOpenClover -= ChangeWebpageToClover;
+        OnOpenChatterCommand.OnOpenChatter -= ChangeWebpageToChatter;
 
         _uiCamera = null;
 
@@ -257,6 +266,12 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (_scrollBar != null)
             _scrollBar.value = 1f;
 
+        //set the previous website to hidden
+        if (previousWebsite != null)
+        {
+            previousWebsite.SetActive(false);
+        }
+
     }
 
 
@@ -294,6 +309,16 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             _scrollBar.value = 1f;
         }
+    }
+
+    public void BlockWebpageInteraction()
+    {
+        this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+
+    public void UnblockWebpageInteraction()
+    {
+        this.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
 }

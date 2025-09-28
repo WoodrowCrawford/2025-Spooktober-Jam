@@ -170,6 +170,9 @@ MonoBehaviour:
     - name: Chapter4/Chapter4
       pathPrefix: Scripts
       guid: 704def8d9a74f4fc18751f7fa35b47c1
+    - name: Chapter5/Chapter5
+      pathPrefix: Scripts
+      guid: 18ac66e8fef954f4f84e9882bbfa362a
   - Id: Audio
     Resources:
     - name: Pc_Welcome_sfx

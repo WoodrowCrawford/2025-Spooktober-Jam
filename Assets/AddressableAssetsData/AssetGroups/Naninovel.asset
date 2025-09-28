@@ -39,6 +39,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18ac66e8fef954f4f84e9882bbfa362a
+    m_Address: Naninovel/Scripts/Chapter5/Chapter5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1add671f8348e8443bcc56290e82fc5e
     m_Address: Naninovel/UI/ContinueInputUI
     m_ReadOnly: 0
@@ -155,6 +161,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 702c32b2de0c0784b9a66ec90601874f
     m_Address: Naninovel/UI/ClickThroughPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 704def8d9a74f4fc18751f7fa35b47c1
+    m_Address: Naninovel/Scripts/Chapter4/Chapter4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel

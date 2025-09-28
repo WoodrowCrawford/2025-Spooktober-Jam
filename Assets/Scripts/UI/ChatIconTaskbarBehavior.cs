@@ -16,12 +16,14 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
     {
         audioManager = Engine.GetService<IAudioManager>();
         StoryManagerBehavior.OnPlayerReadAllArticles += ChangeToNewMessageIcon;
+        StoryManagerBehavior.OnStoryWantsToGiveChatIconNotification += ChangeToNewMessageIcon;
     }
 
     void OnDisable()
     {
         audioManager = null;
         StoryManagerBehavior.OnPlayerReadAllArticles -= ChangeToNewMessageIcon;
+        StoryManagerBehavior.OnStoryWantsToGiveChatIconNotification -= ChangeToNewMessageIcon;
     }
 
 
@@ -34,6 +36,7 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
 
     public void ChangeToNewMessageIcon()
     {
+        Debug.Log("Change the chat icon to new message icon");
         GetComponent<UnityEngine.UI.Image>().sprite = _newMessageIcon;
         audioManager.PlaySfx("Notification_sfx");
     }

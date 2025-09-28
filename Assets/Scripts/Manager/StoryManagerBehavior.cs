@@ -11,6 +11,7 @@ public class StoryManagerBehavior : MonoBehaviour
     public static event StoryManagerHandler OnPlayerReadAllArticles;
     public static event StoryManagerHandler OnPlayerCanDownloadSummerPhotos;
     public static event StoryManagerHandler OnPlayerCanClickFavoritesButton;
+    public static event StoryManagerHandler OnStoryWantsToGiveChatIconNotification;
 
     private int _currentChapter;
     private string _currentTask;
@@ -37,6 +38,9 @@ public class StoryManagerBehavior : MonoBehaviour
     public static bool HasInteractedWithCreepyPeoplePicture = false;
 
 
+    //Chapter 5 variables
+    public static bool PlayerIsContinueBrowsingChatter = false;
+
 
 
     void OnEnable()
@@ -47,9 +51,12 @@ public class StoryManagerBehavior : MonoBehaviour
         customVariableManager = Engine.GetService<ICustomVariableManager>();
 
         DesktopManager.OnPopUpErrorClosed += CheckIfPlayerInteractedWithFolder3Files;
+        DesktopManager.OnPlayerWantsToUploadIDPhoto += PickPhotoIDToUpload;
+        DesktopManager.OnVerificationPopUpClosed += PlayPhotoIDDialogueCompleteLabel;
 
         IconBehavior.OnWebpageIconClicked += CheckIfPlayerCanHaveOptionToChangeWebsite;
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos += CheckIfPlayerCanDownloadSummerPhotos;
+
 
         CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture += CheckIfPlayerHasInteractedWithAllCloverPictures;
 
@@ -66,6 +73,8 @@ public class StoryManagerBehavior : MonoBehaviour
         customVariableManager = null;
 
         DesktopManager.OnPopUpErrorClosed -= CheckIfPlayerInteractedWithFolder3Files;
+        DesktopManager.OnPlayerWantsToUploadIDPhoto -= PickPhotoIDToUpload;
+        DesktopManager.OnVerificationPopUpClosed -= PlayPhotoIDDialogueCompleteLabel;
 
         IconBehavior.OnWebpageIconClicked -= CheckIfPlayerCanHaveOptionToChangeWebsite;
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos -= CheckIfPlayerCanDownloadSummerPhotos;
@@ -167,7 +176,7 @@ public class StoryManagerBehavior : MonoBehaviour
 
 
     }
-    
+
 
     public void PickWebsiteToOpen()
     {
@@ -177,6 +186,36 @@ public class StoryManagerBehavior : MonoBehaviour
             {
                 //play the dialogue where the player can choose to change website
                 scriptPlayer.LoadAndPlayAtLabel("Chapter4/Chapter4", "Pick_Favorite_Website_Section");
+            }
+
+            else if (_currentChapter == 5)
+            {
+
+                Debug.Log("Player clicked favorites button in chapter 5, give chat icon notification");
+                //fire an event to give the chat icon a notification
+                OnStoryWantsToGiveChatIconNotification?.Invoke();
+                
+            }
+        }
+    }
+
+    public void PickPhotoIDToUpload()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            //play the dialogue where the player can choose to change website
+            scriptPlayer.LoadAndPlayAtLabel("Chapter5/Chapter5", "Upload_ID_Photo_Section");
+        }
+    }
+    
+    public void PlayPhotoIDDialogueCompleteLabel()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 5)
+            {
+                //play the dialogue where the player can choose to change website
+                scriptPlayer.LoadAndPlayAtLabel("Chapter5/Chapter5", "After_Uploading_ID_Photo");
             }
         }
     }

@@ -321,7 +321,7 @@ Maurice: "Thanks, dude. You too."
 
 ; give the player the choice to pick either CLover or Chatter
 @choice "Go to Clover" handler:ButtonList goto:Chapter4/Chapter4.Label_Clover
-@choice "Go to Chatter" handler:ButtonList
+@choice "Go to Chatter" handler:ButtonList goto:Chapter5/Chapter5
 
 
 @stop

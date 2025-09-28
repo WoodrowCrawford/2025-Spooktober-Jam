@@ -1,0 +1,148 @@
+; start of chapter 5 (chatter section)
+@set currentChapter=5
+
+
+
+; change the website to chatter
+@onOpenChatterCommand
+
+
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+; reset dialogue
+@resetText Dialogue
+@resetText Bubble
+
+; wait a moment
+
+@wait 1
+
+; The pop up window opens Confirm Your Identity.
+@onShowConfirmIDCommand
+@stop
+
+
+
+
+# Upload_ID_Photo_Section
+
+@onDialogueOpenedCommand
+
+@choice "screenshot8" handler:ButtonList goto:.Label_Screenshot8_Clicked
+@choice "screenself" handler:ButtonList goto:.Label_Screenself_Clicked
+
+
+@stop
+
+
+
+
+# Label_Screenshot8_Clicked
+; fire an event to show the verification complete
+@onVerificationCompleteCommand
+@onDialogueClosedCommand
+
+
+# Label_Screenself_Clicked
+; fire an event to show the verification complete
+@onVerificationCompleteCommand
+@onDialogueClosedCommand
+
+
+@stop
+
+
+# After_Uploading_ID_Photo
+
+; show dialogue box
+@printer Dialogue
+@onDialogueOpenedCommand
+Noa: Damn. The only good thing is that Sawyer can’t see this right now.
+Noa: Hell hath no fury like a Chatter warrior made toothless.  
+
+; beata appears on the right
+@printer Bubble.right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "Isn’t it wonderful to see all these happy faces?"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_Chatter
+@choice "No" handler:ButtonList goto:.Label_No_Chatter
+@choice "They’re not happy" handler:ButtonList goto:.Label_They_Are_Not_Happy_Chatter
+@stop
+
+
+
+# Label_Ignore_It_Chatter
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: Don’t mind it, Noa.
+
+@goto .Label_Continue_Browsing_After_Chatter
+@stop
+
+
+
+
+
+# Label_No_Chatter
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "I like miserable faces better."
+
+@printer Bubble.Right !hideOther
+Beata: "Oh, no! Why?"
+
+
+@printer Dialogue !hideOther
+Noa: "They reflect the terrible reality of this world."
+
+
+@printer Bubble.Right !hideOther
+Beata: "I think our world is a wonderful place!"
+
+@printer Dialogue !hideOther
+Noa: "But that’s the thing. You don’t really think."
+
+@goto .Label_Continue_Browsing_After_Chatter
+@stop
+
+
+
+
+# Label_They_Are_Not_Happy_Chatter
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+
+Noa: "These people are utterly miserable."
+Noa: "Were. Before that warped version of reality was brought about."
+
+
+@printer Bubble.Right !hideOther
+Beata: "Oh, no! Who’d do such a thing?"
+
+@printer Dialogue !hideOther
+Noa: "Who indeed."
+
+@goto .Label_Continue_Browsing_After_Chatter
+@stop
+
+
+# Label_Continue_Browsing_After_Chatter
+;  Beata disappears. 
+@printer Bubble.Right pos:120,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+
+@stop
+
+

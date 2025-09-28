@@ -23,28 +23,42 @@ MonoBehaviour:
   - scriptGuid: 43e1dac9130ab49ecbdcf0e26bdb6b64
     position:
       serializedVersion: 2
-      x: 0
-      y: 77
-      width: 180.5
-      height: 343.5
+      x: 886.5
+      y: 0
+      width: 287
+      height: 391.5
   - scriptGuid: 6d706a22ed0764206af2eaa576e585b2
     position:
       serializedVersion: 2
       x: 0
-      y: 420.5
+      y: 77
       width: 272.5
       height: 117
   - scriptGuid: 1f4a15feeac784099811d0844e671f38
     position:
       serializedVersion: 2
       x: 0
-      y: 537.5
+      y: 194
       width: 272
       height: 117
   - scriptGuid: 0c113736f41254bd9b83d096ea6f1971
     position:
       serializedVersion: 2
       x: 0
-      y: 654.5
+      y: 311
       width: 239.5
       height: 103.5
+  - scriptGuid: 704def8d9a74f4fc18751f7fa35b47c1
+    position:
+      serializedVersion: 2
+      x: 583
+      y: 0
+      width: 283.5
+      height: 727.5
+  - scriptGuid: 18ac66e8fef954f4f84e9882bbfa362a
+    position:
+      serializedVersion: 2
+      x: 302.5
+      y: 0
+      width: 260.5
+      height: 271.5
