@@ -19,7 +19,7 @@ MonoBehaviour:
   UseAddressables: 1
   AutoBuildBundles: 1
   AllowAddressableInEditor: 1
-  LabelByScripts: 1
+  LabelByScripts: 0
   GroupByCategory: 0
   ExtraLabels: []
   LocalRootPath: '%DATA%/Resources'

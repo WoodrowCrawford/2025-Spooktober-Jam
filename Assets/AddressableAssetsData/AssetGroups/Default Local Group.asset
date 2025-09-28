@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: aa73849032af5483f934231fb588f3a1
   m_SerializeEntries:
+  - m_GUID: 07d13dd272dec49a7bf70004371ffd71
+    m_Address: Assets/Scripts/Manager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0baf5f8d028519f46bc5883ada98714d
     m_Address: Assets/Scripts
     m_ReadOnly: 0
@@ -22,6 +27,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1116d60fbdb6d48b9be3f4bb4fba35e2
     m_Address: Assets/Scripts/Gameplay/Story/Chapter2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3604530711ba2714d8e6525efabaa5d5
+    m_Address: Assets/Art
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60eb0c547de604e0abf29f21b4de5ccc
+    m_Address: Assets/NaninovelData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d6f62b7dd4884e438b4fe9fcbb11b7a
+    m_Address: Assets/Prefabs
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

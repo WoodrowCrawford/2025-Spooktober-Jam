@@ -1,8 +1,7 @@
 ; Start of interlude 1 (chapter 3)
 @set currentChapter=3
 
-; jump to open folder section
-@goto .open_folder
+
 
 ; hide dialogue box
 @hidePrinter Dialogue
@@ -261,10 +260,10 @@ Maurice: "Check the files?"
 @printer Dialogue
 Noa: "Sure. Give me a sec."
 
+@set currentTask="Interact with folder files"
 
-# open_folder
-; delete when finished!!!!
-@showUI Desktop
+
+
 
 
 ; hide call window and dialogue box
@@ -306,8 +305,27 @@ Maurice: "Thanks, dude. You too."
 @onHideCallWindowCommand
 @hidePrinter FriendDialogue
 @hidePrinter Chat
+@resetText FriendDialogue
+@resetText Chat
+@resetText Dialogue
 @onDialogueClosedCommand
 
+; set the current task to download summer photos
+@set currentTask="Download summer photos from Archives"
+
+@stop
+
+# Pick_Website_Section
+; player is now in control and can pick the websites to visit
+
+; open dialogue box
+@showPrinter Dialogue
+@printer Dialogue
+@onDialogueOpenedCommand
+
+; give the player the choice to pick either CLover or Chatter
+@choice "Go to Clover" handler:ButtonList 
+@choice "Go to Chatter" handler:ButtonList
 
 
 @stop

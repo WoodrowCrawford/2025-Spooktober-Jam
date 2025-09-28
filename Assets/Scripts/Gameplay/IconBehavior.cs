@@ -12,8 +12,11 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public static event IconClickHandler OnWebpageIconClicked;
     public static event IconClickHandler OnFolderIconClicked;
     public static event IconClickHandler OnChatIconClicked;
+    public static event IconClickHandler OnArchivesIconClicked;
+    public static event IconClickHandler OnSummerPhotosIconClicked;
 
     public static event IconClickHandler OnIconWantsToSendErrorEvent;
+    public static event IconClickHandler OnPlayerWantsToDownloadSummerPhotos;
 
 
     [Header("Icon Settings")]
@@ -66,82 +69,106 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             Debug.Log("Chat Icon Clicked, open chat app");
             OnChatIconClicked?.Invoke();
         }
+        //if the archives icon is clicked
+        else if (gameObject.name == "ArchivesIcon")
+        {
+            Debug.Log("Archives Icon Clicked, open archives app");
+            OnArchivesIconClicked?.Invoke();
+        }
+
+        else if (gameObject.name == "SummerPhotosIcon")
+        {
+            OnSummerPhotosIconClicked?.Invoke();
+        }
 
         else if (gameObject.name == "SouthwingFile")
         {
-           
-
             //fire an event that has a pop up error message
             OnIconWantsToSendErrorEvent?.Invoke();
-
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "CodeForXFile")
         {
             Debug.Log("Code for X file clicked, open code for x webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "MapsFile")
         {
             Debug.Log("Maps file clicked, open maps webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "Maps4File")
         {
             Debug.Log("Maps 4 file clicked, open maps 4 webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "NotesFile")
         {
             Debug.Log("Notes file clicked, open notes webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "PngFile")
         {
             Debug.Log("PNG file clicked, open png webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "ServicePassFile")
         {
             Debug.Log("Service Pass file clicked, open service pass webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "FilesHelpFile")
         {
             Debug.Log("Help file clicked, open help webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "Png49File")
         {
             Debug.Log("PNG 49 file clicked, open png 49 webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "ListNamesFile")
         {
             Debug.Log("List Names file clicked, open list names webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "Png52File")
         {
             Debug.Log("PNG 52 file clicked, open png 52 webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
 
         else if (gameObject.name == "Png53File")
         {
             Debug.Log("PNG 53 file clicked, open png 53 webpage");
             OnIconWantsToSendErrorEvent?.Invoke();
+            Folder3AppBehavior.HasInteractedWithFolder3Files = true;
         }
-    
+
+        else if (gameObject.name == "SummerPhotosFolder")
+        {
+            OnPlayerWantsToDownloadSummerPhotos?.Invoke();
+        }
     
     }
 

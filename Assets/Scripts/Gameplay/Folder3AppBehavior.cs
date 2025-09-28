@@ -9,6 +9,8 @@ public class Folder3AppBehavior : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private Color _hoverColor = Color.lightGray;
 
+    public static bool HasInteractedWithFolder3Files = false;
+
 
     [Header("Folder 3 Contents")]
     [SerializeField] private Image _southWingFile;

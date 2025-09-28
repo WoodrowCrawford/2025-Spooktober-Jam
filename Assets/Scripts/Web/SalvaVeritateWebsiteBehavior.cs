@@ -46,7 +46,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             //start the endless fun dialogue if it hasn't played yet
             if (!StoryManagerBehavior.HasReadEndlessFunPage)
             {
-                scriptPlayer.LoadAndPlay("EndlessFunDialogue");
+                scriptPlayer.LoadAndPlay("Chapter2/EndlessFunDialogue");
             }
         }
 
@@ -59,7 +59,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             //start the new school dialogue if it hasn't played yet
             if (!StoryManagerBehavior.HasReadChristianSchoolPage)
             {
-                scriptPlayer.LoadAndPlay("NewSchoolDialogue");
+                scriptPlayer.LoadAndPlay("Chapter2/NewSchoolDialogue");
             
             }
         }
@@ -73,7 +73,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             //start the AI Changing Life dialogue if it hasn't played yet
             if (!StoryManagerBehavior.HasReadAIChangingLifePage)
             {
-                scriptPlayer.LoadAndPlay("AIChangingLifeDialogue");
+                scriptPlayer.LoadAndPlay("Chapter2/AIChangingLifeDialogue");
             }
 
         }

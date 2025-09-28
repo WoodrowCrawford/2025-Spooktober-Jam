@@ -155,18 +155,18 @@ MonoBehaviour:
     - name: StoryScript
       pathPrefix: Scripts
       guid: 33a5bd9c914784b4ba74f322c19eb5e2
-    - name: Chapter2/AIChangingLifeDialogue
+    - name: Chapter3/Interlude1
       pathPrefix: Scripts
-      guid: 0c113736f41254bd9b83d096ea6f1971
+      guid: 43e1dac9130ab49ecbdcf0e26bdb6b64
     - name: Chapter2/EndlessFunDialogue
       pathPrefix: Scripts
       guid: 6d706a22ed0764206af2eaa576e585b2
     - name: Chapter2/NewSchoolDialogue
       pathPrefix: Scripts
       guid: 1f4a15feeac784099811d0844e671f38
-    - name: Chapter3/Interlude1
+    - name: Chapter2/AIChangingLifeDialogue
       pathPrefix: Scripts
-      guid: 43e1dac9130ab49ecbdcf0e26bdb6b64
+      guid: 0c113736f41254bd9b83d096ea6f1971
   - Id: Audio
     Resources:
     - name: Pc_Welcome_sfx

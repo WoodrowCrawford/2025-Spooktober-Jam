@@ -8,8 +8,10 @@ public class StoryManagerBehavior : MonoBehaviour
 
     public delegate void StoryManagerHandler();
     public static event StoryManagerHandler OnPlayerReadAllArticles;
+    public static event StoryManagerHandler OnPlayerCanDownloadSummerPhotos;
 
     private int _currentChapter;
+    private string _currentTask;
 
     private IScriptPlayer scriptPlayer;
     private ICharacterManager characterManager;
@@ -25,6 +27,7 @@ public class StoryManagerBehavior : MonoBehaviour
 
     //Chapter 3 variables
     public static bool HasInteractedWithFolder3Files = false;
+    public static bool DownloadedSummerPhotos = false;
 
 
 
@@ -37,6 +40,9 @@ public class StoryManagerBehavior : MonoBehaviour
         customVariableManager = Engine.GetService<ICustomVariableManager>();
 
         DesktopManager.OnPopUpErrorClosed += CheckIfPlayerInteractedWithFolder3Files;
+
+        IconBehavior.OnWebpageIconClicked += CheckIfPlayerCanHaveOptionToChangeWebsite;
+        IconBehavior.OnPlayerWantsToDownloadSummerPhotos += CheckIfPlayerCanDownloadSummerPhotos;
     }
 
 
@@ -46,7 +52,11 @@ public class StoryManagerBehavior : MonoBehaviour
         characterManager = null;
         stateManager = null;
         customVariableManager = null;
+
         DesktopManager.OnPopUpErrorClosed -= CheckIfPlayerInteractedWithFolder3Files;
+
+        IconBehavior.OnWebpageIconClicked -= CheckIfPlayerCanHaveOptionToChangeWebsite;
+        IconBehavior.OnPlayerWantsToDownloadSummerPhotos -= CheckIfPlayerCanDownloadSummerPhotos;
     }
 
 
@@ -63,9 +73,10 @@ public class StoryManagerBehavior : MonoBehaviour
 
         if (customVariableManager.TryGetVariableValue<bool>("playerInteractedWithEndlessFun", out HasReadEndlessFunPage) &&
             customVariableManager.TryGetVariableValue<bool>("playerInteractedWithChristianSchool", out HasReadChristianSchoolPage) &&
-            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithAIChangingLife", out HasReadAIChangingLifePage))
+            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithAIChangingLife", out HasReadAIChangingLifePage) &&
+            customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
         {
-            if (HasReadEndlessFunPage && HasReadChristianSchoolPage && HasReadAIChangingLifePage && !HasReadAllArticles)
+            if (HasReadEndlessFunPage && HasReadChristianSchoolPage && HasReadAIChangingLifePage && !HasReadAllArticles && _currentChapter == 2)
             {
                 Debug.Log("Player has read all news articles!");
 
@@ -84,13 +95,50 @@ public class StoryManagerBehavior : MonoBehaviour
 
     public void CheckIfPlayerInteractedWithFolder3Files()
     {
-        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter ) &&
+            customVariableManager.TryGetVariableValue<string>("currentTask", out _currentTask))
         {
-            if (_currentChapter == 3 && !HasInteractedWithFolder3Files)
+            if (_currentChapter == 3 && !HasInteractedWithFolder3Files && _currentTask == "Interact with folder files" && Folder3AppBehavior.HasInteractedWithFolder3Files)
             {
+                Debug.Log("Player has interacted with folder files in chapter 3!");
                 scriptPlayer.LoadAndPlayAtLabel("Chapter3/Interlude1", "Start_Archives_Section");
                 HasInteractedWithFolder3Files = true;
             }
         }
     }
+
+    public void CheckIfPlayerCanDownloadSummerPhotos()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 3 && !DownloadedSummerPhotos)
+            {
+                //set the current task to downloading summer photos
+                _currentTask = "Download summer photos from Archives";
+
+                Debug.Log("Player can now download summer photos from Archives!");
+
+                //fire an event to show the download question pop up
+                OnPlayerCanDownloadSummerPhotos?.Invoke();
+            }
+            else
+            {
+                Debug.Log("Player cannot download summer photos yet.");
+            }
+        }
+    }
+
+    public void CheckIfPlayerCanHaveOptionToChangeWebsite()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 3 && _currentTask == "Download summer photos from Archives")
+            {
+                //play the dialogue where the player can choose to change website
+                scriptPlayer.LoadAndPlayAtLabel("Chapter3/Interlude1", "Pick_Website_Section");
+            }
+        }
+    }
+
 }
+

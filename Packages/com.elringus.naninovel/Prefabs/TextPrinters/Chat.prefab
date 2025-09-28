@@ -259,7 +259,7 @@ MonoBehaviour:
         m_CallState: 2
   hideOnLoad: 1
   hideInThumbnail: 0
-  saveVisibilityState: 1
+  saveVisibilityState: 0
   blockInputWhenVisible: 0
   adaptToInputMode: 1
   allowedSamplers: []
