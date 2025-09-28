@@ -1,0 +1,260 @@
+; Chapter 4
+# Label_Clover
+@set currentChapter=4
+@set badEndingCounter=0
+; open the clover website
+@onOpenCloverCommand
+
+;  Beata appears on the right side of the screen. 
+@printer Bubble.right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "Before you continue browsing this page, I must warn you that it might still contain materials some users would find inappropriate."
+Beata: "Would you like me to block it for you?"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It
+@choice "Piss off" handler:ButtonList goto:.Label_Piss_Off
+@choice "Might still contain?" handler:ButtonList goto:.Label_Might_Still_Contain
+@stop
+
+
+
+
+# Label_Ignore_It
+@showPrinter Bubble
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: The moment I start talking to AI is the moment I officially lose my mind.
+
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@goto .Label_Continue_Browsing
+
+
+
+# Label_Piss_Off
+; bad option, increament bad ending counter
+@set badEndingCounter=badEndingCounter+1
+
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "No. And piss off."
+
+@printer Bubble.Right !hideOther
+@wait 0.5
+Beata: "Of course!"
+
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@goto .Label_Continue_Browsing
+
+
+
+
+
+# Label_Might_Still_Contain
+
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "Might still contain?"
+Noa: "Ah. I see what Maurice meant now."
+Noa: "Your masters’ doing, I assume?"
+
+@printer Bubble.Right !hideOther
+Beata: "All we want is to make the web a safer place for everyone!"
+
+@printer Dialogue !hideOther
+Noa: "Mhm. Sure. I’ve heard seeing nipples might cause a heart attack."
+
+@printer Bubble.Right !hideOther
+Beata: "Such an outcome is unheard of."
+Beata: "However, children use the web too."
+Beata: "And we should do everything we can to ensure their safety!"
+
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@goto .Label_Continue_Browsing
+
+
+# Label_Continue_Browsing
+; Beata disappears
+@printer Bubble.Right pos:150,70
+@wait 0.5
+@hidePrinter Bubble
+
+
+@stop
+
+
+; ;  Player clicks on the Statue picture.(an event will  be triggered in unity code
+
+# Label_Statue_Picture_Clicked
+; clear the dialogue box text
+@resetText Dialogue
+@resetText Bubble
+
+; wait for a moment (player can not click anything during this time)
+@onDialogueOpenedCommand
+@wait 1.5
+
+; Beata appears on the right side of the screen.
+@printer Bubble.right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "Do you enjoy art, Noa?"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_Statue
+@choice "No" handler:ButtonList goto:.Label_No_Statue
+@choice "Not this kind" handler:ButtonList goto:.Label_Not_This_Kind_Statue
+
+
+
+
+# Label_Ignore_It_Statue
+@resetText Dialogue
+@showPrinter Dialogue 
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: I need to focus.
+
+@goto .Label_Continue_Browsing_After_Statue
+@stop
+
+
+
+# Label_No_Statue
+
+@showPrinter Dialogue 
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+
+Noa: "No."
+
+@printer Bubble.Right !hideOther
+Beata: "I see!"
+Beata: "Would you like me to send you a list of 10 paintings that will make you fall in love with art?"
+
+
+@printer Dialogue !hideOther
+Noa: "..."
+Noa: "No."
+
+
+@goto .Label_Continue_Browsing_After_Statue
+@stop
+
+
+
+
+
+# Label_Not_This_Kind_Statue
+
+@showPrinter Dialogue 
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+
+Noa: "I would enjoy it more if the statue were naked."
+Noa: "You know, how it’s actually supposed to be."
+
+@printer Bubble.Right !hideOther
+Beata: "I see!"
+Beata: "Unfortunately, nudity violates Section 64 of the Online Safety Act."
+
+@printer Dialogue !hideOther
+Noa: "It’s a statue."
+Noa: "You know, back in my days, the web was a wild place."
+Noa: "And people didn’t faint at the sight of a naked statue."
+
+@printer Bubble.Right !hideOther
+Beata: "It’s good that those days are over, isn’t it?"
+Beata: "And everyone can feel safe!"
+
+@goto .Label_Continue_Browsing_After_Statue
+@stop
+
+
+
+
+
+
+
+
+# Label_Continue_Browsing_After_Statue
+; Beata disappears
+@printer Bubble.Right pos:150,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+
+
+
+# Label_Creepy_People_Picture_Clicked
+; clear the dialogue box text
+@resetText Dialogue
+@resetText Bubble
+
+; show dialogue box
+@onDialogueOpenedCommand
+
+
+@wait 1.5
+@printer Dialogue
+
+Noa: What am I even looking at?
+Noa: Regardless, it’s disgusting.
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@stop
+
+
+# Label_Naked_Woman_Picture_Clicked
+; clear the dialogue box text
+@resetText Dialogue
+@resetText Bubble 
+
+; show dialogue box
+@onDialogueOpenedCommand
+
+@wait 1.5
+@printer Dialogue
+Noa: Knowing how much money people pay Alex for photos, I’m sure this girl will be ecstatic to see this.
+
+; hide dialogue box
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@stop
+
+
+
+
+
+
+# Pick_Favorite_Website_Section
+
+this is a test to see if it works
+
+
+
+
+

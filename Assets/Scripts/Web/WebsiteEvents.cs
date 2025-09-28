@@ -9,11 +9,15 @@ public static class WebsiteEvents
     public delegate void WebsiteEventHandler(GameObject newWebsitePage);
     public delegate void WebsiteImageEventHandler(Sprite interactedImage);
 
+    public delegate void WebEventHandeler();
+
 
     //events that other scripts can subscribe to
     public static event WebsiteEventHandler OnWebsiteChange;
     public static event WebsiteImageEventHandler OnWebsiteImageChange;
-   
+
+    public static event WebEventHandeler OnPlayerClickedFavoritesButton;
+
 
 
 
@@ -23,7 +27,12 @@ public static class WebsiteEvents
     }
 
     public static void RaiseWebsiteImageChange(Sprite interactedImage)
-    { 
+    {
         OnWebsiteImageChange?.Invoke(interactedImage);
+    }
+    
+    public static void RaisePlayerClickedFavoritesButton()
+    {
+        OnPlayerClickedFavoritesButton?.Invoke();
     }
 }

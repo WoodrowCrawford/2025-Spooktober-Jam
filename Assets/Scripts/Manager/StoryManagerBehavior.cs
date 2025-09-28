@@ -1,6 +1,7 @@
 using UnityEngine;
 using Naninovel;
 using System;
+using Naninovel.Commands;
 
 // A manager class for handling story-related logic.
 public class StoryManagerBehavior : MonoBehaviour
@@ -9,6 +10,7 @@ public class StoryManagerBehavior : MonoBehaviour
     public delegate void StoryManagerHandler();
     public static event StoryManagerHandler OnPlayerReadAllArticles;
     public static event StoryManagerHandler OnPlayerCanDownloadSummerPhotos;
+    public static event StoryManagerHandler OnPlayerCanClickFavoritesButton;
 
     private int _currentChapter;
     private string _currentTask;
@@ -29,6 +31,11 @@ public class StoryManagerBehavior : MonoBehaviour
     public static bool HasInteractedWithFolder3Files = false;
     public static bool DownloadedSummerPhotos = false;
 
+    //Chapter 4 variables
+    public static bool HasInteractedWithStatueWithCode = false;
+    public static bool HasInteractedWithNakedWomanPicture = false;
+    public static bool HasInteractedWithCreepyPeoplePicture = false;
+
 
 
 
@@ -43,6 +50,11 @@ public class StoryManagerBehavior : MonoBehaviour
 
         IconBehavior.OnWebpageIconClicked += CheckIfPlayerCanHaveOptionToChangeWebsite;
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos += CheckIfPlayerCanDownloadSummerPhotos;
+
+        CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture += CheckIfPlayerHasInteractedWithAllCloverPictures;
+
+        WebsiteEvents.OnPlayerClickedFavoritesButton += PickWebsiteToOpen;
+
     }
 
 
@@ -57,6 +69,8 @@ public class StoryManagerBehavior : MonoBehaviour
 
         IconBehavior.OnWebpageIconClicked -= CheckIfPlayerCanHaveOptionToChangeWebsite;
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos -= CheckIfPlayerCanDownloadSummerPhotos;
+
+        CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture -= CheckIfPlayerHasInteractedWithAllCloverPictures;
     }
 
 
@@ -95,7 +109,7 @@ public class StoryManagerBehavior : MonoBehaviour
 
     public void CheckIfPlayerInteractedWithFolder3Files()
     {
-        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter ) &&
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter) &&
             customVariableManager.TryGetVariableValue<string>("currentTask", out _currentTask))
         {
             if (_currentChapter == 3 && !HasInteractedWithFolder3Files && _currentTask == "Interact with folder files" && Folder3AppBehavior.HasInteractedWithFolder3Files)
@@ -140,5 +154,31 @@ public class StoryManagerBehavior : MonoBehaviour
         }
     }
 
+    public void CheckIfPlayerHasInteractedWithAllCloverPictures()
+    {
+        if (HasInteractedWithStatueWithCode && HasInteractedWithNakedWomanPicture && HasInteractedWithCreepyPeoplePicture)
+        {
+            Debug.Log("Player has interacted with all clover pictures!");
+
+            //Fire an event to let the favorites tab on the web site to be clickable
+            OnPlayerCanClickFavoritesButton?.Invoke();
+
+        }
+
+
+    }
+    
+
+    public void PickWebsiteToOpen()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 4)
+            {
+                //play the dialogue where the player can choose to change website
+                scriptPlayer.LoadAndPlayAtLabel("Chapter4/Chapter4", "Pick_Favorite_Website_Section");
+            }
+        }
+    }
 }
 

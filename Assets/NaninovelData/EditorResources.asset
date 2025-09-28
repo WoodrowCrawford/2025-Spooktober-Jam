@@ -167,6 +167,9 @@ MonoBehaviour:
     - name: Chapter2/AIChangingLifeDialogue
       pathPrefix: Scripts
       guid: 0c113736f41254bd9b83d096ea6f1971
+    - name: Chapter4/Chapter4
+      pathPrefix: Scripts
+      guid: 704def8d9a74f4fc18751f7fa35b47c1
   - Id: Audio
     Resources:
     - name: Pc_Welcome_sfx

@@ -169,6 +169,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 0
+--- !u!1 &3926826313598371125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3855075151274148370}
+  - component: {fileID: 1117960743875444279}
+  - component: {fileID: 6476416720504615565}
+  m_Layer: 5
+  m_Name: FavoritesButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3855075151274148370
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926826313598371125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.191763, y: 0.10728, z: 0.10728}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6439979752398960267}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -64.10623, y: -3.519001}
+  m_SizeDelta: {x: 54.22363, y: 44.13535}
+  m_Pivot: {x: 1, y: 1}
+--- !u!222 &1117960743875444279
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926826313598371125}
+  m_CullTransparentMesh: 1
+--- !u!114 &6476416720504615565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926826313598371125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.5896226, b: 0.5896226, a: 0.5803922}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4165230433601478087, guid: 46518fd6304f9fd4699f570aa35f7c65, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6950487105449625462
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +353,7 @@ RectTransform:
   - {fileID: 9095137618537337866}
   - {fileID: 6314158920244325530}
   - {fileID: 8300295687377028841}
+  - {fileID: 3855075151274148370}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -335,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f7936e3fa25ea45b8c7d6ce6a1cbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WebBehavior
+  _uiCamera: {fileID: 0}
   _currentWebsite: {fileID: 0}
   previousWebsite: {fileID: 0}
   _veryThingWebsite: {fileID: 7575964553448847961}
@@ -346,6 +423,7 @@ MonoBehaviour:
   _previousPage: {fileID: 0}
   _backButton: {fileID: 413425834816519831}
   _exitButton: {fileID: 8575576941836778079}
+  _favoritesButton: {fileID: 3926826313598371125}
   _scrollView: {fileID: 7251626833652842861}
   _scrollBar: {fileID: 2261260767178619045}
   _isClicked: 0
@@ -689,8 +767,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2124297155193960850}
   m_HandleRect: {fileID: 5257918887225489508}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.45895857
+  m_Value: 1.0000001
+  m_Size: 0.45895854
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

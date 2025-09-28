@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
+    
+
     [Header("UI Camera")]
     [SerializeField] private Camera _uiCamera;
 
@@ -31,6 +33,8 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private GameObject _previousPage;
     [SerializeField] private GameObject _backButton;
     [SerializeField] private GameObject _exitButton;
+    [SerializeField] private GameObject _favoritesButton;
+
 
     [Header("Scroll Parameters")]
     [SerializeField] private GameObject _scrollView;
@@ -51,17 +55,23 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews += ChangeWebpageToSalvaVeritate;
+        OnOpenCloverCommand.OnOpenClover += ChangeWebpageToClover;
 
         //change this objects render camera to the Naninovel camera
         _uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
+
+        StoryManagerBehavior.OnPlayerCanClickFavoritesButton += EnableFavoritesButton;
     }
 
     void OnDisable()
     {
         WebsiteEvents.OnWebsiteChange -= ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews -= ChangeWebpageToSalvaVeritate;
+        OnOpenCloverCommand.OnOpenClover -= ChangeWebpageToClover;
 
         _uiCamera = null;
+
+        StoryManagerBehavior.OnPlayerCanClickFavoritesButton -= EnableFavoritesButton;
     }
 
 
@@ -87,6 +97,14 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 Debug.Log("No previous page to go back to");
             }
+        }
+
+        else if (eventData.pointerCurrentRaycast.gameObject == _favoritesButton)
+        {
+            Debug.Log("Favorites Button Clicked");
+
+            //fire an event to tell the story manager that the player clicked the favorites button
+            WebsiteEvents.RaisePlayerClickedFavoritesButton();
         }
 
 
@@ -136,6 +154,11 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             this.transform.position = this.transform.position;
             _timeHeldDown = 0f;
         }
+    }
+
+    public void EnableFavoritesButton()
+    {
+        _favoritesButton.SetActive(true);
     }
 
 
@@ -240,6 +263,30 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void ChangeWebpageToSalvaVeritate()
     {
         ChangeWebsite(_salvaVeritateWebsite);
+        _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+
+        //reset scrollbar to top
+        if (_scrollBar != null)
+        {
+            _scrollBar.value = 1f;
+        }
+    }
+
+    public void ChangeWebpageToChatter()
+    {
+        ChangeWebsite(_chatterWebsite);
+        _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+
+        //reset scrollbar to top
+        if (_scrollBar != null)
+        {
+            _scrollBar.value = 1f;
+        }
+    }
+
+    public void ChangeWebpageToClover()
+    {
+        ChangeWebsite(_cloverWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
 
         //reset scrollbar to top

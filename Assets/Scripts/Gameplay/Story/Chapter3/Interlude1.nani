@@ -318,13 +318,9 @@ Maurice: "Thanks, dude. You too."
 # Pick_Website_Section
 ; player is now in control and can pick the websites to visit
 
-; open dialogue box
-@showPrinter Dialogue
-@printer Dialogue
-@onDialogueOpenedCommand
 
 ; give the player the choice to pick either CLover or Chatter
-@choice "Go to Clover" handler:ButtonList 
+@choice "Go to Clover" handler:ButtonList goto:Chapter4/Chapter4.Label_Clover
 @choice "Go to Chatter" handler:ButtonList
 
 
