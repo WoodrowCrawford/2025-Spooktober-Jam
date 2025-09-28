@@ -189,6 +189,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a9fda977e2e8471c95585aee7acae19
+    m_Address: Naninovel/Scripts/Chapter6/Chapter6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7bf06fa813bb9c34daf521998fa72ab1
     m_Address: Naninovel/Spawn/Animate
     m_ReadOnly: 0

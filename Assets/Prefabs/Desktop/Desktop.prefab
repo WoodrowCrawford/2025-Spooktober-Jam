@@ -2348,6 +2348,7 @@ GameObject:
   - component: {fileID: 7358946548258737933}
   - component: {fileID: 246629460923261738}
   - component: {fileID: 5110111073194236357}
+  - component: {fileID: 4882382850530386446}
   m_Layer: 5
   m_Name: ChatIconTaskbar
   m_TagString: Untagged
@@ -2426,6 +2427,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChatIconTaskbarBehavior
   _unreadIcon: {fileID: -5958875034722781445, guid: feb6d6676a71f1f4ab1357a6e2c20ad7, type: 3}
   _newMessageIcon: {fileID: -8397151441765387532, guid: 4d52e6576eb98a5429add220a89b9cb3, type: 3}
+--- !u!114 &4882382850530386446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725714708850141613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23df0dda6de9d544996ceffeb9e37729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconBehavior
+  _hoverColor: {r: 0.8274511, g: 0.8274511, b: 0.8274511, a: 1}
+  _clickedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _timeHeldDown: 0
+  _uiCamera: {fileID: 0}
+  _isClicked: 0
+  _isDraggable: 0
 --- !u!1 &3751263994968423694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4922,6 +4941,14 @@ PrefabInstance:
     - target: {fileID: 8068154502823465384, guid: e75a773393d1d4b69ba5d3c99e9ab682, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288695799655064495, guid: e75a773393d1d4b69ba5d3c99e9ab682, type: 3}
+      propertyPath: _currentWebsite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288695799655064495, guid: e75a773393d1d4b69ba5d3c99e9ab682, type: 3}
+      propertyPath: previousWebsite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

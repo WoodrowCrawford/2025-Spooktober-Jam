@@ -25,7 +25,7 @@ MonoBehaviour:
   StableIdentification: 0
   InitializationScript: 
   TitleScript: 
-  StartGameScript: Chapter3/Interlude1
+  StartGameScript: StoryScript
   AutoAddScripts: 1
   AutoResolvePath: 1
   HotReloadScripts: 1

@@ -279,6 +279,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         ChangeWebsite(_salvaVeritateWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+        _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
 
         //reset scrollbar to top
         if (_scrollBar != null)
@@ -291,6 +292,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         ChangeWebsite(_chatterWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+        _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
 
         //reset scrollbar to top
         if (_scrollBar != null)
@@ -303,6 +305,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         ChangeWebsite(_cloverWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+        _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
 
         //reset scrollbar to top
         if (_scrollBar != null)

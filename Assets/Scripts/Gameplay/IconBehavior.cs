@@ -169,6 +169,12 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         {
             OnPlayerWantsToDownloadSummerPhotos?.Invoke();
         }
+
+        else if(gameObject.name == "ChatIconTaskbar")
+        {
+            Debug.Log("Chat Icon Clicked, open chat app");
+            OnChatIconClicked?.Invoke();
+        }
     
     }
 

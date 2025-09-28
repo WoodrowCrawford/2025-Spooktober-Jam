@@ -33,6 +33,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject _callApp;
     [SerializeField] private GameObject _archivesApp;
 
+
+
     [Header("Summer Photos Folder App")]
     [SerializeField] private GameObject _summerPhotosFolderApp;
     [SerializeField] private Sprite _enterPasswordImage;
@@ -166,14 +168,14 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
                 _verificationPopUp.gameObject.SetActive(false);
                 _canCloseVerificationPopUp = false;
                 OnVerificationPopUpClosed?.Invoke();
-                
+
             }
             else
             {
                 Debug.Log("Player cannot close the verification pop up yet");
             }
 
-           
+
         }
 
         else if (eventData.pointerCurrentRaycast.gameObject == _uploadPhotoButton.gameObject)
@@ -181,6 +183,21 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
             //fire an event that the player wants to upload their ID photo
             Debug.Log("Player wants to upload their ID photo");
             OnPlayerWantsToUploadIDPhoto?.Invoke();
+        }
+        
+    
+
+        else if (eventData.pointerCurrentRaycast.gameObject == _alertPopup.gameObject)
+        {
+            //if the player can close the pop up, close it
+            if (_canClosePopUp)
+            {
+                HideErrorPopUp();
+            }
+            else
+            {
+                Debug.Log("Player cannot close the pop up yet");
+            }
         }
     }
 

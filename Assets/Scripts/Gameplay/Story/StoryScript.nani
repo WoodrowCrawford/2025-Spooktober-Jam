@@ -63,8 +63,9 @@ Noa: Alright, let’s see what horrors awoke while I was out.
 ;;;; SALVA VERITATE SECTION ;;;
 
 ; web browser is already open on desktop
-@onOpenWebCommand
+
 @onOpenNewsCommand
+@onOpenWebCommand
 
 @wait 2
 
