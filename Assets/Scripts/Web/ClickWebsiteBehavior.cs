@@ -28,6 +28,7 @@ public class ClickWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         if (eventData.pointerCurrentRaycast.gameObject == _clickPost1Button.gameObject)
         {
             WebsiteEvents.RaiseWebsiteImageChange(_clickPost1Image);
+            WebsiteEvents.RaisePlayerClickedClickPost1();
         }
 
         // Change the image on the main page to clover image 1
@@ -35,12 +36,14 @@ public class ClickWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Clover Image 2 Button Clicked");
             WebsiteEvents.RaiseWebsiteImageChange(_clickPost2Image);
+            WebsiteEvents.RaisePlayerClickedClickPost2();
         }
 
         //if the clover image 3 button is clicked
         else if (eventData.pointerCurrentRaycast.gameObject == _clickPost3Button.gameObject)
         {
             WebsiteEvents.RaiseWebsiteImageChange(_clickPost3Image);
+            WebsiteEvents.RaisePlayerClickedClickPost3();
         }
     }
 }

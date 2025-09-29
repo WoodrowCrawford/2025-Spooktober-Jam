@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Naninovel
   m_GUID: 5add7b07f5bf94dd9a7dce9da678e94e
   m_SerializeEntries:
+  - m_GUID: 0197486762e2e4ef290b0bf6a8df2084
+    m_Address: Naninovel/Audio/LoudKnock_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07c16da6e281246e3bcfd03ba6d1d85b
     m_Address: Naninovel/UI/Desktop
     m_ReadOnly: 0
@@ -27,14 +33,32 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0dcc58622b2df41f183729487d7bfebb
+    m_Address: Naninovel/Audio/8_glitch_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e61df696cabbea448510879ee732b00
     m_Address: Naninovel/ChoiceHandlers/ChatReply
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e77bcb9b6d514e859a2d46dd382cb09
+    m_Address: Naninovel/Audio/11_glitch_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1224d69e1592d624cbde93d0f7383d91
     m_Address: Naninovel/Spawn/ShakeCharacter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15195fc671e6e4fc69ce7a288b3e0d5a
+    m_Address: Naninovel/Audio/PC_smash_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -63,6 +87,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d224cb85f5654d26a0a57c1133f7733
+    m_Address: Naninovel/Audio/MouseClick_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f4a15feeac784099811d0844e671f38
     m_Address: Naninovel/Scripts/Chapter2/NewSchoolDialogue
     m_ReadOnly: 0
@@ -75,8 +105,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 267856a1bd79a44b09ad5c0676def1ce
-    m_Address: Naninovel/Audio/Popup_alert_sfx
+  - m_GUID: 2457a85559aa047c29f27ac43a2bf861
+    m_Address: Naninovel/Audio/creppy_line_2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -87,8 +117,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2a5ac108db33b4f4cba252a59bc35d6a
-    m_Address: Naninovel/Audio/glitch_2_sfx
+  - m_GUID: 2d39556f9ae194855a4eb0f8eee97210
+    m_Address: Naninovel/Audio/6_glitch_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -101,6 +131,24 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39f1ca1dc814e4590acedf3e4885e693
     m_Address: Naninovel/TextPrinters/FriendDialogue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3800bee2b7d40c9833801488869c82
+    m_Address: Naninovel/Audio/3_HappyPop_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d8a6708c55b6452c988cdcc7f87c4f9
+    m_Address: Naninovel/Audio/packing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f0b71d498511463faad55263b8efb0d
+    m_Address: Naninovel/Audio/1_walk_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -135,6 +183,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5763527e397b548b593c231557fff997
+    m_Address: Naninovel/Scripts/Chapter7/Chapter7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aa7ecf376c6b42b380e51438e0e0467
+    m_Address: Naninovel/Audio/Police_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e76ce05a4d08456493ff206221e997a
+    m_Address: Naninovel/Audio/2_Notification_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65c37f59e9b266f468dd5381fdc03fc3
     m_Address: Naninovel/UI/SettingsUI
     m_ReadOnly: 0
@@ -143,6 +209,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 671ceb4f549ddf046913d7debf113469
     m_Address: Naninovel/UI/ExternalScriptsUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b928526f24894646bbb8199b5b29c86
+    m_Address: Naninovel/Audio/4_glitch_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -177,6 +249,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71ea2fa950e9c42d3a791d3400e35161
+    m_Address: Naninovel/Audio/Popup_alert_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72b49654d564b4f6badb2299f82bfeab
+    m_Address: Naninovel/Audio/9_glitch_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 735d6aa767879aa469134858c5b2f0a7
     m_Address: Naninovel/UI/ScriptNavigatorUI
     m_ReadOnly: 0
@@ -201,6 +285,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f590823453bc4668b28c1a7bb047d80
+    m_Address: Naninovel/Audio/7_glitch_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fba909c66b25324cb77db18679c2c96
     m_Address: Naninovel/UI/BacklogUI
     m_ReadOnly: 0
@@ -213,14 +303,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8aaae49970337455e8ac7b4752cc8896
-    m_Address: Naninovel/Voice/Chapter3/Interlude1/~4cc3a794
+  - m_GUID: 8d53726b3d08433479398f02b4780e7f
+    m_Address: Naninovel/UI/SaveLoadUI
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d53726b3d08433479398f02b4780e7f
-    m_Address: Naninovel/UI/SaveLoadUI
+  - m_GUID: 9a1460dba06ac49638bc55f2c86ee82b
+    m_Address: Naninovel/Audio/10_glitch_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -237,14 +327,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a223c4ce58a464cccad497e4c1e0cda3
+    m_Address: Naninovel/UI/Glitch2Screen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a32c73a3aff4b274c85b3ff16c854b07
     m_Address: Naninovel/UI/RollbackUI
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a79e8daf9b2204276ab9f5bd20624df1
-    m_Address: Naninovel/Audio/glitch_1_sfx
+  - m_GUID: a36d0edd5f1284b1789e29e72846a778
+    m_Address: Naninovel/UI/Glitch1Screen
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -261,8 +357,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b4cb20ee8098c41669ca90cb479f4269
-    m_Address: Naninovel/Audio/dog_bark_sfx
+  - m_GUID: b9e7c80248b24470fa0e26b6b67038b8
+    m_Address: Naninovel/Audio/2_glitch_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -279,6 +375,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: beda3b78a6dcd4da6b99a56477e4ddf4
+    m_Address: Naninovel/Audio/1_glitch_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf332ed1600bd49c3878ef95ce4ca932
+    m_Address: Naninovel/UI/BeataJumpscare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf8ced7437fce4979939d459da812016
+    m_Address: Naninovel/TextPrinters/BeataNoBubble
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bf810b9b6cc9f44a58fd670678ded4
     m_Address: Naninovel/Spawn/SunShafts
     m_ReadOnly: 0
@@ -291,20 +405,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c55806e2c038a4fc792e691702b54d1a
+    m_Address: Naninovel/Audio/dog_bark_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c87cebd3f0d4f174789cd351ce9591c4
     m_Address: Naninovel/TextPrinters/Fullscreen
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca8f9406d059341a6952e17df6b6a9ac
-    m_Address: Naninovel/Audio/Pc_hum_sfx
+  - m_GUID: d5416cb38284e46be95f1354706fadd2
+    m_Address: Naninovel/Audio/Pc_Welcome_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cb25a2545d6914451859bddef8e37499
-    m_Address: Naninovel/Audio/Pc_Welcome_sfx
+  - m_GUID: dbeb088fa930d46169bd628a4a17043b
+    m_Address: Naninovel/Audio/Pc_hum_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -315,8 +435,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: df94db46eba6f4f8bb971d519d0af159
-    m_Address: Naninovel/Audio/Notification_sfx
+  - m_GUID: e39416a93488d478197ab6c5ca5833b9
+    m_Address: Naninovel/Audio/3_glitch_sfx
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
@@ -339,14 +459,38 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f43a8860aab93454baf971fcddaf620a
+    m_Address: Naninovel/Audio/5_glitch_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f522180d8bb4a4851965f09153b9cc89
+    m_Address: Naninovel/Audio/Main_theme
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5aae572225ee1b4c96d1a17fc5cb073
     m_Address: Naninovel/UI/TipsUI
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f68f1f9c6ab3e4ddab7c17a90fbb6bc4
+    m_Address: Naninovel/Audio/Corrupted_theme
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9a211517d1cb1a44964dc2254463049
     m_Address: Naninovel/UI/MovieUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb0e8eaa706a7421d9e104376b95ae2b
+    m_Address: Naninovel/Audio/Menu_theme
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel

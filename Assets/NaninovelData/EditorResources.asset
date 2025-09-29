@@ -150,6 +150,15 @@ MonoBehaviour:
     - name: WelcomeScreen
       pathPrefix: UI
       guid: c4fc650bbbda24301b9e9ef7be90b4c8
+    - name: Glitch1Screen
+      pathPrefix: UI
+      guid: a36d0edd5f1284b1789e29e72846a778
+    - name: Glitch2Screen
+      pathPrefix: UI
+      guid: a223c4ce58a464cccad497e4c1e0cda3
+    - name: BeataJumpscare
+      pathPrefix: UI
+      guid: bf332ed1600bd49c3878ef95ce4ca932
   - Id: Scripts
     Resources:
     - name: StoryScript
@@ -176,29 +185,92 @@ MonoBehaviour:
     - name: Chapter6/Chapter6
       pathPrefix: Scripts
       guid: 7a9fda977e2e8471c95585aee7acae19
+    - name: Chapter7/Chapter7
+      pathPrefix: Scripts
+      guid: 5763527e397b548b593c231557fff997
   - Id: Audio
     Resources:
-    - name: Pc_Welcome_sfx
+    - name: 1_glitch_sfx
       pathPrefix: Audio
-      guid: cb25a2545d6914451859bddef8e37499
-    - name: Pc_hum_sfx
+      guid: beda3b78a6dcd4da6b99a56477e4ddf4
+    - name: 1_walk_sfx
       pathPrefix: Audio
-      guid: ca8f9406d059341a6952e17df6b6a9ac
-    - name: Notification_sfx
+      guid: 3f0b71d498511463faad55263b8efb0d
+    - name: 2_glitch_sfx
       pathPrefix: Audio
-      guid: df94db46eba6f4f8bb971d519d0af159
+      guid: b9e7c80248b24470fa0e26b6b67038b8
+    - name: 2_Notification_sfx
+      pathPrefix: Audio
+      guid: 5e76ce05a4d08456493ff206221e997a
+    - name: 3_glitch_sfx
+      pathPrefix: Audio
+      guid: e39416a93488d478197ab6c5ca5833b9
+    - name: 3_HappyPop_sfx
+      pathPrefix: Audio
+      guid: 3a3800bee2b7d40c9833801488869c82
+    - name: 4_glitch_sfx
+      pathPrefix: Audio
+      guid: 6b928526f24894646bbb8199b5b29c86
+    - name: 5_glitch_sfx
+      pathPrefix: Audio
+      guid: f43a8860aab93454baf971fcddaf620a
+    - name: 6_glitch_sfx
+      pathPrefix: Audio
+      guid: 2d39556f9ae194855a4eb0f8eee97210
+    - name: 7_glitch_sfx
+      pathPrefix: Audio
+      guid: 7f590823453bc4668b28c1a7bb047d80
+    - name: 8_glitch_sfx
+      pathPrefix: Audio
+      guid: 0dcc58622b2df41f183729487d7bfebb
+    - name: 9_glitch_sfx
+      pathPrefix: Audio
+      guid: 72b49654d564b4f6badb2299f82bfeab
+    - name: 10_glitch_sfx
+      pathPrefix: Audio
+      guid: 9a1460dba06ac49638bc55f2c86ee82b
+    - name: 11_glitch_sfx
+      pathPrefix: Audio
+      guid: 0e77bcb9b6d514e859a2d46dd382cb09
     - name: dog_bark_sfx
       pathPrefix: Audio
-      guid: b4cb20ee8098c41669ca90cb479f4269
-    - name: glitch_1_sfx
+      guid: c55806e2c038a4fc792e691702b54d1a
+    - name: LoudKnock_sfx
       pathPrefix: Audio
-      guid: a79e8daf9b2204276ab9f5bd20624df1
-    - name: glitch_2_sfx
+      guid: 0197486762e2e4ef290b0bf6a8df2084
+    - name: MouseClick_sfx
       pathPrefix: Audio
-      guid: 2a5ac108db33b4f4cba252a59bc35d6a
+      guid: 1d224cb85f5654d26a0a57c1133f7733
+    - name: packing
+      pathPrefix: Audio
+      guid: 3d8a6708c55b6452c988cdcc7f87c4f9
+    - name: Pc_hum_sfx
+      pathPrefix: Audio
+      guid: dbeb088fa930d46169bd628a4a17043b
+    - name: PC_smash_sfx
+      pathPrefix: Audio
+      guid: 15195fc671e6e4fc69ce7a288b3e0d5a
+    - name: Pc_Welcome_sfx
+      pathPrefix: Audio
+      guid: d5416cb38284e46be95f1354706fadd2
+    - name: Police_sfx
+      pathPrefix: Audio
+      guid: 5aa7ecf376c6b42b380e51438e0e0467
     - name: Popup_alert_sfx
       pathPrefix: Audio
-      guid: 267856a1bd79a44b09ad5c0676def1ce
+      guid: 71ea2fa950e9c42d3a791d3400e35161
+    - name: Menu_theme
+      pathPrefix: Audio
+      guid: fb0e8eaa706a7421d9e104376b95ae2b
+    - name: Corrupted_theme
+      pathPrefix: Audio
+      guid: f68f1f9c6ab3e4ddab7c17a90fbb6bc4
+    - name: Main_theme
+      pathPrefix: Audio
+      guid: f522180d8bb4a4851965f09153b9cc89
+    - name: creppy_line_2
+      pathPrefix: Audio
+      guid: 2457a85559aa047c29f27ac43a2bf861
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7
     Resources: []
   - Id: Movies
@@ -209,12 +281,14 @@ MonoBehaviour:
       pathPrefix: TextPrinters
       guid: b47d9659b2be5ee4e95a776f213c9d4b
   - Id: Voice
-    Resources:
-    - name: Chapter3/Interlude1/~4cc3a794
-      pathPrefix: Voice
-      guid: 8aaae49970337455e8ac7b4752cc8896
+    Resources: []
   - Id: TextPrinters/bad71a1c-0364-4498-9db7-dd7fd25b7dc2
     Resources:
     - name: FriendDialogue
       pathPrefix: TextPrinters
       guid: 39f1ca1dc814e4590acedf3e4885e693
+  - Id: TextPrinters/27bd874a-4add-4ab9-a8a7-2546861e8fc1
+    Resources:
+    - name: BeataNoBubble
+      pathPrefix: TextPrinters
+      guid: bf8ced7437fce4979939d459da812016

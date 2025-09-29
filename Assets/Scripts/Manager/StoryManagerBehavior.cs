@@ -41,6 +41,15 @@ public class StoryManagerBehavior : MonoBehaviour
     //Chapter 5 variables
     public static bool PlayerIsContinueBrowsingChatter = false;
 
+    //Chapter 7 variables
+    public static bool PlayerHasInteractedWithVeryThingFoundPage = false;
+    public static bool PlayerHasInteractedWithVeryThingTheoryPage = false;
+    public static bool PlayerHasInteractedWithVeryThingControlPage = false;
+
+    public static bool PlayerHasInteractedWithClickPost1 = false;
+    public static bool PlayerHasInteractedWithClickPost2 = false;
+    public static bool PlayerHasInteractedWithClickPost3 = false;
+
 
 
     void OnEnable()
@@ -56,11 +65,19 @@ public class StoryManagerBehavior : MonoBehaviour
 
         IconBehavior.OnWebpageIconClicked += CheckIfPlayerCanHaveOptionToChangeWebsite;
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos += CheckIfPlayerCanDownloadSummerPhotos;
+        IconBehavior.OnChatIconClicked += StartChapter6;
 
 
         CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture += CheckIfPlayerHasInteractedWithAllCloverPictures;
 
         WebsiteEvents.OnPlayerClickedFavoritesButton += PickWebsiteToOpen;
+        WebsiteEvents.OnPlayerClickedFoundThingPageButton += PlayChapter7VeryThingFoundPage;
+        WebsiteEvents.OnPlayerClickedTheoryPageButton += PlayChapter7VeryThingTheoryPage;
+        WebsiteEvents.OnPlayerClickedGovernmentPageButton += PlayChapter7VeryThingControlPage;
+
+        WebsiteEvents.OnPlayerClickedClickPost1 += PlayChapter7VeryThingClickPost1;
+        WebsiteEvents.OnPlayerClickedClickPost2 += PlayChapter7VeryThingClickPost2;
+        WebsiteEvents.OnPlayerClickedClickPost3 += PlayChapter7VeryThingClickPost3;
 
     }
 
@@ -78,8 +95,14 @@ public class StoryManagerBehavior : MonoBehaviour
 
         IconBehavior.OnWebpageIconClicked -= CheckIfPlayerCanHaveOptionToChangeWebsite;
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos -= CheckIfPlayerCanDownloadSummerPhotos;
+        IconBehavior.OnChatIconClicked -= StartChapter6;
 
         CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture -= CheckIfPlayerHasInteractedWithAllCloverPictures;
+
+        WebsiteEvents.OnPlayerClickedFavoritesButton -= PickWebsiteToOpen;
+        WebsiteEvents.OnPlayerClickedFoundThingPageButton -= PlayChapter7VeryThingFoundPage;
+        WebsiteEvents.OnPlayerClickedTheoryPageButton -= PlayChapter7VeryThingTheoryPage;
+        WebsiteEvents.OnPlayerClickedGovernmentPageButton -= PlayChapter7VeryThingControlPage;
     }
 
 
@@ -194,7 +217,21 @@ public class StoryManagerBehavior : MonoBehaviour
                 Debug.Log("Player clicked favorites button in chapter 5, give chat icon notification");
                 //fire an event to give the chat icon a notification
                 OnStoryWantsToGiveChatIconNotification?.Invoke();
-                
+
+
+
+                customVariableManager.SetVariableValue("currentTask", new("Read notification from chat app"));
+
+            }
+
+            else if (_currentChapter == 7)
+            {
+                //play the dialogue where the player can choose to change website
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Pick_Favorite_Website_Section_7");
+            }
+            else
+            {
+                Debug.Log("Player clicked favorites button but nothing happens");
             }
         }
     }
@@ -207,7 +244,7 @@ public class StoryManagerBehavior : MonoBehaviour
             scriptPlayer.LoadAndPlayAtLabel("Chapter5/Chapter5", "Upload_ID_Photo_Section");
         }
     }
-    
+
     public void PlayPhotoIDDialogueCompleteLabel()
     {
         if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
@@ -219,5 +256,112 @@ public class StoryManagerBehavior : MonoBehaviour
             }
         }
     }
-}
 
+    public void StartChapter6()
+    {
+        //check if the player is in chapter 5 and the task is to read notification
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter) &&
+            customVariableManager.TryGetVariableValue<string>("currentTask", out _currentTask))
+        {
+            if (_currentChapter == 5 && _currentTask == "Read notification from chat app")
+            {
+                Debug.Log("Player clicked chat icon in chapter 5, start chapter 6");
+
+                //play chapter 6
+                scriptPlayer.LoadAndPlay("Chapter6/Chapter6");
+            }
+        }
+    }
+
+    public void PlayChapter7VeryThingFoundPage()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 7 && !PlayerHasInteractedWithVeryThingFoundPage)
+            {
+                Debug.Log("Play chapter 7 found thing interlude");
+
+                //play chapter 7 found thing interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Found_Thing_Page");
+                PlayerHasInteractedWithVeryThingFoundPage = true;
+            }
+
+
+        }
+    }
+
+    public void PlayChapter7VeryThingTheoryPage()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 7 && !PlayerHasInteractedWithVeryThingTheoryPage)
+            {
+                Debug.Log("Play chapter 7 theory page interlude");
+
+                //play chapter 7 theory page interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Theory_Page");
+                PlayerHasInteractedWithVeryThingTheoryPage = true;
+            }
+        }
+    }
+
+    public void PlayChapter7VeryThingControlPage()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 7)
+            {
+                Debug.Log("Play chapter 7 control page interlude");
+
+                //play chapter 7 control page interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Control_Page");
+            }
+        }
+    }
+
+
+    public void PlayChapter7VeryThingClickPost1()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 7 && !PlayerHasInteractedWithClickPost1)
+            {
+                Debug.Log("Play chapter 7 click post 1 interlude");
+
+                //play chapter 7 click post 1 interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Click_Post_1");
+                PlayerHasInteractedWithClickPost1 = true;
+            }
+        }
+    }
+
+    public void PlayChapter7VeryThingClickPost2()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 7 && !PlayerHasInteractedWithClickPost2)
+            {
+                Debug.Log("Play chapter 7 click post 2 interlude");
+
+                //play chapter 7 click post 2 interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Click_Post_2");
+                PlayerHasInteractedWithClickPost2 = true;
+            }
+        }
+    }
+
+    public void PlayChapter7VeryThingClickPost3()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 7 && !PlayerHasInteractedWithClickPost3)
+            {
+                Debug.Log("Play chapter 7 click post 3 interlude");
+
+                //play chapter 7 click post 3 interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Click_Post_3");
+                PlayerHasInteractedWithClickPost3 = true;
+            }
+        }
+    }
+}

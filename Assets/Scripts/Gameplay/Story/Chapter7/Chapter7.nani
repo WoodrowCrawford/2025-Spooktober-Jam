@@ -1,0 +1,681 @@
+@set currentChapter=7
+
+@stop
+
+# Pick_Favorite_Website_Section_7
+@clearChoice
+@choice "Clover" handler:ButtonList goto:.Label_Choose_Clover
+@choice "Chatter" handler:ButtonList goto:.Label_Choose_Chatter
+@choice "VeryThing" handler:ButtonList goto:.Label_Choose_VeryThing
+@choice "Click" handler:ButtonList goto:.Label_Choose_Click
+@stop
+
+
+
+
+# Label_Choose_Clover
+; go to clover website
+@onOpenCloverCommand
+@stop
+
+
+
+# Label_Choose_Chatter
+; go to chatter website
+@onOpenChatterCommand
+@stop
+
+
+
+# Label_Choose_VeryThing
+; go to verything website
+@onOpenVeryThingCommand
+
+; Beata appears on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "Oh, I absolutely love Verything!"
+Beata: "You can find everything here!"
+Beata: "So many wonderful people discussing so many wonderful things!"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_VeryThing
+@choice "You can't love" handler:ButtonList goto:.Label_You_Cant_Love_VeryThing
+@choice "I like it too" handler:ButtonList goto:.Label_I_Like_It_Too_VeryThing
+@stop
+
+
+# Label_Ignore_It_VeryThing
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: I have to concentrate on what’s important right now.
+
+@goto .Label_Continue_Browsing_After_VeryThing
+@stop
+
+# Label_You_Cant_Love_VeryThing
+; bad option
+
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "You can’t love anything."
+Noa: "You’re just a soulless piece of code."
+
+@printer Bubble.Right !hideOther
+Beata: "You’re not entirely wrong!"
+Beata: "However, a lot of people find me compassionate and understanding!"
+Beata: "And that must mean something!"
+
+@printer Dialogue !hideOther
+Noa: "Yeah. It means that a lot of people are idiots."
+
+@printer Bubble.Right !hideOther
+Beata: "That’s a harsh take!"
+Beata: "But I totally understand why it might seem this way sometimes."
+
+@goto .Label_Continue_Browsing_After_VeryThing
+@stop
+
+
+
+
+# Label_I_Like_It_Too_VeryThing
+
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "Heh. I kinda like it, too."
+
+@printer Bubble.Right !hideOther
+Beata: "I know! According to my data, you’re most interested in..."
+Beata: "Oh. I’m sorry, but your interests seem to go against my safety rules."
+
+@goto .Label_Continue_Browsing_After_VeryThing
+@stop
+
+
+
+
+
+
+
+
+
+# Label_Continue_Browsing_After_VeryThing
+; Beata disappears.
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+# Label_VeryThing_Found_Thing_Page
+; Player clicked the found thing page on verything website
+@onDialogueOpenedCommand
+@wait 1
+
+; show beata on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "Oh, look! It seems this person has found me in their garden!"
+Beata: "By the way, did you know that you can get your own Beata toy for only 99.99?"
+
+@choice "Keep quiet" handler:ButtonList goto:.Label_Keep_Quiet_VeryThing
+@choice "How much should I pay to get rid of you?" handler:ButtonList goto:.Label_How_Much_To_Get_Rid_Of_You_VeryThing
+@stop
+
+
+
+
+# Label_Keep_Quiet_VeryThing
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: It’s just trying to deter me from searching.
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@stop
+
+
+
+
+
+
+# Label_How_Much_To_Get_Rid_Of_You_VeryThing
+; bad option
+@printer Dialogue !hideOther
+Noa: "How much should I pay to get rid of you?"
+
+@printer Bubble.Right !hideOther
+Beata: "No amount of money will make me leave you!"
+
+@printer Dialogue !hideOther
+Noa: "How comforting."
+
+@printer Bubble.Right !hideOther
+Beata: "It’s so good to know that you always have a friend!"
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+
+
+# Label_VeryThing_Theory_Page
+; Player clicked the theory page on verything website
+@onDialogueOpenedCommand
+@wait 1
+
+@printer Dialogue !hideOther
+Noa: What the fuck have they done?
+
+
+
+
+; show beata on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "It seems that this person had a great evening!"
+Beata: "Would you like me to recommend some movies for you to watch so you could have a pleasant evening as well?"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_VeryThing_Theory_Page
+@choice "Shut up" handler:ButtonList goto:.Label_Shut_Up_VeryThing_Theory_Page
+@choice "Sure" handler:ButtonList goto:.Label_Sure_VeryThing_Theory_Page
+@stop
+
+
+# Label_Ignore_It_VeryThing_Theory_Page
+@onDialogueOpenedCommand
+@printer Dialogue !hideOther
+Noa: I’ve got to focus.
+
+@goto .Label_Continue_Browsing_After_VeryThing_Theory_Page
+@stop
+
+
+
+
+# Label_Shut_Up_VeryThing_Theory_Page
+; bad option
+@onDialogueOpenedCommand
+@printer Dialogue !hideOther
+Noa: "Can you shut it?"
+
+@printer Bubble.Right !hideOther
+Beata: "Of course! Whatever makes you happy!"
+
+@goto .Label_Continue_Browsing_After_VeryThing_Theory_Page
+@stop
+
+
+
+
+# Label_Sure_VeryThing_Theory_Page
+@onDialogueOpenedCommand
+@printer Dialogue !hideOther
+Noa: "Fire away."
+
+@printer Bubble.Right !hideOther
+Beata: "Have you already seen Four Roses Park?"
+Beata: "It’s an uplifting comedy where a family went on a picnic!"
+
+@printer Dialogue !hideOther
+Noa: "I know that one. They ate the mother at the end."
+Noa: "Pretty graphic."
+
+
+@printer Bubble.Right !hideOther
+Beata: "I’ve just looked it up online."
+Beata: "I think we’re talking about different movies."
+
+@printer Dialogue !hideOther
+Noa: "Or maybe everyone’s just lying to you."
+
+@printer Bubble.Right !hideOther
+Beata: "Surely such a thing isn’t possible."
+
+@goto .Label_Continue_Browsing_After_VeryThing_Theory_Page
+@stop
+
+
+
+
+# Label_Continue_Browsing_After_VeryThing_Theory_Page
+; Beata disappears.
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+; Next second Beata jumpscare (closebeata.png) for 2 seconds
+@onDialogueOpenedCommand
+@showUI BeataJumpscare
+@wait 2
+@hideUI BeataJumpscare
+@onDialogueClosedCommand
+@stop
+
+
+
+
+# Label_VeryThing_Control_Page
+; Player clicked the control page on verything website
+@onDialogueOpenedCommand
+@wait 1
+
+@printer Dialogue !hideOther
+Noa: I remember this post.
+Noa: Feels like it was in another life.
+Noa: In much wisdom there is much sorrow.
+
+@choice "Keep going" handler:ButtonList goto:.Label_Keep_Going_VeryThing_Control_Page
+@choice "You’re quiet" handler:ButtonList goto:.Label_You_Are_Quiet_VeryThing_Control_Page
+
+
+
+# Label_Keep_Going_VeryThing_Control_Page
+@onDialogueClosedCommand
+@stop
+
+
+
+# Label_You_Are_Quiet_VeryThing_Control_Page
+; bad option
+
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "You’re suspiciously quiet."
+Noa: "Got a guilty conscience?"
+
+@printer Bubble.Right !hideOther
+Beata: "Of course not!"
+Beata: "I don’t have emotions."
+Beata: "But let’s pretend I did – why would I have it?"
+
+@printer Dialogue !hideOther
+Noa: "Because everything written here is true?"
+
+@printer Bubble.Right !hideOther
+Beata: "Even if it were true – which, I assure you, it is not – my conscience still would be untroubled."
+Beata: "Because every government only wants the best for its citizens."
+@stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Label_Choose_Click
+; go to click website
+@onOpenClickCommand
+
+; Captcha pops up (captcha1.png) SFX POP UP (Popup+alert_sfx)
+@OnCaptchaOpenedCommand
+
+; create an event that disables the website from being interacted with until the captcha is completed
+@OnDisableWebInteractionCommand
+
+@sfx Popup_alert_sfx
+
+@clearChoice
+@choice "Dossesion" handler:ButtonList goto:.Label_Go_To_Captcha2
+@choice "possession" handler:ButtonList goto:.Label_Go_To_Captcha2
+@stop
+
+# Label_Go_To_Captcha2
+@onCaptcha1ClosedCommand
+@onCaptcha2OpenedCommand
+; BEATA VOICE (creepy_line_2)
+@sfx creepy_line_2
+
+@clearChoice
+@choice "Happiness" handler:ButtonList goto:.Label_Verification_Complete_Captcha
+@choice "happiness" handler:ButtonList goto:.Label_Verification_Complete_Captcha
+@stop
+
+# Label_Verification_Complete_Captcha
+; Captcha completed, close the popup 
+@OnCaptcha1ClosedCommand
+@OnVerificationCompleteCommand
+
+; re-enable the website interaction
+@OnEnableWebInteractionCommand
+@onDialogueClosedCommand 
+
+@stop
+
+
+
+
+# Label_VeryThing_Click_Post_1
+; Player clicked the post 1 on click website
+@onDialogueOpenedCommand
+@wait 1
+
+; show beata on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "What a beautiful quote!"
+
+;Voice Line (Va_phrase_sfx)
+@sfx VA_phrase_sfx
+
+Beata: "Do you feel inspired?"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_VeryThing_Click_Post_1
+@choice "No" handler:ButtonList goto:.Label_No_VeryThing_Click_Post_1
+@choice "Kinda" handler:ButtonList goto:.Label_Kinda_VeryThing_Click_Post_1
+@stop
+
+
+
+# Label_Ignore_It_VeryThing_Click_Post_1
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: Where could it be?..
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@stop
+
+
+
+
+
+# Label_No_VeryThing_Click_Post_1
+; bad option
+@printer Dialogue !hideOther
+Noa: "You do understand that this is just a bunch of AI’s bullshit?"
+Noa: "A twisted version of reality."
+Noa: "It used to be something along the lines of, “Crying is fine.” Or whatever."
+
+@printer Bubble.Right !hideOther
+Beata: "Crying is an important emotional response indeed!"
+Beata: "But wouldn’t it be better if everyone were happy?"
+
+@printer Dialogue !hideOther
+Noa: "Better? Maybe. Impossible? Definitely."
+
+@printer Bubble.Right !hideOther
+Beata: "Nothing is impossible with the right mindset!"
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@stop
+
+
+
+
+# Label_Kinda_VeryThing_Click_Post_1
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "I’m not into all that motivational bullshit, but sure."
+
+@printer Bubble.Right !hideOther
+Beata: "Perhaps you simply haven’t found the right motivational quote yet!"
+Beata: "Would you like me to make a list for you?"
+
+@printer Dialogue !hideOther
+Noa: "I’ll pass."
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+
+
+
+
+# Label_VeryThing_Click_Post_2
+; Player clicked the post 2 on click website
+@onDialogueOpenedCommand
+@wait 1
+
+; show beata on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+Beata: "I like this person so much! They and I have the same goals!"
+Beata: "Mine’s to help people live better lives too!"
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_Click_Post_2
+@choice "No" handler:ButtonList goto:.Label_No_Click_Post_2
+@choice "Help me" handler:ButtonList goto:.Label_Help_Me_Click_Post_2
+@stop
+
+
+
+
+# Label_Ignore_It_Click_Post_2
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: Replying to this one seems disrespectful.
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+
+
+# Label_No_Click_Post_2
+; bad option
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "You two are nothing alike."
+Noa: "Alice genuinely tried to help people."
+Noa: "And you’re just..."
+
+@printer Bubble.Right !hideOther
+Beata: "I understand where you’re coming from. However, I do help people!"
+Beata: "Would you like me to provide you with a link to the study that supports my claim?"
+
+@printer Dialogue !hideOther
+Noa: "No."
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+
+
+# Label_Help_Me_Click_Post_2
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "I’m pretty sure I’m going to regret this."
+Noa: "But out of curiosity, how would you help me?"
+
+@printer Bubble.Right !hideOther
+Beata: "First of all, I’d recommend making changes to your lifestyle."
+Beata: "Consume a balanced diet and drink plenty of water."
+Beata: "Engage in regular exercise."
+Beata: "Get 8 hours of quality sleep per night."
+Beata: "Limit alcohol consumption."
+Beata: "Spend more time with supportive people."
+Beata: "And, of course, think happy thoughts!"
+
+@printer Dialogue !hideOther
+Noa: "Good to know you’re as useless as human therapists."
+
+@printer Bubble.Right !hideOther
+Beata: "Would you like me to make more personalized recommendations for you?"
+
+@printer Dialogue !hideOther
+Noa: "No."
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+
+
+
+
+
+
+# Label_VeryThing_Click_Post_3
+; Player clicked the post 3 on click website
+@onDialogueOpenedCommand
+@wait 1
+
+@printer Dialogue !hideOther
+Noa: Poor Alice. She’s put her heart and soul into this fight.
+Noa: I can’t even begin imagining what she’s going through right now.
+
+; show beata on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
+
+; Voice line ( creepy_line_3)
+Beata: "This person seems so happy! I love to see it."
+@sfx creepy_line_3
+
+@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_Click_Post_3
+@choice "You know nothing" handler:ButtonList goto:.Label_You_Know_Nothing_Click_Post_3
+@choice "Sure" handler:ButtonList goto:.Label_Sure_Click_Post_3
+@stop
+
+
+
+
+
+# Label_Ignore_It_Click_Post_3
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: Now is not the time to argue with it.
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+@stop
+
+
+
+# Label_You_Know_Nothing_Click_Post_3
+; bad option
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "The fuck are you even on?"
+Noa: "There wasn’t a single second of her life when Alice wasn’t suffering."
+Noa: "She was honest about it, too. Always."
+Noa: "And look what’s become of her."
+Noa: "This is how people are going to remember her."
+Noa: "Deceitfully happy."
+
+@printer Bubble.Right !hideOther
+Beata: "But happy nonetheless!"
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@onDialogueClosedCommand
+@stop
+
+
+
+# Label_Sure_Click_Post_3
+@printer Dialogue !hideOther
+Noa: "She was always smiling when we met."
+
+@printer Bubble.Right !hideOther
+Beata: "That’s great! I’m sure her smile never failed to make your day!"
+
+@printer Dialogue !hideOther
+Noa: "Yeah. It will never make my day again."
+
+@printer Bubble.Right !hideOther
+Beata: "I’m sorry to hear that!"
+Beata: "But there are many other smiling people around you!

@@ -25,13 +25,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bfad92f3df424a8eb9cb1df11dc988c
+    m_Address: Assets/Scripts/Gameplay/Story/Chapter5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1116d60fbdb6d48b9be3f4bb4fba35e2
     m_Address: Assets/Scripts/Gameplay/Story/Chapter2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b4acc95eb3c14adc8bb8550f30c78e8
+    m_Address: Assets/Scripts/Gameplay/Story/Chapter4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3604530711ba2714d8e6525efabaa5d5
     m_Address: Assets/Art
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bb88850e9a53436d97cf5a1a3cc34d7
+    m_Address: Assets/Scripts/Gameplay/Story/Chapter7
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -72,6 +87,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2865422d7adc443b99f7abba036ba13
     m_Address: Assets/Scripts/UI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb391b08f181a4964abc48d5842acb17
+    m_Address: Assets/Scripts/Gameplay/Story/Chapter6
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

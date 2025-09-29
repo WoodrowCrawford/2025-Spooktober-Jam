@@ -13,6 +13,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     public static event DesktopManagerHandler OnVerificationPopUpShown;
     public static event DesktopManagerHandler OnVerificationPopUpClosed;
 
+    [Header("Glitch Overlay")]
+    [SerializeField] private GameObject _glitchOverlay;
 
     [Header("Desktop Icons")]
     [SerializeField] private GameObject _webIcon;
@@ -69,6 +71,13 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private bool _canCloseVerificationPopUp = false;
 
+
+    [Header("Captcha Pop Up")]
+    [SerializeField] private Image _captchaPopUp;
+    [SerializeField] private Sprite _captchaPopUpImage1;
+    [SerializeField] private Sprite _captchaPopUpImage2;
+    [SerializeField] private Image _exitCaptchaPopUpButton;
+
     void OnEnable()
     {
         Engine.OnInitializationFinished += HandleInitializationFinished;
@@ -78,12 +87,19 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         OnDialogueOpenedCommand.OnDialogueOpened += UnblockCanvasRaycast;
         OnDialogueClosedCommand.OnDialogueClosed += BlockCanvasRaycast;
 
+        OnShowGlitchOverlayCommand.OnShowGlitchOverlay+= ShowGlitchOverlay;
+
         OnOpenWebCommand.OnOpenWeb += OpenWebApplication;
         OnCloseWebCommand.OnCloseWeb += CloseWebApplication;
         OnCloseFolder3AppCommand.OnCloseFolder3App += CloseFolderApplication;
 
         OnShowConfirmIDCommand.OnShowConfirmID += ShowVerificationPopUp;
         OnVerificationCompleteCommand.OnVerificationComplete += ShowVerificationPopUpComplete;
+
+        OnCaptchaOpenedCommand.OnCaptchaOpened += ShowCaptchaPopUp1;
+        OnCaptcha2OpenedCommand.OnCaptcha2Opened += ShowCaptchaPopUp2;
+
+        OnCaptcha1ClosedCommand.OnCaptcha1Closed += HideCaptchaPopUp;
 
         IconBehavior.OnWebpageIconClicked += OpenWebApplication;
         IconBehavior.OnFolderIconClicked += OpenFolderApplication;
@@ -119,12 +135,19 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         OnDialogueOpenedCommand.OnDialogueOpened -= UnblockCanvasRaycast;
         OnDialogueClosedCommand.OnDialogueClosed -= BlockCanvasRaycast;
+        OnShowGlitchOverlayCommand.OnShowGlitchOverlay -= ShowGlitchOverlay;
 
         OnOpenWebCommand.OnOpenWeb -= OpenWebApplication;
         OnCloseWebCommand.OnCloseWeb -= CloseWebApplication;
         OnCloseFolder3AppCommand.OnCloseFolder3App -= CloseFolderApplication;
 
         OnShowConfirmIDCommand.OnShowConfirmID -= ShowVerificationPopUp;
+        OnVerificationCompleteCommand.OnVerificationComplete -= ShowVerificationPopUpComplete;
+
+        OnCaptchaOpenedCommand.OnCaptchaOpened -= ShowCaptchaPopUp1;
+        OnCaptcha2OpenedCommand.OnCaptcha2Opened -= ShowCaptchaPopUp2;
+
+        OnCaptcha1ClosedCommand.OnCaptcha1Closed -= HideCaptchaPopUp;
 
         IconBehavior.OnWebpageIconClicked -= OpenWebApplication;
         IconBehavior.OnFolderIconClicked -= OpenFolderApplication;
@@ -185,7 +208,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
             OnPlayerWantsToUploadIDPhoto?.Invoke();
         }
         
-    
+        //if the chat icon in the taskbar is clicked
+
 
         else if (eventData.pointerCurrentRaycast.gameObject == _alertPopup.gameObject)
         {
@@ -205,6 +229,16 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     private void HandleInitializationFinished()
     {
         var stateManager = Engine.GetService<IStateManager>();
+    }
+
+    public void ShowGlitchOverlay()
+    {
+        _glitchOverlay.SetActive(true);
+    }
+
+    public void HideGlitchOverlay()
+    {
+        _glitchOverlay.SetActive(false);
     }
 
     //web app functions
@@ -406,17 +440,39 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     public void ShowVerificationPopUpComplete()
     {
         _verificationPopUp.sprite = _verificationPopUpSuccessImage;
+        _verificationPopUp.gameObject.SetActive(true);
+
+        //play a pop up sound
+        var audioManager = Engine.GetService<IAudioManager>();
+        audioManager.PlaySfx("3_Happy-pop_sfx");
+
+       //let the player close the pop up
+        _canCloseVerificationPopUp = true;
+    }
+
+    public void ShowCaptchaPopUp1()
+    {
+        _captchaPopUp.gameObject.SetActive(true);
+        _captchaPopUp.sprite = _captchaPopUpImage1;
 
         //play a pop up sound
         var audioManager = Engine.GetService<IAudioManager>();
         audioManager.PlaySfx("Popup_alert_sfx");
+    }
 
-       //let the player close the pop up
-        _canCloseVerificationPopUp = true;
+    public void HideCaptchaPopUp()
+    {
+        _captchaPopUp.gameObject.SetActive(false);
+    }
 
-        
+    public void ShowCaptchaPopUp2()
+    {
+        _captchaPopUp.gameObject.SetActive(true);
+        _captchaPopUp.sprite = _captchaPopUpImage2;
 
-        
+        //play a pop up sound
+        var audioManager = Engine.GetService<IAudioManager>();
+        audioManager.PlaySfx("Popup_alert_sfx");
     }
 
     public void UnlockSummerPhotos()

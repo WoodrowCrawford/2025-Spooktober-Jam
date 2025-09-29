@@ -8,6 +8,8 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
     [SerializeField] private Sprite _unreadIcon;
     [SerializeField] private Sprite _newMessageIcon;
 
+    public static bool NewMessageNotification = false;
+
     private IAudioManager audioManager;
 
 
@@ -32,6 +34,7 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
     public void ChangeToUnreadIcon()
     {
         GetComponent<UnityEngine.UI.Image>().sprite = _unreadIcon;
+        NewMessageNotification = false;
     }
 
     public void ChangeToNewMessageIcon()
@@ -39,5 +42,7 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
         Debug.Log("Change the chat icon to new message icon");
         GetComponent<UnityEngine.UI.Image>().sprite = _newMessageIcon;
         audioManager.PlaySfx("Notification_sfx");
+        NewMessageNotification = true;
+        
     }
 }

@@ -17,6 +17,12 @@ public static class WebsiteEvents
     public static event WebsiteImageEventHandler OnWebsiteImageChange;
 
     public static event WebEventHandeler OnPlayerClickedFavoritesButton;
+    public static event WebEventHandeler OnPlayerClickedFoundThingPageButton;
+    public static event WebEventHandeler OnPlayerClickedTheoryPageButton;
+    public static event WebEventHandeler OnPlayerClickedGovernmentPageButton;
+    public static event WebEventHandeler OnPlayerClickedClickPost1;
+    public static event WebEventHandeler OnPlayerClickedClickPost2;
+    public static event WebEventHandeler OnPlayerClickedClickPost3;
 
 
 
@@ -30,9 +36,39 @@ public static class WebsiteEvents
     {
         OnWebsiteImageChange?.Invoke(interactedImage);
     }
-    
+
     public static void RaisePlayerClickedFavoritesButton()
     {
         OnPlayerClickedFavoritesButton?.Invoke();
+    }
+
+    public static void RaisePlayerClickedFoundThingPageButton()
+    {
+        OnPlayerClickedFoundThingPageButton?.Invoke();
+    }
+
+    public static void RaisePlayerClickedTheoryPageButton()
+    {
+        OnPlayerClickedTheoryPageButton?.Invoke();
+    }
+
+    public static void RaisePlayerClickedGovernmentPageButton()
+    {
+        OnPlayerClickedGovernmentPageButton?.Invoke();
+    }
+
+    public static void RaisePlayerClickedClickPost1()
+    {
+        OnPlayerClickedClickPost1?.Invoke();
+    }
+
+    public static void RaisePlayerClickedClickPost2()
+    {
+        OnPlayerClickedClickPost2?.Invoke();
+    }
+
+    public static void RaisePlayerClickedClickPost3()
+    {
+        OnPlayerClickedClickPost3?.Invoke();
     }
 }

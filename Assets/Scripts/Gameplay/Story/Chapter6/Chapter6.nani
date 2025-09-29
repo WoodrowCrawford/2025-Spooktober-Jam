@@ -1,6 +1,137 @@
 @set currentChapter=6
 
-test
-this is a test
+; hide website if it's open
+@onCloseWebCommand
 
+; show the chat window
+@showPrinter Chat
+@onDialogueOpenedCommand
+
+@printer Chat
+Maurice: Noa
+Maurice: I think I’m *******************
+Maurice: ***************************
+
+Noa: ?
+
+Maurice: im going on vacation
+Maurice: from 25 to life probably
+Maurice: I did recover some parts {currentChapter}
+Maurice: the rest is up to you now
+Maurice: ********************************
+
+@resetText Chat
+@printer Chat
+We detected suspicious activity.
+You will be able to exchange messages again in 15 minutes.
+
+
+;show dialogue box
+@onDialogueOpenedCommand
+@printer Dialogue !hideOther
+Noa: Fuck.
+Noa: Goodbye, Maurice. You were a good friend.
+
+; Beata appears on the left. 
+@printer Bubble.Left pos:-5,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Left pos:40,70
+
+; OST Fades in off( i want to avoid this being abrupt) 
+
+
+;Voice line (creepy_line_2) 
+Beata: "A vacation! How wonderful!"
+Beata: "Are you planning to take one of your own very soon?"
+
+@choice "Save Yourself" handler:ButtonList goto:.Label_Save_Yourself
+@choice "Keep Going" handler:ButtonList goto:.Label_Keep_Going
 @stop
+
+
+
+# Label_Save_Yourself
+@printer Dialogue !hideOther
+Noa: No. I’m not planning to take one of my own very soon.
+Noa: And that’s why I need to leave. Now.
+
+; Computer humming sfx stop.  
+@stopSfx Pc_hum_sfx
+
+; Fade to black screen. SMASHING COMPUTER SFX.( Pc_smash_sfx) 
+@hideAll
+@hideUI Desktop
+@hideUI WelcomeScreen
+@sfx PC_smash_sfx
+
+@wait 2
+
+@printer Dialogue
+Beata: "I’ve noticed your computer is unavailable, so I connected to your smart hub."
+Beata: "Oh. I see now."
+Beata: "..."
+
+; Voice line ( VA_phrase_7) 
+Beata: "Are you upset?"
+
+@hidePrinter Dialogue
+
+; Walking away sounds (1_walk_sfx) 
+@sfx 1_walk_sfx
+
+
+; BAD ENDING SCREEN.
+
+
+
+# Label_Keep_Going
+@printer Dialogue !hideOther
+Noa: "Heh. Seems like I am."
+
+@goto .Label_Continue_Playing
+@stop
+
+
+
+
+# Label_Continue_Playing
+; Beata disappears.
+@printer Bubble.Right pos:120,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+; show glitch screen with glitch sound (5_glitch_sfx) 2 seconds can not interact
+@onDialogueOpenedCommand
+@sfx 5_glitch_sfx
+@showUI Glitch1Screen
+
+@wait 2
+
+;Glitch appears (distorted2.png) SFX (9_glitch_sfx) 1-2 seconds
+@sfx 9_glitch_sfx
+@showUI Glitch2Screen
+@wait 2
+
+; Fade to black screen. 4 seconds
+@hideAll
+@hideUI Glitch1Screen
+@hideUI Glitch2Screen
+@hideUI Desktop
+@hideUI WelcomeScreen
+@wait 4
+
+;After 4 starts music
+@playBgm Main_theme
+
+; fade to desktop screen
+@showUI Desktop
+
+; show glitch overlay texture
+@onShowGlitchOverlayCommand
+
+; go to chapter 7 script
+@goto Chapter7/Chapter7

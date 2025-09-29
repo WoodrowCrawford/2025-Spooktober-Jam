@@ -56,11 +56,15 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         DesktopManager.OnVerificationPopUpShown += UnblockWebpageInteraction;
         DesktopManager.OnVerificationPopUpClosed += BlockWebpageInteraction;
+        OnEnableWebInteractionCommand.OnEnableWebInteraction += BlockWebpageInteraction;
+        OnDisableWebInteractionCommand.OnDisableWebInteraction += UnblockWebpageInteraction;
 
         WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews += ChangeWebpageToSalvaVeritate;
         OnOpenCloverCommand.OnOpenClover += ChangeWebpageToClover;
         OnOpenChatterCommand.OnOpenChatter += ChangeWebpageToChatter;
+        OnOpenClickCommand.OnOpenClick += ChangeWebpageToClick;
+        OnOpenVeryThingCommand.OnOpenVeryThing += ChangeWebpageToVeryThing;
 
         //change this objects render camera to the Naninovel camera
         _uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
@@ -73,10 +77,15 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         DesktopManager.OnVerificationPopUpShown -= UnblockWebpageInteraction;
         DesktopManager.OnVerificationPopUpClosed -= BlockWebpageInteraction;
 
+        OnEnableWebInteractionCommand.OnEnableWebInteraction -= BlockWebpageInteraction;
+        OnDisableWebInteractionCommand.OnDisableWebInteraction -= UnblockWebpageInteraction;
+
         WebsiteEvents.OnWebsiteChange -= ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews -= ChangeWebpageToSalvaVeritate;
         OnOpenCloverCommand.OnOpenClover -= ChangeWebpageToClover;
         OnOpenChatterCommand.OnOpenChatter -= ChangeWebpageToChatter;
+        OnOpenClickCommand.OnOpenClick -= ChangeWebpageToClick;
+        OnOpenVeryThingCommand.OnOpenVeryThing -= ChangeWebpageToVeryThing;
 
         _uiCamera = null;
 
@@ -277,6 +286,13 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void ChangeWebpageToSalvaVeritate()
     {
+
+        if (_currentWebsite == _salvaVeritateWebsite)
+        {
+            Debug.Log("Already on Salva Veritate website, no need to change.");
+            return;
+        }
+        
         ChangeWebsite(_salvaVeritateWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
         _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
@@ -290,6 +306,12 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void ChangeWebpageToChatter()
     {
+        if (_currentWebsite == _chatterWebsite)
+        {
+            Debug.Log("Already on Chatter website, no need to change.");
+            return;
+        }
+
         ChangeWebsite(_chatterWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
         _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
@@ -303,7 +325,51 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void ChangeWebpageToClover()
     {
+        if (_currentWebsite == _cloverWebsite)
+        {
+            Debug.Log("Already on Clover website, no need to change.");
+            return;
+        }
+
         ChangeWebsite(_cloverWebsite);
+        _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+        _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
+
+        //reset scrollbar to top
+        if (_scrollBar != null)
+        {
+            _scrollBar.value = 1f;
+        }
+    }
+
+    public void ChangeWebpageToVeryThing()
+    {
+        if (_currentWebsite == _veryThingWebsite)
+        {
+            Debug.Log("Already on Verything website, no need to change.");
+            return;
+        }
+
+        ChangeWebsite(_veryThingWebsite);
+        _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
+        _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
+
+        //reset scrollbar to top
+        if (_scrollBar != null)
+        {
+            _scrollBar.value = 1f;
+        }
+    }
+
+    public void ChangeWebpageToClick()
+    {
+        if (_currentWebsite == _clickWebsite)   
+        {
+            Debug.Log("Already on Click website, no need to change.");
+            return;
+        }
+
+        ChangeWebsite(_clickWebsite);
         _currentPage = _currentWebsite.transform.GetChild(0).gameObject;
         _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
 

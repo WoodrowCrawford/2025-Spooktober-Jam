@@ -33,8 +33,6 @@
 
 @choice "screenshot8" handler:ButtonList goto:.Label_Screenshot8_Clicked
 @choice "screenself" handler:ButtonList goto:.Label_Screenself_Clicked
-
-
 @stop
 
 
@@ -50,8 +48,6 @@
 ; fire an event to show the verification complete
 @onVerificationCompleteCommand
 @onDialogueClosedCommand
-
-
 @stop
 
 
@@ -143,6 +139,6 @@ Noa: "Who indeed."
 @onDialogueClosedCommand
 
 
-@stop
+
 
 

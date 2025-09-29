@@ -253,6 +253,7 @@ Noa: Knowing how much money people pay Alex for photos, I’m sure this girl wil
 # Pick_Favorite_Website_Section
 
 ; show choice to pick a favorite website
+@clearChoice
 @choice "Stay on Page" handler:ButtonList
 @choice "Chatter" handler:ButtonList goto:Chapter5/Chapter5
 @stop
