@@ -9,21 +9,35 @@ public static class WebsiteEvents
     public delegate void WebsiteEventHandler(GameObject newWebsitePage);
     public delegate void WebsiteImageEventHandler(Sprite interactedImage);
 
-    public delegate void WebEventHandeler();
+    public delegate void WebEventHandler();
 
 
     //events that other scripts can subscribe to
     public static event WebsiteEventHandler OnWebsiteChange;
     public static event WebsiteImageEventHandler OnWebsiteImageChange;
 
-    public static event WebEventHandeler OnPlayerClickedFavoritesButton;
-    public static event WebEventHandeler OnPlayerClickedFoundThingPageButton;
-    public static event WebEventHandeler OnPlayerClickedTheoryPageButton;
-    public static event WebEventHandeler OnPlayerClickedGovernmentPageButton;
-    public static event WebEventHandeler OnPlayerClickedClickPost1;
-    public static event WebEventHandeler OnPlayerClickedClickPost2;
-    public static event WebEventHandeler OnPlayerClickedClickPost3;
+    public static event WebEventHandler OnPlayerClickedFavoritesButton;
+    public static event WebEventHandler OnPlayerClickedFoundThingPageButton;
+    public static event WebEventHandler OnPlayerClickedTheoryPageButton;
+    public static event WebEventHandler OnPlayerClickedGovernmentPageButton;
+    public static event WebEventHandler OnPlayerClickedClickPost1;
+    public static event WebEventHandler OnPlayerClickedClickPost2;
+    public static event WebEventHandler OnPlayerClickedClickPost3;
 
+
+
+    //Salva Veritate events
+    public static event WebEventHandler OnPlayerClickedEndlessFunButton;
+    public static event WebEventHandler OnPlayerClickedChristianButton;
+    public static event WebEventHandler OnPlayerClickedAIChangingLifeButton;
+
+
+
+    //clover website events
+    public static event WebEventHandler OnPlayerInteractedWithCloverPicture1;
+    public static event WebEventHandler OnPlayerInteractedWithCloverPicture2;
+    public static event WebEventHandler OnPlayerInteractedWithCloverPicture3;
+    public static event WebEventHandler OnPlayerInteractedWithCloverPicture4;
 
 
 
@@ -70,5 +84,40 @@ public static class WebsiteEvents
     public static void RaisePlayerClickedClickPost3()
     {
         OnPlayerClickedClickPost3?.Invoke();
+    }
+
+    public static void RaisePlayerInteractedWithCloverPicture1()
+    {
+        OnPlayerInteractedWithCloverPicture1?.Invoke();
+    }
+
+    public static void RaisePlayerInteractedWithCloverPicture2()
+    {
+        OnPlayerInteractedWithCloverPicture2?.Invoke();
+    }
+
+    public static void RaisePlayerInteractedWithCloverPicture3()
+    {
+        OnPlayerInteractedWithCloverPicture3?.Invoke();
+    }
+
+    public static void RaisePlayerInteractedWithCloverPicture4()
+    {
+        OnPlayerInteractedWithCloverPicture4?.Invoke();
+    }
+
+    public static void RaisePlayerClickedEndlessFunButton()
+    {
+        OnPlayerClickedEndlessFunButton?.Invoke();
+    }
+
+    public static void RaisePlayerClickedChristianButton()
+    {
+        OnPlayerClickedChristianButton?.Invoke();
+    }
+    
+    public static void RaisePlayerClickedAIChangingLifeButton()
+    {
+        OnPlayerClickedAIChangingLifeButton?.Invoke();
     }
 }

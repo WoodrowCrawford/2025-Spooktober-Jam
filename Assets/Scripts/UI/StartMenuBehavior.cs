@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Naninovel;
+using Naninovel.UI;
+using System.Collections;
 
 public class StartMenuBehavior : MonoBehaviour, IPointerClickHandler
 {
@@ -32,21 +35,30 @@ public class StartMenuBehavior : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Save button clicked.");
             //implement save functionality here
+            var uiManager = Engine.GetService<IUIManager>();
+            uiManager.GetUI<ISaveLoadUI>()?.Show();
+
+
         }
         else if (eventData.pointerCurrentRaycast.gameObject == _loadButton)
         {
             Debug.Log("Load button clicked.");
             //implement load functionality here
+            var uiManager = Engine.GetService<IUIManager>();
+            uiManager.GetUI<ISaveLoadUI>()?.Show();
         }
         else if (eventData.pointerCurrentRaycast.gameObject == _optionsButton)
         {
             Debug.Log("Options button clicked.");
-            
+            var uiManager = Engine.GetService<IUIManager>();
+            uiManager.GetUI<ISettingsUI>()?.Show();
+
         }
         else if (eventData.pointerCurrentRaycast.gameObject == _quitButton)
         {
             Debug.Log("Quit button clicked.");
-            
+            StartCoroutine(QuitGame());
+
         }
     }
 
@@ -68,5 +80,14 @@ public class StartMenuBehavior : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    
+
+    public IEnumerator QuitGame()
+    {
+        var audioManager = Engine.GetService<IAudioManager>();
+        audioManager.PlaySfx("VA_phrase_8");
+
+        yield return new WaitForSeconds(3.5f);
+        Application.Quit();
+    }
+
 }

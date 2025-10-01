@@ -19,6 +19,9 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
         audioManager = Engine.GetService<IAudioManager>();
         StoryManagerBehavior.OnPlayerReadAllArticles += ChangeToNewMessageIcon;
         StoryManagerBehavior.OnStoryWantsToGiveChatIconNotification += ChangeToNewMessageIcon;
+
+        OnChatReceivedCommand.OnChatReceived += ChangeToNewMessageIcon;
+        OnChatReadCommand.OnChatRead += ChangeToUnreadIcon;
     }
 
     void OnDisable()
@@ -26,6 +29,9 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
         audioManager = null;
         StoryManagerBehavior.OnPlayerReadAllArticles -= ChangeToNewMessageIcon;
         StoryManagerBehavior.OnStoryWantsToGiveChatIconNotification -= ChangeToNewMessageIcon;
+
+        OnChatReceivedCommand.OnChatReceived -= ChangeToNewMessageIcon;
+        OnChatReadCommand.OnChatRead -= ChangeToUnreadIcon;
     }
 
 
@@ -41,7 +47,7 @@ public class ChatIconTaskbarBehavior : MonoBehaviour
     {
         Debug.Log("Change the chat icon to new message icon");
         GetComponent<UnityEngine.UI.Image>().sprite = _newMessageIcon;
-        audioManager.PlaySfx("Notification_sfx");
+        audioManager.PlaySfx("3_HappyPop_sfx");
         NewMessageNotification = true;
         
     }

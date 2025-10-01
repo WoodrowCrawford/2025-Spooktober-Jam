@@ -16,14 +16,14 @@ MonoBehaviour:
   CustomEventSystem: {fileID: 0}
   SpawnInputModule: 1
   CustomInputModule: {fileID: 0}
-  InputActions: {fileID: 0}
+  InputActions: {fileID: -944628639613478452, guid: f33663170a4a84ddcb3a3b97c7725ff8, type: 3}
   ProcessLegacyBindings: 1
   TouchFrequencyLimit: 0.1
   TouchDistanceLimit: 25
   DetectInputMode: 1
   Bindings:
   - Name: Submit
-    AlwaysProcess: 1
+    AlwaysProcess: 0
     Keys: 0d0000004a010000
     Axes: []
     Swipes: []
@@ -67,7 +67,7 @@ MonoBehaviour:
     Swipes: []
   - Name: Continue
     AlwaysProcess: 0
-    Keys: 0d0000000f0100004a010000
+    Keys: 0d0000000f0100004a01000020000000
     Axes:
     - AxisName: Mouse ScrollWheel
       TriggerMode: 2

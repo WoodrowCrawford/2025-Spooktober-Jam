@@ -42,12 +42,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Endless Fun Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_endlessFunPage);
-
-            //start the endless fun dialogue if it hasn't played yet
-            if (!StoryManagerBehavior.HasReadEndlessFunPage)
-            {
-                scriptPlayer.LoadAndPlay("Chapter2/EndlessFunDialogue");
-            }
+            WebsiteEvents.RaisePlayerClickedEndlessFunButton();
         }
 
         // if the Christian School button is clicked
@@ -55,13 +50,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Christian School Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_christianSchoolPage);
-
-            //start the new school dialogue if it hasn't played yet
-            if (!StoryManagerBehavior.HasReadChristianSchoolPage)
-            {
-                scriptPlayer.LoadAndPlay("Chapter2/NewSchoolDialogue");
-            
-            }
+            WebsiteEvents.RaisePlayerClickedChristianButton();
         }
 
         //if the AI Changing Life button is clicked
@@ -69,12 +58,7 @@ public class SalvaVeritateWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("AI Changing Life Button Clicked");
             WebsiteEvents.RaiseWebsiteChange(_aiChangingLifePage);
-
-            //start the AI Changing Life dialogue if it hasn't played yet
-            if (!StoryManagerBehavior.HasReadAIChangingLifePage)
-            {
-                scriptPlayer.LoadAndPlay("Chapter2/AIChangingLifeDialogue");
-            }
+            WebsiteEvents.RaisePlayerClickedAIChangingLifeButton();
 
         }
     }

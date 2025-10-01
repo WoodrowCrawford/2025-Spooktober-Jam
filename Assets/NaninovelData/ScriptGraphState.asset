@@ -65,7 +65,14 @@ MonoBehaviour:
   - scriptGuid: 7a9fda977e2e8471c95585aee7acae19
     position:
       serializedVersion: 2
-      x: 0
-      y: 414.5
-      width: 157
-      height: 77
+      x: 1636
+      y: 0
+      width: 224
+      height: 245
+  - scriptGuid: 5763527e397b548b593c231557fff997
+    position:
+      serializedVersion: 2
+      x: 1240
+      y: 0
+      width: 376
+      height: 1685

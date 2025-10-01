@@ -159,6 +159,9 @@ MonoBehaviour:
     - name: BeataJumpscare
       pathPrefix: UI
       guid: bf332ed1600bd49c3878ef95ce4ca932
+    - name: Credits
+      pathPrefix: UI
+      guid: 07c2479898ef64d47a358691ff0a7334
   - Id: Scripts
     Resources:
     - name: StoryScript
@@ -271,6 +274,9 @@ MonoBehaviour:
     - name: creppy_line_2
       pathPrefix: Audio
       guid: 2457a85559aa047c29f27ac43a2bf861
+    - name: VA_phrase_8
+      pathPrefix: Audio
+      guid: 3e9ed0cb4f2b248229fb5f0b20da6c00
   - Id: Backgrounds/53a39b0f-0175-4da6-a017-5c18bf51bcd7
     Resources: []
   - Id: Movies
@@ -281,7 +287,28 @@ MonoBehaviour:
       pathPrefix: TextPrinters
       guid: b47d9659b2be5ee4e95a776f213c9d4b
   - Id: Voice
-    Resources: []
+    Resources:
+    - name: Chapter3/Interlude1/~4cc3a794
+      pathPrefix: Voice
+      guid: cff5b5abcbfa145ba811790559b59c0a
+    - name: Chapter4/Chapter4/~1faf56f4
+      pathPrefix: Voice
+      guid: 3eac92f346a784d618d831c0a67ab8b3
+    - name: Chapter5/Chapter5/~ea2a429f
+      pathPrefix: Voice
+      guid: b1e783a2665714d4b9c9c89e710e5b36
+    - name: Chapter6/Chapter6/~4731b0e0
+      pathPrefix: Voice
+      guid: 6a516912153c042a9a82a5cdc4db6239
+    - name: Chapter6/Chapter6/~1b57db63
+      pathPrefix: Voice
+      guid: 5e4cba3c5e73c4ab0b6524d4358d463b
+    - name: Chapter7/Chapter7/~585a55f6
+      pathPrefix: Voice
+      guid: f71e51817056a4fc187d33aa00b57208
+    - name: Chapter7/Chapter7/~97b07104
+      pathPrefix: Voice
+      guid: 1d10844c0a11e4f318d4fee994b4dedf
   - Id: TextPrinters/bad71a1c-0364-4498-9db7-dd7fd25b7dc2
     Resources:
     - name: FriendDialogue

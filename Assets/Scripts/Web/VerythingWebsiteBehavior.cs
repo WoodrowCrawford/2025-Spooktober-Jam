@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class VerythingWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
+    public delegate void VerythingEventHandler();
+    public static event VerythingEventHandler OnShowVerythingCode;
     
 
     [Header("Verything pages")]
@@ -18,6 +20,10 @@ public class VerythingWebsiteBehavior : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image _theoryButton;
 
 
+    [Header("Verything Images")]
+    [SerializeField] private Image _foundThingsImage;
+    [SerializeField] private Image _governmentImage;
+    [SerializeField] private Image _theoryImage;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -36,6 +42,7 @@ public class VerythingWebsiteBehavior : MonoBehaviour, IPointerClickHandler
             WebsiteEvents.RaiseWebsiteChange(_veryThingControlPage);
             //raise an event to tell the story manager that the player has clicked the government button
             WebsiteEvents.RaisePlayerClickedGovernmentPageButton();
+            OnShowVerythingCode?.Invoke();
         }
         else if (eventData.pointerCurrentRaycast.gameObject == _theoryButton.gameObject)
         {

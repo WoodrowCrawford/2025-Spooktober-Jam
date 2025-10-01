@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class ClickWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
+    public delegate void ClickEventHandler(); 
+    public static event ClickEventHandler OnClickShowClickCode;
+
     [Header("Click pages")]
     [SerializeField] private GameObject _clickMainPage;
 
@@ -44,6 +47,7 @@ public class ClickWebsiteBehavior : MonoBehaviour, IPointerClickHandler
         {
             WebsiteEvents.RaiseWebsiteImageChange(_clickPost3Image);
             WebsiteEvents.RaisePlayerClickedClickPost3();
+            OnClickShowClickCode?.Invoke();
         }
     }
 }

@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System.Collections;
+using Naninovel.Commands;
 
 
 
-public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
 
@@ -45,9 +47,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     [Header("Bools")]
     [SerializeField] private bool _isClicked = false;
-    [SerializeField] private float _timeHeldDown = 0f;
-
-
+    public static bool WebIsOpen = false;
 
 
 
@@ -59,6 +59,7 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         OnEnableWebInteractionCommand.OnEnableWebInteraction += BlockWebpageInteraction;
         OnDisableWebInteractionCommand.OnDisableWebInteraction += UnblockWebpageInteraction;
 
+
         WebsiteEvents.OnWebsiteChange += ChangeWebsitePage;
         OnOpenNewsCommand.OnOpenNews += ChangeWebpageToSalvaVeritate;
         OnOpenCloverCommand.OnOpenClover += ChangeWebpageToClover;
@@ -69,13 +70,15 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         //change this objects render camera to the Naninovel camera
         _uiCamera = GameObject.Find("UICamera").GetComponent<Camera>();
 
-        StoryManagerBehavior.OnPlayerCanClickFavoritesButton += EnableFavoritesButton;
+        WebIsOpen = true;
+
     }
 
     void OnDisable()
     {
         DesktopManager.OnVerificationPopUpShown -= UnblockWebpageInteraction;
         DesktopManager.OnVerificationPopUpClosed -= BlockWebpageInteraction;
+
 
         OnEnableWebInteractionCommand.OnEnableWebInteraction -= BlockWebpageInteraction;
         OnDisableWebInteractionCommand.OnDisableWebInteraction -= UnblockWebpageInteraction;
@@ -88,10 +91,15 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         OnOpenVeryThingCommand.OnOpenVeryThing -= ChangeWebpageToVeryThing;
 
         _uiCamera = null;
+        WebIsOpen = false;
 
-        StoryManagerBehavior.OnPlayerCanClickFavoritesButton -= EnableFavoritesButton;
     }
 
+
+
+    public void OnBeginDrag(PointerEventData eventData) { return; }
+    public void OnDrag(PointerEventData eventData) { return; }
+    public void OnEndDrag(PointerEventData eventData) { return; }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -150,39 +158,20 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 
 
-    private void Update()
-    {
-        //use a timer based feature to determine if the icon is draggable
-        if (_isClicked)
-        {
-            //start a timer
-            _timeHeldDown += Time.deltaTime;
-
-            //after a while, make the icon draggable
-            if (_timeHeldDown >= 0.2f)
-            {
-                //move the icon to the mouse position
-                //this.transform.position = new Vector3(Mouse.current.position.ReadValue().x, this.transform.position.y, this.transform.position.z);
-                this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 10f));
-            }
-
-        }
-        else
-        {
-            this.transform.position = this.transform.position;
-            _timeHeldDown = 0f;
-        }
-    }
+    
 
     public void EnableFavoritesButton()
     {
         _favoritesButton.SetActive(true);
     }
 
+   
+
 
     public void ChangeWebsitePage(GameObject newWebsitePage)
     {
-
+        WebIsOpen = true;
+        
         Debug.Log("Changing website page to: " + newWebsitePage.name);
 
         //set the previous page to the current page
@@ -199,6 +188,9 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         //set the scrollbar value to 1 (top)
         _scrollBar.value = 1f;
+        _scrollView.GetComponent<ScrollRect>().enabled = true;
+        _scrollBar.interactable = true;
+        
 
         //activate the new page
         newWebsitePage.SetActive(true);
@@ -209,12 +201,17 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             //set the sensitivity to 0 (lock it)
             _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 0f;
 
+            //disable the scrollbar
+            _scrollView.GetComponent<ScrollRect>().enabled = false;
+
+            
             _scrollBar.interactable = false;
         }
         else
         {
             //set the sensitivity to 1
             _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
+            _scrollView.GetComponent<ScrollRect>().enabled = true;
 
             _scrollBar.interactable = true;
         }
@@ -224,6 +221,15 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void ChangeWebsite(GameObject newWebsite)
     {
+        WebIsOpen = true;
+
+
+        //set the sensitivity to 1
+        _scrollView.GetComponent<ScrollRect>().scrollSensitivity = 1f;
+        _scrollView.GetComponent<ScrollRect>().enabled = true;
+
+        _scrollBar.interactable = true;
+
 
         if (newWebsite == null)
         {

@@ -6,6 +6,8 @@
 @char Maurice visible:false
 @char Beata visible:false
 @set currentChapter=1
+@set badChoiceCounter=0
+@set playerHasPoliceEnding=false
 
 @hidePrinter Dialogue
 @onDialogueClosedCommand
@@ -43,6 +45,8 @@ Noa: Shame she isn’t taking apprentices.
 
 ; Fade in to desktop, SFX humming computer on the background ON LOOP
 @showUI Desktop
+@onShowDesktopCommand
+
 @hideUI WelcomeScreen
 
 @sfx Pc_hum_sfx loop!
@@ -85,4 +89,6 @@ Noa: ...
 @onDialogueClosedCommand
 
 
+
+@set CurrentChapter=2
 @stop

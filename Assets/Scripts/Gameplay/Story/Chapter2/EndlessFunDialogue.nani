@@ -1,8 +1,8 @@
 ; What happens when the player goes to the endless fun webpage
 
 ; set variables
-@set playerInteractedWithEndlessFun=false
 @set currentChapter=2
+@set playerInteractedWithEndlessFun=false
 
 ; show dialogue
 @showPrinter Dialogue
@@ -21,7 +21,6 @@ Noa: Subscribe? Since when? Open-access journalism my ass.
 @hidePrinter Dialogue
 @onDialogueClosedCommand
 
+
 @set playerInteractedWithEndlessFun=true
-
-
 @stop

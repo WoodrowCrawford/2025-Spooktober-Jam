@@ -1,10 +1,12 @@
 ; start of chapter 5 (chatter section)
 @set currentChapter=5
+@onEnableWebInteractionCommand
 
 
 
 ; change the website to chatter
 @onOpenChatterCommand
+@onOpenWebCommand
 
 
 
@@ -42,9 +44,13 @@
 ; fire an event to show the verification complete
 @onVerificationCompleteCommand
 @onDialogueClosedCommand
+@stop
 
 
 # Label_Screenself_Clicked
+; super bad option (police ending)
+@set playerHasPoliceEnding=true
+
 ; fire an event to show the verification complete
 @onVerificationCompleteCommand
 @onDialogueClosedCommand
@@ -113,6 +119,9 @@ Noa: "But that’s the thing. You don’t really think."
 
 
 # Label_They_Are_Not_Happy_Chatter
+; bad option, increament bad ending counter
+@set badChoiceCounter++
+
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
 

@@ -24,7 +24,10 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     [SerializeField] private Color _clickedColor = Color.gray;
     [SerializeField] private float _timeHeldDown = 0f;
     [SerializeField] private Camera _uiCamera;
+    
 
+    [Header("Screenshots")]
+    [SerializeField] private Sprite _screenshotImage;
 
     [Header("Bool settings")]
     [SerializeField] private bool _isClicked = false;
@@ -69,6 +72,16 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             Debug.Log("Chat Icon Clicked, open chat app");
             OnChatIconClicked?.Invoke();
         }
+        else if (gameObject.name == "ScreenshotIcon")
+        {
+            Debug.Log("Screenshot Icon Clicked, open screenshot app");
+            if (_screenshotImage != null)
+            {
+                WebsiteEvents.RaiseWebsiteImageChange(_screenshotImage);
+            }
+            
+        }
+
         //if the archives icon is clicked
         else if (gameObject.name == "ArchivesIcon")
         {
@@ -78,7 +91,27 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
         else if (gameObject.name == "SummerPhotosIcon")
         {
-            OnSummerPhotosIconClicked?.Invoke();
+            //check if the player has the police ending variable set to true in the story manager
+            var customVariableManager = Engine.GetService<ICustomVariableManager>();
+            var scriptPlayer = Engine.GetService<IScriptPlayer>();
+            if (customVariableManager.TryGetVariableValue<bool>("playerHasPoliceEnding", out bool playerHasPoliceEnding) &&
+                customVariableManager.TryGetVariableValue<int>("badChoiceCounter", out int badChoiceCounter))
+            {
+                if (playerHasPoliceEnding || badChoiceCounter >= 6)
+                {
+                    //if true, play the bad ending script
+                    scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_Police_Ending");
+
+                }
+                else
+                {
+                    //if false, open the summer photos folder normally
+                    OnSummerPhotosIconClicked?.Invoke();
+
+                }
+
+            }
+
         }
 
         else if (gameObject.name == "SouthwingFile")
@@ -167,18 +200,22 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
         else if (gameObject.name == "SummerPhotosFolder")
         {
+
             OnPlayerWantsToDownloadSummerPhotos?.Invoke();
+
+
+
         }
 
-        else if(gameObject.name == "ChatIconTaskbar")
+
+
+        else if (gameObject.name == "ChatIconTaskbar")
         {
             Debug.Log("Chat Icon Clicked, open chat app");
             OnChatIconClicked?.Invoke();
         }
-    
+
     }
-
-
 
     //what happens when the icon is clicked down
     public void OnPointerDown(PointerEventData eventData)

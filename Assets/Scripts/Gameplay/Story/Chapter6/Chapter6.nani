@@ -4,6 +4,7 @@
 @onCloseWebCommand
 
 ; show the chat window
+@onChatReadCommand
 @showPrinter Chat
 @onDialogueOpenedCommand
 
@@ -16,7 +17,8 @@ Noa: ?
 
 Maurice: im going on vacation
 Maurice: from 25 to life probably
-Maurice: I did recover some parts {currentChapter}
+Maurice: I did recover some parts
+Maurice: 43lcsd
 Maurice: the rest is up to you now
 Maurice: ********************************
 
@@ -64,6 +66,13 @@ Noa: And that’s why I need to leave. Now.
 @hideAll
 @hideUI Desktop
 @hideUI WelcomeScreen
+@hideUI BeataJumpscare
+@hideUI Glitch1Screen
+@hideUI Glitch2Screen
+@stopBgm Main_theme
+@onHideDesktopCommand
+
+@hideUI WelcomeScreen
 @sfx PC_smash_sfx
 
 @wait 2
@@ -80,6 +89,7 @@ Beata: "Are you upset?"
 
 ; Walking away sounds (1_walk_sfx) 
 @sfx 1_walk_sfx
+@stop
 
 
 ; BAD ENDING SCREEN.
@@ -106,29 +116,37 @@ Noa: "Heh. Seems like I am."
 
 ; show glitch screen with glitch sound (5_glitch_sfx) 2 seconds can not interact
 @onDialogueOpenedCommand
+@stopBgm Main_theme
+@stopSfx Pc_hum_sfx
 @sfx 5_glitch_sfx
 @showUI Glitch1Screen
 
 @wait 2
 
 ;Glitch appears (distorted2.png) SFX (9_glitch_sfx) 1-2 seconds
+
 @sfx 9_glitch_sfx
 @showUI Glitch2Screen
 @wait 2
 
 ; Fade to black screen. 4 seconds
+
 @hideAll
 @hideUI Glitch1Screen
 @hideUI Glitch2Screen
 @hideUI Desktop
+@onHideDesktopCommand
+
 @hideUI WelcomeScreen
 @wait 4
 
 ;After 4 starts music
-@playBgm Main_theme
+@playBgm Corrupted_theme loop:true
+@sfx Pc_hum_sfx
 
 ; fade to desktop screen
 @showUI Desktop
+@onShowDesktopCommand
 
 ; show glitch overlay texture
 @onShowGlitchOverlayCommand

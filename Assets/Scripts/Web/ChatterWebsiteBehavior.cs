@@ -4,7 +4,10 @@ using UnityEngine.EventSystems;
 
 public class ChatterWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 {
-   
+   public delegate void ChatterEventHandler();
+
+    public static event ChatterEventHandler OnShowChatterCode;
+
     [Header("Chatter pages")]
     [SerializeField] private GameObject _chatterMainPage;
 
@@ -38,12 +41,13 @@ public class ChatterWebsiteBehavior : MonoBehaviour, IPointerClickHandler
 
         else if (eventData.pointerCurrentRaycast.gameObject == _picture2Button.gameObject)
         {
-           WebsiteEvents.RaiseWebsiteImageChange(_picture2);
+            WebsiteEvents.RaiseWebsiteImageChange(_picture2);
         }
 
         else if (eventData.pointerCurrentRaycast.gameObject == _picture3Button.gameObject)
         {
-           WebsiteEvents.RaiseWebsiteImageChange(_picture3);
+            WebsiteEvents.RaiseWebsiteImageChange(_picture3);
+            OnShowChatterCode?.Invoke();
         }
 
     }

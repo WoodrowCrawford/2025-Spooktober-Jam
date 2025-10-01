@@ -2,6 +2,7 @@ using UnityEngine;
 using Naninovel;
 using System;
 using Naninovel.Commands;
+using System.Collections;
 
 // A manager class for handling story-related logic.
 public class StoryManagerBehavior : MonoBehaviour
@@ -10,7 +11,6 @@ public class StoryManagerBehavior : MonoBehaviour
     public delegate void StoryManagerHandler();
     public static event StoryManagerHandler OnPlayerReadAllArticles;
     public static event StoryManagerHandler OnPlayerCanDownloadSummerPhotos;
-    public static event StoryManagerHandler OnPlayerCanClickFavoritesButton;
     public static event StoryManagerHandler OnStoryWantsToGiveChatIconNotification;
 
     private int _currentChapter;
@@ -59,6 +59,7 @@ public class StoryManagerBehavior : MonoBehaviour
         stateManager = Engine.GetService<IStateManager>();
         customVariableManager = Engine.GetService<ICustomVariableManager>();
 
+
         DesktopManager.OnPopUpErrorClosed += CheckIfPlayerInteractedWithFolder3Files;
         DesktopManager.OnPlayerWantsToUploadIDPhoto += PickPhotoIDToUpload;
         DesktopManager.OnVerificationPopUpClosed += PlayPhotoIDDialogueCompleteLabel;
@@ -67,8 +68,13 @@ public class StoryManagerBehavior : MonoBehaviour
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos += CheckIfPlayerCanDownloadSummerPhotos;
         IconBehavior.OnChatIconClicked += StartChapter6;
 
+        WebsiteEvents.OnPlayerClickedEndlessFunButton += PlayChapter2EndlessFunDialogue;
+        WebsiteEvents.OnPlayerClickedChristianButton += PlayChapter2NewSchoolDialogue;
+        WebsiteEvents.OnPlayerClickedAIChangingLifeButton += PlayChapter2AIChangingLifeDialogue;
 
-        CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture += CheckIfPlayerHasInteractedWithAllCloverPictures;
+        WebsiteEvents.OnPlayerInteractedWithCloverPicture1 += PlayChapter4LabelStatuePicture;
+        WebsiteEvents.OnPlayerInteractedWithCloverPicture2 += PlayChapter4LabelNakedWomanPicture;
+        WebsiteEvents.OnPlayerInteractedWithCloverPicture4 += PlayChapter4LabelCreepyPeoplePicture;
 
         WebsiteEvents.OnPlayerClickedFavoritesButton += PickWebsiteToOpen;
         WebsiteEvents.OnPlayerClickedFoundThingPageButton += PlayChapter7VeryThingFoundPage;
@@ -97,7 +103,14 @@ public class StoryManagerBehavior : MonoBehaviour
         IconBehavior.OnPlayerWantsToDownloadSummerPhotos -= CheckIfPlayerCanDownloadSummerPhotos;
         IconBehavior.OnChatIconClicked -= StartChapter6;
 
-        CloverWebsiteBehavior.OnPlayerInteractedWithCloverPicture -= CheckIfPlayerHasInteractedWithAllCloverPictures;
+        WebsiteEvents.OnPlayerClickedEndlessFunButton -= PlayChapter2EndlessFunDialogue;
+        WebsiteEvents.OnPlayerClickedChristianButton -= PlayChapter2NewSchoolDialogue;
+        WebsiteEvents.OnPlayerClickedAIChangingLifeButton -= PlayChapter2AIChangingLifeDialogue;
+
+        WebsiteEvents.OnPlayerInteractedWithCloverPicture1 -= PlayChapter4LabelStatuePicture;
+        WebsiteEvents.OnPlayerInteractedWithCloverPicture2 -= PlayChapter4LabelNakedWomanPicture;
+        WebsiteEvents.OnPlayerInteractedWithCloverPicture4 -= PlayChapter4LabelCreepyPeoplePicture;
+
 
         WebsiteEvents.OnPlayerClickedFavoritesButton -= PickWebsiteToOpen;
         WebsiteEvents.OnPlayerClickedFoundThingPageButton -= PlayChapter7VeryThingFoundPage;
@@ -107,7 +120,7 @@ public class StoryManagerBehavior : MonoBehaviour
 
 
 
-    public void Update()
+    void Update()
     {
         CheckIfPlayerReadAllNewsSites();
     }
@@ -117,12 +130,12 @@ public class StoryManagerBehavior : MonoBehaviour
     public void CheckIfPlayerReadAllNewsSites()
     {
 
-        if (customVariableManager.TryGetVariableValue<bool>("playerInteractedWithEndlessFun", out HasReadEndlessFunPage) &&
-            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithChristianSchool", out HasReadChristianSchoolPage) &&
-            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithAIChangingLife", out HasReadAIChangingLifePage) &&
-            customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter) &&
+            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithEndlessFun", out bool playerInteractedWithEndlessFun) &&
+            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithChristianSchool", out bool playerInteractedWithChristianSchool) &&
+            customVariableManager.TryGetVariableValue<bool>("playerInteractedWithAIChangingLife", out bool playerInteractedWithAIChangingLife))
         {
-            if (HasReadEndlessFunPage && HasReadChristianSchoolPage && HasReadAIChangingLifePage && !HasReadAllArticles && _currentChapter == 2)
+            if (HasReadEndlessFunPage && HasReadChristianSchoolPage && HasReadAIChangingLifePage && _currentChapter == 2 && !scriptPlayer.Playing)
             {
                 Debug.Log("Player has read all news articles!");
 
@@ -135,6 +148,54 @@ public class StoryManagerBehavior : MonoBehaviour
                 scriptPlayer.LoadAndPlay("Chapter3/Interlude1");
             }
             return;
+        }
+    }
+
+    public void PlayChapter2EndlessFunDialogue()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (!HasReadEndlessFunPage)
+            {
+                Debug.Log("Play chapter 2 endless fun dialogue");
+
+                //play chapter 2 endless fun dialogue
+                scriptPlayer.LoadAndPlay("Chapter2/EndlessFunDialogue");
+                HasReadEndlessFunPage = true;
+
+            }
+        }
+    }
+
+    public void PlayChapter2NewSchoolDialogue()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (!HasReadChristianSchoolPage)
+            {
+                Debug.Log("Play chapter 2 new school dialogue");
+
+                //play chapter 2 new school dialogue
+                scriptPlayer.LoadAndPlay("Chapter2/NewSchoolDialogue");
+                HasReadChristianSchoolPage = true;
+
+            }
+        }
+    }
+
+    public void PlayChapter2AIChangingLifeDialogue()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (!HasReadAIChangingLifePage)
+            {
+                Debug.Log("Play chapter 2 AI changing life dialogue");
+
+                //play chapter 2 AI changing life dialogue
+                scriptPlayer.LoadAndPlay("Chapter2/AIChangingLifeDialogue");
+                HasReadAIChangingLifePage = true;
+
+            }
         }
     }
 
@@ -155,17 +216,17 @@ public class StoryManagerBehavior : MonoBehaviour
 
     public void CheckIfPlayerCanDownloadSummerPhotos()
     {
-        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter) &&
+            customVariableManager.TryGetVariableValue<string>("currentTask", out _currentTask))
         {
-            if (_currentChapter == 3 && !DownloadedSummerPhotos)
+            if (_currentChapter == 3 && !DownloadedSummerPhotos && _currentTask == "Download summer photos" && HasInteractedWithFolder3Files)
             {
-                //set the current task to downloading summer photos
-                _currentTask = "Download summer photos from Archives";
 
                 Debug.Log("Player can now download summer photos from Archives!");
 
                 //fire an event to show the download question pop up
                 OnPlayerCanDownloadSummerPhotos?.Invoke();
+
             }
             else
             {
@@ -186,26 +247,36 @@ public class StoryManagerBehavior : MonoBehaviour
         }
     }
 
-    public void CheckIfPlayerHasInteractedWithAllCloverPictures()
-    {
-        if (HasInteractedWithStatueWithCode && HasInteractedWithNakedWomanPicture && HasInteractedWithCreepyPeoplePicture)
-        {
-            Debug.Log("Player has interacted with all clover pictures!");
-
-            //Fire an event to let the favorites tab on the web site to be clickable
-            OnPlayerCanClickFavoritesButton?.Invoke();
-
-        }
 
 
-    }
+
+
 
 
     public void PickWebsiteToOpen()
     {
         if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
         {
-            if (_currentChapter == 4)
+            if (_currentChapter == 1)
+            {
+                //play the dialogue where the player can choose to change website
+                Debug.Log("Player clicked favorites button in chapter 1, can not change website");
+            }
+
+            else if (_currentChapter == 2)
+            {
+                //play the dialogue where the player can choose to change website
+                Debug.Log("Player clicked favorites button in chapter 2, can not change website");
+            }
+
+            else if (_currentChapter == 3)
+            {
+                //play the dialogue where the player can choose to change website
+                Debug.Log("Player clicked favorites button in chapter 3, can not change website");
+            }
+
+
+            else if (_currentChapter == 4)
             {
                 //play the dialogue where the player can choose to change website
                 scriptPlayer.LoadAndPlayAtLabel("Chapter4/Chapter4", "Pick_Favorite_Website_Section");
@@ -229,10 +300,7 @@ public class StoryManagerBehavior : MonoBehaviour
                 //play the dialogue where the player can choose to change website
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Pick_Favorite_Website_Section_7");
             }
-            else
-            {
-                Debug.Log("Player clicked favorites button but nothing happens");
-            }
+
         }
     }
 
@@ -257,6 +325,51 @@ public class StoryManagerBehavior : MonoBehaviour
         }
     }
 
+    //Chapter 4 functions
+    public void PlayChapter4LabelStatuePicture()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 4 && !HasInteractedWithStatueWithCode)
+            {
+                Debug.Log("Play chapter 4 statue picture interlude");
+
+                //play chapter 4 statue picture interlude
+                scriptPlayer.LoadAndPlayAtLabel("Chapter4/Chapter4", "Label_Statue_Picture_Clicked");
+                HasInteractedWithStatueWithCode = true;
+            }
+        }
+    }
+
+    public void PlayChapter4LabelNakedWomanPicture()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 4 && !HasInteractedWithNakedWomanPicture)
+            {
+                scriptPlayer.LoadAndPlayAtLabel("Chapter4/Chapter4", "Label_Naked_Woman_Picture_Clicked");
+                HasInteractedWithNakedWomanPicture = true;
+
+            }
+        }
+    }
+
+    public void PlayChapter4LabelCreepyPeoplePicture()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
+        {
+            if (_currentChapter == 4 && !HasInteractedWithCreepyPeoplePicture)
+            {
+                scriptPlayer.LoadAndPlayAtLabel("Chapter4/Chapter4", "Label_Creepy_People_Picture_Clicked");
+                HasInteractedWithCreepyPeoplePicture = true;
+
+            }
+        }
+    }
+
+
+
+
     public void StartChapter6()
     {
         //check if the player is in chapter 5 and the task is to read notification
@@ -269,6 +382,7 @@ public class StoryManagerBehavior : MonoBehaviour
 
                 //play chapter 6
                 scriptPlayer.LoadAndPlay("Chapter6/Chapter6");
+
             }
         }
     }
@@ -284,6 +398,8 @@ public class StoryManagerBehavior : MonoBehaviour
                 //play chapter 7 found thing interlude
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Found_Thing_Page");
                 PlayerHasInteractedWithVeryThingFoundPage = true;
+
+                StartCoroutine(CheckWhichEndingToPlay());
             }
 
 
@@ -301,6 +417,8 @@ public class StoryManagerBehavior : MonoBehaviour
                 //play chapter 7 theory page interlude
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Theory_Page");
                 PlayerHasInteractedWithVeryThingTheoryPage = true;
+
+                StartCoroutine(CheckWhichEndingToPlay());
             }
         }
     }
@@ -309,12 +427,15 @@ public class StoryManagerBehavior : MonoBehaviour
     {
         if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter))
         {
-            if (_currentChapter == 7)
+            if (_currentChapter == 7 && !PlayerHasInteractedWithVeryThingControlPage)
             {
                 Debug.Log("Play chapter 7 control page interlude");
 
                 //play chapter 7 control page interlude
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Control_Page");
+                PlayerHasInteractedWithVeryThingControlPage = true;
+
+                StartCoroutine(CheckWhichEndingToPlay());
             }
         }
     }
@@ -331,6 +452,8 @@ public class StoryManagerBehavior : MonoBehaviour
                 //play chapter 7 click post 1 interlude
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Click_Post_1");
                 PlayerHasInteractedWithClickPost1 = true;
+
+                StartCoroutine(CheckWhichEndingToPlay());
             }
         }
     }
@@ -346,6 +469,8 @@ public class StoryManagerBehavior : MonoBehaviour
                 //play chapter 7 click post 2 interlude
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Click_Post_2");
                 PlayerHasInteractedWithClickPost2 = true;
+
+                StartCoroutine(CheckWhichEndingToPlay());
             }
         }
     }
@@ -361,6 +486,49 @@ public class StoryManagerBehavior : MonoBehaviour
                 //play chapter 7 click post 3 interlude
                 scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_VeryThing_Click_Post_3");
                 PlayerHasInteractedWithClickPost3 = true;
+
+                StartCoroutine(CheckWhichEndingToPlay());
+            }
+        }
+    }
+
+    
+    public IEnumerator CheckWhichEndingToPlay()
+    {
+        if (customVariableManager.TryGetVariableValue<int>("currentChapter", out _currentChapter) &&
+            customVariableManager.TryGetVariableValue<bool>("playerHasPoliceEnding", out bool playerHasPoliceEnding) &&
+            customVariableManager.TryGetVariableValue<int>("badChoiceCounter", out int badChoiceCounter))
+        {
+            if (_currentChapter == 7 && PlayerHasInteractedWithClickPost1 && PlayerHasInteractedWithClickPost2 && PlayerHasInteractedWithClickPost3
+             && PlayerHasInteractedWithVeryThingFoundPage && PlayerHasInteractedWithVeryThingTheoryPage && PlayerHasInteractedWithVeryThingControlPage)
+            {
+                yield return new WaitUntil(() => !scriptPlayer.Playing);
+
+                //if the player has police ending variable is true, play police ending
+                if (playerHasPoliceEnding)
+                {
+                    yield return new WaitUntil(() => !scriptPlayer.Playing);
+                    Debug.Log("Play police ending");
+                    
+                    scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_Police_Ending");
+                }
+                else if (badChoiceCounter <= 6)
+                {
+                    yield return new WaitUntil(() => !scriptPlayer.Playing);
+                    Debug.Log("Play bad ending");
+
+                }
+                else
+                {
+                    yield return new WaitUntil(() => !scriptPlayer.Playing);
+                    Debug.Log("Play good ending");
+
+                }
+            }
+
+            else
+            {
+                yield return null;
             }
         }
     }

@@ -1,9 +1,9 @@
 ; Chapter 4
 # Label_Clover
 @set currentChapter=4
-@set badEndingCounter=0
 ; open the clover website
 @onOpenCloverCommand
+
 
 ;  Beata appears on the right side of the screen. 
 @printer Bubble.right pos:105,70
@@ -39,8 +39,7 @@ Noa: The moment I start talking to AI is the moment I officially lose my mind.
 
 # Label_Piss_Off
 ; bad option, increament bad ending counter
-@set badEndingCounter=badEndingCounter+1
-
+@set badChoiceCounter++
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
 Noa: "No. And piss off."
@@ -83,6 +82,7 @@ Beata: "And we should do everything we can to ensure their safety!"
 @onDialogueClosedCommand
 
 @goto .Label_Continue_Browsing
+@stop
 
 
 # Label_Continue_Browsing
@@ -90,17 +90,14 @@ Beata: "And we should do everything we can to ensure their safety!"
 @printer Bubble.Right pos:150,70
 @wait 0.5
 @hidePrinter Bubble
-
-
+@onEnableWebInteractionCommand
+@onDialogueClosedCommand
 @stop
 
 
 ; ;  Player clicks on the Statue picture.(an event will  be triggered in unity code
 
 # Label_Statue_Picture_Clicked
-; clear the dialogue box text
-@resetText Dialogue
-@resetText Bubble
 
 ; wait for a moment (player can not click anything during this time)
 @onDialogueOpenedCommand
@@ -118,13 +115,13 @@ Beata: "Do you enjoy art, Noa?"
 @choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_Statue
 @choice "No" handler:ButtonList goto:.Label_No_Statue
 @choice "Not this kind" handler:ButtonList goto:.Label_Not_This_Kind_Statue
+@stop
 
 
 
 
 # Label_Ignore_It_Statue
-@resetText Dialogue
-@showPrinter Dialogue 
+
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
 Noa: I need to focus.
@@ -135,6 +132,8 @@ Noa: I need to focus.
 
 
 # Label_No_Statue
+; bad option, increament bad ending counter
+@set badChoiceCounter++
 
 @showPrinter Dialogue 
 @printer Dialogue !hideOther
@@ -253,10 +252,14 @@ Noa: Knowing how much money people pay Alex for photos, I’m sure this girl wil
 # Pick_Favorite_Website_Section
 
 ; show choice to pick a favorite website
+@onDisableWebInteractionCommand
 @clearChoice
-@choice "Stay on Page" handler:ButtonList
+@choice "Stay on Page" handler:ButtonList goto:Chapter4/Chapter4.Label_Stay_On_Page
 @choice "Chatter" handler:ButtonList goto:Chapter5/Chapter5
 @stop
+
+# Label_Stay_On_Page
+@onEnableWebInteractionCommand
 
 
 

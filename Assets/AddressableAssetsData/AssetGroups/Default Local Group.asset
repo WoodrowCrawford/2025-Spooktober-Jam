@@ -95,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f33663170a4a84ddcb3a3b97c7725ff8
+    m_Address: Assets/NaniNovelInputAction.inputactions
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fac55923fb0b542ccbf7d15b126d311e
     m_Address: Assets/Scripts/Commands
     m_ReadOnly: 0

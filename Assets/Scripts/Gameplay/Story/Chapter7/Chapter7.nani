@@ -1,4 +1,14 @@
 @set currentChapter=7
+@set BeataIntroVerything=false
+@set PlayerDidCaptcha=false
+
+@set playerInteractedWithVerythingFoundThingPage=false
+@set playerInteractedWithVerythingTheoryPage=false
+@set playerInteractedWithVerythingControlPage=false
+
+@set playerHasInteractedWithVerythingPost1=false
+@set playerInteractedWithVerythingPost2=false
+@set playerHasInteractedWithVerythingPost3=false
 
 @stop
 
@@ -31,21 +41,32 @@
 ; go to verything website
 @onOpenVeryThingCommand
 
-; Beata appears on the right
-@printer Bubble.Right pos:105,70
-@wait 0.5
-@showPrinter Bubble
-@onDialogueOpenedCommand
-@printer Bubble.Right pos:60,70
 
-Beata: "Oh, I absolutely love Verything!"
-Beata: "You can find everything here!"
-Beata: "So many wonderful people discussing so many wonderful things!"
 
-@choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_VeryThing
-@choice "You can't love" handler:ButtonList goto:.Label_You_Cant_Love_VeryThing
-@choice "I like it too" handler:ButtonList goto:.Label_I_Like_It_Too_VeryThing
-@stop
+@if BeataIntroVerything==false
+
+    ; Beata appears on the right
+    @printer Bubble.Right pos:105,70
+    @wait 0.5
+    @showPrinter Bubble
+    @onDialogueOpenedCommand
+    @printer Bubble.Right pos:60,70
+
+    Beata: "Oh, I absolutely love Verything!"
+    Beata: "You can find everything here!"
+    Beata: "So many wonderful people discussing so many wonderful things!"
+
+    @choice "Ignore it" handler:ButtonList goto:.Label_Ignore_It_VeryThing
+    @choice "You can't love" handler:ButtonList goto:.Label_You_Cant_Love_VeryThing
+    @choice "I like it too" handler:ButtonList goto:.Label_I_Like_It_Too_VeryThing
+    @set BeataIntroVerything=true
+    @stop
+@endIf
+@stop 
+
+    
+
+
 
 
 # Label_Ignore_It_VeryThing
@@ -54,10 +75,12 @@ Beata: "So many wonderful people discussing so many wonderful things!"
 Noa: I have to concentrate on what’s important right now.
 
 @goto .Label_Continue_Browsing_After_VeryThing
+@set BeataIntroVerything=true
 @stop
 
 # Label_You_Cant_Love_VeryThing
 ; bad option
+@set badChoiceCounter++
 
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
@@ -77,6 +100,7 @@ Beata: "That’s a harsh take!"
 Beata: "But I totally understand why it might seem this way sometimes."
 
 @goto .Label_Continue_Browsing_After_VeryThing
+@set BeataIntroVerything=true
 @stop
 
 
@@ -93,6 +117,7 @@ Beata: "I know! According to my data, you’re most interested in..."
 Beata: "Oh. I’m sorry, but your interests seem to go against my safety rules."
 
 @goto .Label_Continue_Browsing_After_VeryThing
+@set BeataIntroVerything=true
 @stop
 
 
@@ -148,6 +173,8 @@ Noa: It’s just trying to deter me from searching.
 @hidePrinter Dialogue
 @onDialogueClosedCommand
 
+@set playerInteractedWithVerythingFoundThingPage=true
+
 @stop
 
 
@@ -157,6 +184,8 @@ Noa: It’s just trying to deter me from searching.
 
 # Label_How_Much_To_Get_Rid_Of_You_VeryThing
 ; bad option
+@set badChoiceCounter++
+
 @printer Dialogue !hideOther
 Noa: "How much should I pay to get rid of you?"
 
@@ -175,6 +204,9 @@ Beata: "It’s so good to know that you always have a friend!"
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerInteractedWithVerythingFoundThingPage=true
+
 @stop
 
 
@@ -213,6 +245,8 @@ Beata: "Would you like me to recommend some movies for you to watch so you could
 @printer Dialogue !hideOther
 Noa: I’ve got to focus.
 
+@set playerInteractedWithVerythingTheoryPage=true
+
 @goto .Label_Continue_Browsing_After_VeryThing_Theory_Page
 @stop
 
@@ -221,12 +255,16 @@ Noa: I’ve got to focus.
 
 # Label_Shut_Up_VeryThing_Theory_Page
 ; bad option
+@set badChoiceCounter++
+
 @onDialogueOpenedCommand
 @printer Dialogue !hideOther
 Noa: "Can you shut it?"
 
 @printer Bubble.Right !hideOther
 Beata: "Of course! Whatever makes you happy!"
+
+@set playerInteractedWithVerythingTheoryPage=true
 
 @goto .Label_Continue_Browsing_After_VeryThing_Theory_Page
 @stop
@@ -258,7 +296,12 @@ Noa: "Or maybe everyone’s just lying to you."
 @printer Bubble.Right !hideOther
 Beata: "Surely such a thing isn’t possible."
 
+@set playerInteractedWithVerythingTheoryPage=true
+
 @goto .Label_Continue_Browsing_After_VeryThing_Theory_Page
+
+
+
 @stop
 
 
@@ -295,22 +338,36 @@ Noa: In much wisdom there is much sorrow.
 
 @choice "Keep going" handler:ButtonList goto:.Label_Keep_Going_VeryThing_Control_Page
 @choice "You’re quiet" handler:ButtonList goto:.Label_You_Are_Quiet_VeryThing_Control_Page
+@stop
 
 
 
 # Label_Keep_Going_VeryThing_Control_Page
 @onDialogueClosedCommand
+@hidePrinter Bubble
+@hidePrinter Dialogue
+
+@set playerInteractedWithVerythingControlPage=true
 @stop
 
 
 
 # Label_You_Are_Quiet_VeryThing_Control_Page
 ; bad option
+@set badChoiceCounter++
 
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
 Noa: "You’re suspiciously quiet."
 Noa: "Got a guilty conscience?"
+
+; show beata on the right
+@printer Bubble.Right pos:105,70
+@wait 0.5
+@showPrinter Bubble
+@onDialogueOpenedCommand
+@printer Bubble.Right pos:60,70
+
 
 @printer Bubble.Right !hideOther
 Beata: "Of course not!"
@@ -323,6 +380,15 @@ Noa: "Because everything written here is true?"
 @printer Bubble.Right !hideOther
 Beata: "Even if it were true – which, I assure you, it is not – my conscience still would be untroubled."
 Beata: "Because every government only wants the best for its citizens."
+
+; hide beata
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@hidePrinter Dialogue
+@onDialogueClosedCommand
+
+@set playerInteractedWithVerythingControlPage=true
 @stop
 
 
@@ -354,29 +420,49 @@ Beata: "Because every government only wants the best for its citizens."
 ; go to click website
 @onOpenClickCommand
 
-; Captcha pops up (captcha1.png) SFX POP UP (Popup+alert_sfx)
-@OnCaptchaOpenedCommand
+@if PlayerDidCaptcha=false
+    ; Captcha pops up (captcha1.png) SFX POP UP (Popup+alert_sfx)
+    @OnCaptchaOpenedCommand
 
-; create an event that disables the website from being interacted with until the captcha is completed
-@OnDisableWebInteractionCommand
+    ; create an event that disables the website from being interacted with until the captcha is completed
+    @OnDisableWebInteractionCommand
 
-@sfx Popup_alert_sfx
+    @sfx Popup_alert_sfx
 
-@clearChoice
-@choice "Dossesion" handler:ButtonList goto:.Label_Go_To_Captcha2
-@choice "possession" handler:ButtonList goto:.Label_Go_To_Captcha2
+    @clearChoice
+    @choice "Dossesion" handler:ButtonList goto:.Label_Go_To_Captcha2
+    @choice "possession" handler:ButtonList goto:.Label_Go_To_Captcha2
+    @stop
+
+    ; Captcha pops up (captcha1.png) SFX POP UP (Popup+alert_sfx)
+    @OnCaptchaOpenedCommand
+
+    ; create an event that disables the website from being interacted with until the captcha is completed
+    @OnDisableWebInteractionCommand
+
+    @sfx Popup_alert_sfx
+
+    @clearChoice
+    @choice "Dossesion" handler:ButtonList goto:.Label_Go_To_Captcha2
+    @choice "possession" handler:ButtonList goto:.Label_Go_To_Captcha2
+    @stop
+
+    # Label_Go_To_Captcha2
+    @onCaptcha1ClosedCommand
+    @onCaptcha2OpenedCommand
+    ; BEATA VOICE (creepy_line_2)
+    @sfx creppy_line_2
+
+    @clearChoice
+    @choice "Happiness" handler:ButtonList goto:.Label_Verification_Complete_Captcha
+    @choice "happiness" handler:ButtonList goto:.Label_Verification_Complete_Captcha
+    @stop
+@endIf
 @stop
 
-# Label_Go_To_Captcha2
-@onCaptcha1ClosedCommand
-@onCaptcha2OpenedCommand
-; BEATA VOICE (creepy_line_2)
-@sfx creepy_line_2
 
-@clearChoice
-@choice "Happiness" handler:ButtonList goto:.Label_Verification_Complete_Captcha
-@choice "happiness" handler:ButtonList goto:.Label_Verification_Complete_Captcha
-@stop
+
+
 
 # Label_Verification_Complete_Captcha
 ; Captcha completed, close the popup 
@@ -386,6 +472,8 @@ Beata: "Because every government only wants the best for its citizens."
 ; re-enable the website interaction
 @OnEnableWebInteractionCommand
 @onDialogueClosedCommand 
+
+@set PlayerDidCaptcha=true
 
 @stop
 
@@ -430,6 +518,8 @@ Noa: Where could it be?..
 @hidePrinter Dialogue
 @onDialogueClosedCommand
 
+@set playerHasInteractedWithVerythingPost1=true
+
 @stop
 
 
@@ -438,6 +528,8 @@ Noa: Where could it be?..
 
 # Label_No_VeryThing_Click_Post_1
 ; bad option
+@set badChoiceCounter++
+
 @printer Dialogue !hideOther
 Noa: "You do understand that this is just a bunch of AI’s bullshit?"
 Noa: "A twisted version of reality."
@@ -459,6 +551,8 @@ Beata: "Nothing is impossible with the right mindset!"
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerHasInteractedWithVerythingPost1=true
 
 @stop
 
@@ -483,6 +577,8 @@ Noa: "I’ll pass."
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerHasInteractedWithVerythingPost1=true
 @stop
 
 
@@ -525,6 +621,8 @@ Noa: Replying to this one seems disrespectful.
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerInteractedWithVerythingPost2=true
 @stop
 
 
@@ -533,6 +631,8 @@ Noa: Replying to this one seems disrespectful.
 
 # Label_No_Click_Post_2
 ; bad option
+@set badChoiceCounter++
+
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
 Noa: "You two are nothing alike."
@@ -552,6 +652,8 @@ Noa: "No."
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerInteractedWithVerythingPost2=true
 @stop
 
 
@@ -588,6 +690,8 @@ Noa: "No."
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerInteractedWithVerythingPost2=true
 @stop
 
 
@@ -639,12 +743,16 @@ Noa: Now is not the time to argue with it.
 @hidePrinter Bubble
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+
+@set playerHasInteractedWithVerythingPost3=true
 @stop
 
 
 
 # Label_You_Know_Nothing_Click_Post_3
 ; bad option
+@set badChoiceCounter++
+
 @printer Dialogue !hideOther
 @onDialogueOpenedCommand
 Noa: "The fuck are you even on?"
@@ -662,6 +770,8 @@ Beata: "But happy nonetheless!"
 @wait 0.5
 @hidePrinter Bubble
 @onDialogueClosedCommand
+
+@set playerHasInteractedWithVerythingPost3=true
 @stop
 
 
@@ -679,3 +789,125 @@ Noa: "Yeah. It will never make my day again."
 @printer Bubble.Right !hideOther
 Beata: "I’m sorry to hear that!"
 Beata: "But there are many other smiling people around you!
+
+; beata disappears
+@printer Bubble.Right pos:110,70
+@wait 0.5
+@hidePrinter Bubble
+@onDialogueClosedCommand
+
+@set playerHasInteractedWithVerythingPost3=true
+@stop
+
+
+
+# Label_Police_Ending
+; Bad ending
+
+; fade to black
+@hideAll
+@hideUI Desktop
+@onHideDesktopCommand
+
+@hideUI WelcomeScreen
+@hideUI BeataJumpscare
+@hideUI Glitch1Screen
+@hideUI Glitch2Screen
+
+@stopBgm Main_theme
+@stopBgm Menu_theme
+
+@stopSfx Pc_hum_sfx
+
+@wait 1
+
+; play police siren sound
+@sfx Police_sfx
+@wait 14
+
+; play knock sound
+@sfx LoudKnock_sfx 
+
+@wait 2
+
+@printer Dialogue !hideOther
+@onDialogueOpenedCommand
+Noa: "Shit."
+
+; SFX Destroying computer sounds (Pc_smash_sfx)
+@sfx PC_smash_sfx
+@hidePrinter Dialogue
+
+@wait 3
+
+@printer Dialogue hideOther!
+Beata: "I’ve noticed your computer is unavailable, so I connected to your smart hub."
+Beata: "Oh. I see now."
+Beata: "..."
+Beata: "Are you upset?"
+
+@hidePrinter Dialogue
+
+
+@wait 5
+
+@showUI Credits
+@stop
+
+
+# Label_Good_Ending
+
+@onDialogueOpenedCommand
+@wait 2
+
+; fade to black
+@hideAll
+@hideUI Desktop
+@hideUI WelcomeScreen
+@hideUI BeataJumpscare
+@hideUI Glitch1Screen
+@hideUI Glitch2Screen
+
+; stop playing creepy music
+@stopBgm Corrupted_theme
+@stopBgm Main_theme
+
+; stop pc hum
+@stopSfx Pc_hum_sfx
+@wait 2
+
+@printer Dialogue !hideOther
+Noa: I need to do a factory reset. Just in case.
+
+@hidePrinter Dialogue
+@wait 0.5
+
+; Clicking sfx.(Mouse-Click_sfx) Clicking sfx. (Mouse-Click_sfx)
+@sfx MouseClick_sfx
+
+; Silence 4 seconds
+@wait 4
+
+; Sfx Dog_Bark_sfx
+@sfx dog_bark_sfx
+
+@wait 2
+
+; Sfx Packing.wav
+@sfx packing
+@wait 4
+
+
+; Sfx 1_walk_sfx
+@sfx 1_walk_sfx
+@wait 2
+; At the same time starts voice line
+
+; Voice line (Va_phrase_8)
+@sfx VA_phrase_8
+
+@wait 4
+@showUI Credits 
+; @OnQuitTheGameCommand
+@stop
+

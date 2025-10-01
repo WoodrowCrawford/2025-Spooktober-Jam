@@ -1,8 +1,8 @@
 ; What happens when the player goes to the new school webpage
 
 ; set variables
-@set playerInteractedWithChristianSchool=false
 @set currentChapter=2
+@set playerInteractedWithChristianSchool=false
 
 ; show dialogue
 @showPrinter Dialogue
@@ -21,5 +21,4 @@ Noa: ...
 
 
 @set playerInteractedWithChristianSchool=true
-
 @stop

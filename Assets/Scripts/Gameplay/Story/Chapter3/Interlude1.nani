@@ -1,6 +1,7 @@
 ; Start of interlude 1 (chapter 3)
 @set currentChapter=3
 
+@wait 1
 
 
 ; hide dialogue box
@@ -60,6 +61,7 @@ Maurice: ****
 
 @clearBacklog
 @hideUI Desktop
+@onHideDesktopCommand
 @hideUI WelcomeScreen
 
 @stopSfx Pc_hum_sfx
@@ -91,12 +93,15 @@ Noa: Bloody hell.
 
 ; fade in the desktop screen with pc hum on loop
 @showUI Desktop
+@onShowDesktopCommand
+
 @sfx Pc_hum_sfx loop:true
 
 ; Play main music on the loop here when asset is ready
-
+@bgm Main_theme loop:true
 
 ; open chat window
+@onChatReadCommand
 @showPrinter Chat
 @onDialogueOpenedCommand
 @resetText Chat
@@ -135,13 +140,11 @@ Beata: Please, let me know if there’s anything I can help you with.
 Noa: "What the fuck?"
 Noa: "How did you get on my computer?"
 
-; hide dialogue box
-@hidePrinter Dialogue
 
 
-@printer Bubble.Left
+@printer Bubble.Left !hideOther
 @onDialogueOpenedCommand
-@resetText Bubble
+
 
 @wait 0.5
 Beata: We’ve noticed that you don’t have Beata of your own!
@@ -187,7 +190,7 @@ Noa: "Enlighten me."
 
 ; call event here that changes the call window to glitch 1 effect with glitch sound
 @onChangeCallWindowToGlitch1Command
-@sfx glitch_1_sfx
+@sfx 11_glitch_sfx
 
 @printer FriendDialogue
 Maurice: ******************************
@@ -195,7 +198,7 @@ Maurice: *********************
 
 ; call event here that changes the call window to glitch 2 effect with glitch sound
 @onChangeCallWindowToGlitch2Command
-@sfx glitch_2_sfx
+@sfx 3_glitch_sfx
 
 Maurice: **************************
 
@@ -204,7 +207,7 @@ Noa: "Dude, I can’t hear you."
 
 ; call event here that changes the call window back to normal effect with glitch sound
 @onChangeCallWindowToNormalCommand
-@sfx glitch_1_sfx
+@sfx 1_glitch_sfx
 
 @printer FriendDialogue
 Maurice: "********** guess they’re doing the same thing as with the chat."
@@ -230,7 +233,9 @@ Noa: "I see. I get it now why I suddenly need to call pest control."
 @wait 0.5
 @showPrinter Bubble
 @onDialogueOpenedCommand
-@printer Bubble.Left pos:40,70
+@printer Bubble.Left pos:40,70 
+
+
 Beata: "Butterflies aren’t pests!"
 Beata: "Although some caterpillars can be destructive to crops."
 Beata: "But you have nothing to fear! Beata, your favorite virtual assistant, is a fully mature butterfly!"
@@ -311,17 +316,17 @@ Maurice: "Thanks, dude. You too."
 @onDialogueClosedCommand
 
 ; set the current task to download summer photos
-@set currentTask="Download summer photos from Archives"
+@set currentTask="Download summer photos"
 
 @stop
 
 # Pick_Website_Section
-; player is now in control and can pick the websites to visit
+; player is now in control and can pick the websites to visi
 
-
-; give the player the choice to pick either CLover or Chatter
+; give the player the choice to pick either Clover or Chatter
 @choice "Go to Clover" handler:ButtonList goto:Chapter4/Chapter4.Label_Clover
 @choice "Go to Chatter" handler:ButtonList goto:Chapter5/Chapter5
+@onDisableWebInteractionCommand
 
 
 @stop

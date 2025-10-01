@@ -4,6 +4,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Naninovel;
 using System.Collections;
+using Naninovel;
+using Naninovel.UI;
+using TMPro;
 
 public class DesktopManager : MonoBehaviour, IPointerClickHandler
 {
@@ -12,6 +15,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     public static event DesktopManagerHandler OnPlayerWantsToUploadIDPhoto;
     public static event DesktopManagerHandler OnVerificationPopUpShown;
     public static event DesktopManagerHandler OnVerificationPopUpClosed;
+    public static event DesktopManagerHandler OnPlayerDownloadedSummerPhotos;
 
     [Header("Glitch Overlay")]
     [SerializeField] private GameObject _glitchOverlay;
@@ -22,7 +26,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject _summerPhotosFolderIcon;
     [SerializeField] private GameObject _chatIcon;
     [SerializeField] private GameObject _archivesIcon;
-    
+
     [SerializeField] private GameObject _notesIcon;
 
 
@@ -37,6 +41,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
 
 
+
     [Header("Summer Photos Folder App")]
     [SerializeField] private GameObject _summerPhotosFolderApp;
     [SerializeField] private Sprite _enterPasswordImage;
@@ -45,8 +50,12 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
     [Header("Zoomed In Image")]
     [SerializeField] private GameObject _zoomedInImage;
+    [SerializeField] private GameObject  _cloverCode;
+    [SerializeField] private GameObject _chatterCode;
+    [SerializeField] private GameObject _verythingCode;
+    [SerializeField] private GameObject _clickCode;
 
-    
+
 
 
     [Header("Alert Pop Up")]
@@ -78,16 +87,33 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Sprite _captchaPopUpImage2;
     [SerializeField] private Image _exitCaptchaPopUpButton;
 
+
+
+    
+
+
+
     void OnEnable()
     {
         Engine.OnInitializationFinished += HandleInitializationFinished;
+        
+        var stateManager = Engine.GetService<IStateManager>();
+        stateManager.OnGameLoadFinished += (args) => CheckInteractionAfterReload();
 
-        StoryManagerBehavior.OnPlayerCanDownloadSummerPhotos+= ShowDownloadQuestionPopUp;
+
+        SummerPhotosFolderBehavior.OnPlayerWantsToDownloadSecret += ShowDownloadQuestionPopUp;
+
+        CloverWebsiteBehavior.OnShowCloverCode += ShowCloverCode;
+        ChatterWebsiteBehavior.OnShowChatterCode += ShowChatterCode;
+        VerythingWebsiteBehavior.OnShowVerythingCode += ShowEverythingCode;
+        ClickWebsiteBehavior.OnClickShowClickCode += ShowClickCode;
+
+        StoryManagerBehavior.OnPlayerCanDownloadSummerPhotos += ShowDownloadQuestionPopUp;
 
         OnDialogueOpenedCommand.OnDialogueOpened += UnblockCanvasRaycast;
         OnDialogueClosedCommand.OnDialogueClosed += BlockCanvasRaycast;
 
-        OnShowGlitchOverlayCommand.OnShowGlitchOverlay+= ShowGlitchOverlay;
+        OnShowGlitchOverlayCommand.OnShowGlitchOverlay += ShowGlitchOverlay;
 
         OnOpenWebCommand.OnOpenWeb += OpenWebApplication;
         OnCloseWebCommand.OnCloseWeb += CloseWebApplication;
@@ -108,7 +134,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         IconBehavior.OnIconWantsToSendErrorEvent += ShowErrorPopUp;
         IconBehavior.OnSummerPhotosIconClicked += OpenSummerPhotosFolderApplication;
 
-        SummerPhotosFolderBehavior.OnPasswordCorrect += UnlockSummerPhotos;
+        SummerPhotosFolderBehavior.OnPasswordsUnlocked += UnlockSummerPhotos;
 
         WebsiteEvents.OnWebsiteImageChange += ShowZoomedInImage;
 
@@ -133,6 +159,11 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         StoryManagerBehavior.OnPlayerCanDownloadSummerPhotos -= ShowDownloadQuestionPopUp;
 
+        CloverWebsiteBehavior.OnShowCloverCode -= ShowCloverCode;
+        ChatterWebsiteBehavior.OnShowChatterCode -= ShowChatterCode;
+        VerythingWebsiteBehavior.OnShowVerythingCode -= ShowEverythingCode;
+        ClickWebsiteBehavior.OnClickShowClickCode -= ShowClickCode;
+
         OnDialogueOpenedCommand.OnDialogueOpened -= UnblockCanvasRaycast;
         OnDialogueClosedCommand.OnDialogueClosed -= BlockCanvasRaycast;
         OnShowGlitchOverlayCommand.OnShowGlitchOverlay -= ShowGlitchOverlay;
@@ -155,7 +186,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         IconBehavior.OnArchivesIconClicked -= OpenArchivesApplication;
         IconBehavior.OnIconWantsToSendErrorEvent -= ShowErrorPopUp;
 
-        SummerPhotosFolderBehavior.OnPasswordCorrect -= UnlockSummerPhotos;
+        SummerPhotosFolderBehavior.OnPasswordsUnlocked -= UnlockSummerPhotos;
 
         WebsiteEvents.OnWebsiteImageChange -= ShowZoomedInImage;
 
@@ -167,6 +198,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     }
 
 
+
     public void OnPointerClick(PointerEventData eventData)
     {
         // Handle pointer click events
@@ -174,6 +206,12 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         {
             //hide the zoomed in image
             _zoomedInImage.SetActive(false);
+
+            //hide the codes
+            _cloverCode.gameObject.SetActive(false);
+            _chatterCode.gameObject.SetActive(false);
+            _verythingCode.gameObject.SetActive(false);
+            _clickCode.gameObject.SetActive(false);
         }
 
         else if (eventData.pointerCurrentRaycast.gameObject == _alertPopUpExitButton.gameObject)
@@ -207,7 +245,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
             Debug.Log("Player wants to upload their ID photo");
             OnPlayerWantsToUploadIDPhoto?.Invoke();
         }
-        
+
         //if the chat icon in the taskbar is clicked
 
 
@@ -229,6 +267,64 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     private void HandleInitializationFinished()
     {
         var stateManager = Engine.GetService<IStateManager>();
+        CheckInteractionAfterReload();
+    }
+
+
+    public void CheckInteractionAfterReload()
+    {
+        var uiManager = Engine.GetService<IUIManager>();
+
+        if (uiManager.GetUI("Dialogue").Visible || uiManager.GetUI("Chat").Visible || uiManager.GetUI("Bubble").Visible)
+        {
+            //if the dialogue or choice UI is visible, block canvas raycasts
+            UnblockCanvasRaycast();
+            Debug.Log("Dialogue or choice UI is visible, block canvas raycasts");
+        }
+        else
+        {
+            //if neither the dialogue nor choice UI is visible, unblock canvas raycasts
+            BlockCanvasRaycast();
+        }
+
+        this.gameObject.SetActive(true);
+        
+    }
+
+    public void ShowCloverCode()
+    {
+        _cloverCode.gameObject.SetActive(true);
+
+        _chatterCode.gameObject.SetActive(false);
+        _verythingCode.gameObject.SetActive(false);
+        _clickCode.gameObject.SetActive(false);
+    }
+
+    public void ShowChatterCode()
+    {
+        _chatterCode.gameObject.SetActive(true);
+
+        _cloverCode.gameObject.SetActive(false);
+        _verythingCode.gameObject.SetActive(false);
+        _clickCode.gameObject.SetActive(false);
+    }
+
+    public void ShowEverythingCode()
+    {
+        _verythingCode.gameObject.SetActive(true);
+
+        _cloverCode.gameObject.SetActive(false);
+        _chatterCode.gameObject.SetActive(false);
+        _clickCode.gameObject.SetActive(false);
+    }
+
+    public void ShowClickCode()
+    {
+        _clickCode.gameObject.SetActive(true);
+
+        _cloverCode.gameObject.SetActive(false);
+        _chatterCode.gameObject.SetActive(false);
+        _verythingCode.gameObject.SetActive(false);
     }
 
     public void ShowGlitchOverlay()
@@ -246,7 +342,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     {
         _webBrowserApp.SetActive(true);
     }
-    
+
     public void CloseWebApplication()
     {
         _webBrowserApp.SetActive(false);
@@ -263,14 +359,14 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     {
         _chatApp.SetActive(false);
 
-        
+
     }
 
     //summer photos folder app functions
     public void OpenSummerPhotosFolderApplication()
     {
         //first check if the summer photos folder app is already unlocked
-        if (SummerPhotosFolderBehavior.IsUnlocked)
+        if (SummerPhotosFolderBehavior.AllUnlocked)
         {
             //if it is unlocked, just open the app
             _summerPhotosFolderApp.SetActive(true);
@@ -401,26 +497,65 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         //show download complete pop up
         ShowDownloadCompletePopUp();
-        
+
         //show the summer photos folder icon on the desktop
         _summerPhotosFolderIcon.SetActive(true);
+
+        
+
+
 
     }
 
     public void ShowDownloadCompletePopUp()
     {
-        _alertPopup.sprite = _downloadCompletePopupImage;
-        _alertPopup.gameObject.SetActive(true);
-
-        //hide yes and no buttons
-        _downloadYesButton.gameObject.SetActive(false);
-        _downloadNoButton.gameObject.SetActive(false);
-
-        //play a pop up sound
         var audioManager = Engine.GetService<IAudioManager>();
-        audioManager.PlaySfx("Popup_alert_sfx");
+        var scriptPlayer = Engine.GetService<IScriptPlayer>();
 
-        _canClosePopUp = true;
+        if (SummerPhotosFolderBehavior.AllUnlocked)
+        {
+            //play secret ending here
+            Debug.Log("All codes unlocked, play secret ending");
+            _alertPopup.sprite = _downloadCompletePopupImage;
+            _alertPopup.gameObject.SetActive(true);
+
+            //hide yes and no buttons
+            _downloadYesButton.gameObject.SetActive(false);
+            _downloadNoButton.gameObject.SetActive(false);
+
+            //play a pop up sound
+            audioManager.PlaySfx("Popup_alert_sfx");
+
+            _canClosePopUp = true;
+
+            //play the good ending here
+            scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_Good_Ending");
+
+
+        }
+
+        else
+        {
+            _alertPopup.sprite = _downloadCompletePopupImage;
+            _alertPopup.gameObject.SetActive(true);
+
+            //hide yes and no buttons
+            _downloadYesButton.gameObject.SetActive(false);
+            _downloadNoButton.gameObject.SetActive(false);
+
+            //play a pop up sound
+
+            audioManager.PlaySfx("Popup_alert_sfx");
+
+            _canClosePopUp = true;
+
+            StoryManagerBehavior.DownloadedSummerPhotos = true;
+            StartCoroutine(WaitUntilWebsiteIsOpened());
+        }
+
+        
+
+
     }
 
     public void ShowVerificationPopUp()
@@ -444,9 +579,9 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         //play a pop up sound
         var audioManager = Engine.GetService<IAudioManager>();
-        audioManager.PlaySfx("3_Happy-pop_sfx");
+        audioManager.PlaySfx("3_HappyPop_sfx");
 
-       //let the player close the pop up
+        //let the player close the pop up
         _canCloseVerificationPopUp = true;
     }
 
@@ -472,7 +607,7 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         //play a pop up sound
         var audioManager = Engine.GetService<IAudioManager>();
-        audioManager.PlaySfx("Popup_alert_sfx");
+        audioManager.PlaySfx("creepy_line_2");
     }
 
     public void UnlockSummerPhotos()
@@ -492,6 +627,17 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     public void UnblockCanvasRaycast()
     {
         GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
+    public IEnumerator WaitUntilWebsiteIsOpened()
+    {
+        yield return new WaitUntil(() => WebBehavior.WebIsOpen == true);
+
+        Debug.Log("The web has been opened, fire choice event");
+
+        var scriptPlayer = Engine.GetService<IScriptPlayer>();
+        yield return scriptPlayer.LoadAndPlayAtLabel("Chapter3/Interlude1", "Pick_Website_Section");
+        
     }
 
 }
