@@ -851,7 +851,7 @@ Beata: "Are you upset?"
 
 @wait 5
 
-@showUI Credits
+@resetState
 @stop
 
 
@@ -907,7 +907,8 @@ Noa: I need to do a factory reset. Just in case.
 @sfx VA_phrase_8
 
 @wait 4
-@showUI Credits 
+
 ; @OnQuitTheGameCommand
+@resetState
 @stop
 

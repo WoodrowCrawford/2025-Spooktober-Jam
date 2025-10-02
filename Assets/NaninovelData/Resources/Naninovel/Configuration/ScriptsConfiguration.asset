@@ -24,7 +24,7 @@ MonoBehaviour:
   CompilerLocalization: {fileID: 11400000, guid: ecfd5703894a0fa4d828e75ccc400869, type: 2}
   StableIdentification: 0
   InitializationScript: 
-  TitleScript: 
+  TitleScript: Mainmenu
   StartGameScript: StoryScript
   AutoAddScripts: 1
   AutoResolvePath: 1

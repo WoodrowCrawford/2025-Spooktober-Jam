@@ -29,6 +29,7 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     [Header("Screenshots")]
     [SerializeField] private Sprite _screenshotImage;
 
+
     [Header("Bool settings")]
     [SerializeField] private bool _isClicked = false;
     [SerializeField] private bool _isDraggable = true;
@@ -80,6 +81,20 @@ public class IconBehavior : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
                 WebsiteEvents.RaiseWebsiteImageChange(_screenshotImage);
             }
             
+        }
+
+        else if (gameObject.name == "ScreenSelfIcon")
+        {
+            if (_screenshotImage != null)
+            {
+                WebsiteEvents.RaiseWebsiteImageChange(_screenshotImage);
+            }
+        }
+
+        else if (gameObject.name == "EmailIcon")
+        {
+            Debug.Log("Email Icon Clicked, open email app");
+            OnIconWantsToSendErrorEvent?.Invoke();
         }
 
         //if the archives icon is clicked

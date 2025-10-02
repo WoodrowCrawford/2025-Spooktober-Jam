@@ -192,6 +192,7 @@
     <type fullname="Naninovel.Commands.PlayBgm" preserve="nothing" serialized="true" />
     <type fullname="Naninovel.Commands.PlaySfx" preserve="nothing" serialized="true" />
     <type fullname="Naninovel.Commands.PrintText" preserve="nothing" serialized="true" />
+    <type fullname="Naninovel.Commands.ResetState" preserve="nothing" serialized="true" />
     <type fullname="Naninovel.Commands.ResetText" preserve="nothing" serialized="true" />
     <type fullname="Naninovel.Commands.SetCustomVariable" preserve="nothing" serialized="true" />
     <type fullname="Naninovel.Commands.ShowPrinter" preserve="nothing" serialized="true" />

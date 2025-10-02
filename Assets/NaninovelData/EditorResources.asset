@@ -191,6 +191,9 @@ MonoBehaviour:
     - name: Chapter7/Chapter7
       pathPrefix: Scripts
       guid: 5763527e397b548b593c231557fff997
+    - name: Mainmenu
+      pathPrefix: Scripts
+      guid: c06a4d87f84e94976bd20a0a4e54ccdb
   - Id: Audio
     Resources:
     - name: 1_glitch_sfx

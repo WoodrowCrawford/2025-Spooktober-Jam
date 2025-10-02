@@ -435,6 +435,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c06a4d87f84e94976bd20a0a4e54ccdb
+    m_Address: Naninovel/Scripts/Mainmenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bf810b9b6cc9f44a58fd670678ded4
     m_Address: Naninovel/Spawn/SunShafts
     m_ReadOnly: 0
