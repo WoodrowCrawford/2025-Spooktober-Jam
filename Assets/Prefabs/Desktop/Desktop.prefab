@@ -4891,6 +4891,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   hideOnLoad: 0
+  showOnLoad: 1
   hideInThumbnail: 0
   saveVisibilityState: 1
   blockInputWhenVisible: 0

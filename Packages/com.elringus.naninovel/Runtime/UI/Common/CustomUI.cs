@@ -79,7 +79,11 @@ namespace Naninovel.UI
         }
 
         public override GameObject FocusObject { get => base.FocusObject ? base.FocusObject : FindFocusObject(); set => base.FocusObject = value; }
-        public virtual bool HideOnLoad => hideOnLoad;
+    public virtual bool HideOnLoad => hideOnLoad;
+    /// <summary>
+    /// When true, forces this UI to be shown when a game load starts (opposite of HideOnLoad).
+    /// </summary>
+    public virtual bool ShowOnLoad => showOnLoad;
         public virtual bool HideInThumbnail => hideInThumbnail;
         public virtual bool SaveVisibilityState => saveVisibilityState;
         public virtual bool BlockInputWhenVisible => blockInputWhenVisible;
@@ -93,8 +97,10 @@ namespace Naninovel.UI
         protected virtual GameObject ButtonControls => buttonControls;
         protected virtual GameObject ControlsLegend => controlsLegend;
 
-        [Tooltip("Whether to automatically hide the UI when loading game or resetting state.")]
-        [SerializeField] private bool hideOnLoad = true;
+    [Tooltip("Whether to automatically hide the UI when loading game or resetting state.")]
+    [SerializeField] private bool hideOnLoad = true;
+    [Tooltip("When enabled, forces this UI to be shown when a game load starts (opposite of HideOnLoad).")]
+    [SerializeField] private bool showOnLoad = false;
         [Tooltip("Whether to hide the UI when capturing thumbnail for save-load slots.")]
         [SerializeField] private bool hideInThumbnail;
         [Tooltip("Whether to preserve visibility of the UI when saving/loading game.")]
@@ -159,10 +165,19 @@ namespace Naninovel.UI
         {
             base.OnEnable();
 
+            if (HideOnLoad && ShowOnLoad)
+                Debug.LogWarning($"CustomUI '{name}': both HideOnLoad and ShowOnLoad are enabled. ShowOnLoad will take precedence at load time.");
+
             if (HideOnLoad)
             {
                 stateManager.OnGameLoadStarted += HandleGameLoadStarted;
                 stateManager.OnResetStarted += Hide;
+            }
+
+            if (ShowOnLoad)
+            {
+                stateManager.OnGameLoadStarted += HandleGameLoadStartedShow;
+                stateManager.OnResetStarted += Show;
             }
 
             stateManager.AddOnGameSerializeTask(SerializeState);
@@ -188,6 +203,12 @@ namespace Naninovel.UI
             {
                 stateManager.OnGameLoadStarted -= HandleGameLoadStarted;
                 stateManager.OnResetStarted -= Hide;
+            }
+
+            if (ShowOnLoad && stateManager != null)
+            {
+                stateManager.OnGameLoadStarted -= HandleGameLoadStartedShow;
+                stateManager.OnResetStarted -= Show;
             }
 
             if (stateManager != null)
@@ -335,5 +356,7 @@ namespace Naninovel.UI
         }
 
         private void HandleGameLoadStarted (GameSaveLoadArgs args) => Hide();
+
+        private void HandleGameLoadStartedShow (GameSaveLoadArgs args) => Show();
     }
 }

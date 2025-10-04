@@ -1,2 +1,3 @@
 @bgm Menu_theme loop:true
+@showUI Desktop
 @stop

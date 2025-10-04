@@ -1,8 +1,9 @@
 using System;
+using System.Reflection;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Naninovel;
 using System.Collections;
 using Naninovel;
 using Naninovel.UI;
@@ -10,12 +11,42 @@ using TMPro;
 
 public class DesktopManager : MonoBehaviour, IPointerClickHandler
 {
+    private static DesktopManager _instance;
+
+    private void Awake()
+    {
+        // Ensure only one DesktopManager exists and persist it across scene loads.
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+            // Subscribe a no-op handler to avoid "event never used" compile warnings in some build setups.
+            OnPlayerDownloadedSummerPhotos += NoOp_OnPlayerDownloadedSummerPhotos;
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_instance == this) _instance = null;
+        // Unsubscribe the no-op handler.
+        OnPlayerDownloadedSummerPhotos -= NoOp_OnPlayerDownloadedSummerPhotos;
+    }
+
+    private void NoOp_OnPlayerDownloadedSummerPhotos() { }
+
     public delegate void DesktopManagerHandler();
     public static event DesktopManagerHandler OnPopUpErrorClosed;
     public static event DesktopManagerHandler OnPlayerWantsToUploadIDPhoto;
     public static event DesktopManagerHandler OnVerificationPopUpShown;
     public static event DesktopManagerHandler OnVerificationPopUpClosed;
+    #pragma warning disable 67 // Event is invoked via code path or by design; suppress "never used" warning.
     public static event DesktopManagerHandler OnPlayerDownloadedSummerPhotos;
+    #pragma warning restore 67
 
     [Header("Glitch Overlay")]
     [SerializeField] private GameObject _glitchOverlay;
@@ -268,6 +299,52 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
     {
         var stateManager = Engine.GetService<IStateManager>();
         CheckInteractionAfterReload();
+        // Disable Naninovel automatic hide-on-load for managed UIs so they won't be auto-hidden on save/load.
+        StartCoroutine(DisableHideOnLoadForManagedUIs());
+    }
+
+    private IEnumerator DisableHideOnLoadForManagedUIs()
+    {
+        var start = Time.time;
+        var timeout = 5f;
+        while (Engine.GetService<IUIManager>() == null && Time.time - start < timeout)
+            yield return null;
+
+        var uiManager = Engine.GetService<IUIManager>();
+        if (uiManager == null)
+        {
+            Debug.LogWarning("IUIManager not available; cannot disable hide-on-load for managed UIs.");
+            yield break;
+        }
+
+        var list = new List<IManagedUI>();
+        try
+        {
+            uiManager.GetManagedUIs(list);
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Failed to retrieve managed UIs: " + e.Message);
+            yield break;
+        }
+
+        var modified = 0;
+        foreach (var ui in list)
+        {
+            if (ui == null) continue;
+            try
+            {
+                var fi = ui.GetType().GetField("hideOnLoad", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (fi != null)
+                {
+                    fi.SetValue(ui, false);
+                    modified++;
+                }
+            }
+            catch { }
+        }
+
+        Debug.Log($"Disabled hideOnLoad for {modified} Naninovel managed UIs (out of {list.Count}).");
     }
 
 
@@ -528,8 +605,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
             _canClosePopUp = true;
 
-            //play the good ending here
-            scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_Good_Ending");
+            //play the good ending here (fire-and-forget)
+            _ = scriptPlayer.LoadAndPlayAtLabel("Chapter7/Chapter7", "Label_Good_Ending");
 
 
         }
@@ -551,6 +628,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
             StoryManagerBehavior.DownloadedSummerPhotos = true;
             StartCoroutine(WaitUntilWebsiteIsOpened());
+                // Notify listeners that the player downloaded the summer photos
+                OnPlayerDownloadedSummerPhotos?.Invoke();
         }
 
         
@@ -635,8 +714,9 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
 
         Debug.Log("The web has been opened, fire choice event");
 
-        var scriptPlayer = Engine.GetService<IScriptPlayer>();
-        yield return scriptPlayer.LoadAndPlayAtLabel("Chapter3/Interlude1", "Pick_Website_Section");
+    var scriptPlayer = Engine.GetService<IScriptPlayer>();
+    _ = scriptPlayer.LoadAndPlayAtLabel("Chapter3/Interlude1", "Pick_Website_Section");
+    yield break;
         
     }
 

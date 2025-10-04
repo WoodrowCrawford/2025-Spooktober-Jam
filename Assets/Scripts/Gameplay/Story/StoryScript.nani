@@ -1,6 +1,6 @@
 
 ; Start_of story
-
+@hideUI Desktop
 ; create the variables
 @char Noa visible:false
 @char Maurice visible:false
@@ -8,6 +8,8 @@
 @set currentChapter=1
 @set badChoiceCounter=0
 @set playerHasPoliceEnding=false
+
+
 
 @hidePrinter Dialogue
 @onDialogueClosedCommand
