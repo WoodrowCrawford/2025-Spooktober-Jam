@@ -21,18 +21,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 07c16da6e281246e3bcfd03ba6d1d85b
-    m_Address: Naninovel/UI/Desktop
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Naninovel
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 07c2479898ef64d47a358691ff0a7334
-    m_Address: Naninovel/UI/Credits
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Naninovel
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c113736f41254bd9b83d096ea6f1971
     m_Address: Naninovel/Scripts/Chapter2/AIChangingLifeDialogue
     m_ReadOnly: 0
@@ -65,6 +53,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15195fc671e6e4fc69ce7a288b3e0d5a
     m_Address: Naninovel/Audio/PC_smash_sfx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18327aceb5b0741cdb9b0705dc3b1fbf
+    m_Address: Naninovel/UI/CreditsScreen
     m_ReadOnly: 0
     m_SerializedLabels:
     - Naninovel

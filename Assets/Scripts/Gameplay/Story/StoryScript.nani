@@ -10,9 +10,9 @@
 @set playerHasPoliceEnding=false
 
 
-
 @hidePrinter Dialogue
 @onDialogueClosedCommand
+@hideUI Desktop
 
 All events in this game are entirely fictional.
 For now.

@@ -5,45 +5,30 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
-using Naninovel;
 using Naninovel.UI;
+using Naninovel;
 using TMPro;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 
 public class DesktopManager : MonoBehaviour, IPointerClickHandler
 {
     private static DesktopManager _instance;
 
-    private void Awake()
-    {
-        // Ensure only one DesktopManager exists and persist it across scene loads.
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-            // Subscribe a no-op handler to avoid "event never used" compile warnings in some build setups.
-            OnPlayerDownloadedSummerPhotos += NoOp_OnPlayerDownloadedSummerPhotos;
-        }
-        else if (_instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
+    
 
-    private void OnDestroy()
-    {
-        if (_instance == this) _instance = null;
-        // Unsubscribe the no-op handler.
-        OnPlayerDownloadedSummerPhotos -= NoOp_OnPlayerDownloadedSummerPhotos;
-    }
+   
 
-    private void NoOp_OnPlayerDownloadedSummerPhotos() { }
+    
 
     public delegate void DesktopManagerHandler();
     public static event DesktopManagerHandler OnPopUpErrorClosed;
     public static event DesktopManagerHandler OnPlayerWantsToUploadIDPhoto;
     public static event DesktopManagerHandler OnVerificationPopUpShown;
     public static event DesktopManagerHandler OnVerificationPopUpClosed;
+    public static event DesktopManagerHandler OnGameSaved;
+    public static event DesktopManagerHandler OnGameLoaded;
+
     #pragma warning disable 67 // Event is invoked via code path or by design; suppress "never used" warning.
     public static event DesktopManagerHandler OnPlayerDownloadedSummerPhotos;
     #pragma warning restore 67
@@ -131,6 +116,8 @@ public class DesktopManager : MonoBehaviour, IPointerClickHandler
         var stateManager = Engine.GetService<IStateManager>();
         stateManager.OnGameLoadFinished += (args) => CheckInteractionAfterReload();
 
+        stateManager.OnGameSaveStarted += (args) => OnGameSaved?.Invoke();
+        stateManager.OnGameLoadFinished += (args) => OnGameLoaded?.Invoke();
 
         SummerPhotosFolderBehavior.OnPlayerWantsToDownloadSecret += ShowDownloadQuestionPopUp;
 

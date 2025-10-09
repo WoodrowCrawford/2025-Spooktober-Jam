@@ -819,7 +819,6 @@ Beata: "But there are many other smiling people around you!
 
 @stopSfx Pc_hum_sfx
 
-@wait 1
 
 ; play police siren sound
 @sfx Police_sfx
@@ -851,7 +850,8 @@ Beata: "Are you upset?"
 
 @wait 5
 
-@resetState
+; show credits
+@showUI CreditsScreen
 @stop
 
 
@@ -908,7 +908,7 @@ Noa: I need to do a factory reset. Just in case.
 
 @wait 4
 
-; @OnQuitTheGameCommand
-@resetState
+; show credits
+@showUI CreditsScreen
 @stop
 
