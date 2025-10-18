@@ -258,6 +258,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   hideOnLoad: 1
+  showOnLoad: 0
   hideInThumbnail: 0
   saveVisibilityState: 1
   blockInputWhenVisible: 0
@@ -3267,7 +3268,13 @@ PrefabInstance:
     - {fileID: 8435139632172955271, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
     - {fileID: 1874529176132192896, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
     - {fileID: 2911240199878467276, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5933606174261266518, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
+    - {fileID: 6098288556407714078, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
+    - {fileID: 8702611559147902714, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
+    - {fileID: 3023308594764417863, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
+    - {fileID: 2448470606693350446, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
+    - {fileID: 3313785223143608453, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1606130285726930, guid: f9ef02f710a46014a8a8584187c986f4, type: 3}

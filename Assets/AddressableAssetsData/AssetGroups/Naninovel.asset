@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Naninovel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07c16da6e281246e3bcfd03ba6d1d85b
+    m_Address: Naninovel/UI/Desktop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Naninovel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c113736f41254bd9b83d096ea6f1971
     m_Address: Naninovel/Scripts/Chapter2/AIChangingLifeDialogue
     m_ReadOnly: 0

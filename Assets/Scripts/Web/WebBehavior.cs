@@ -281,6 +281,18 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void GetCurrentWebpageOnLoad()
     {
+        // Expose a simple public restore entrypoint by delegating to RestoreSavedWebsite
+        RestoreSavedWebsite();
+    }
+
+    /// <summary>
+    /// Restores the saved website and page (if any) by making sure the panel and saved GameObjects
+    /// are active and then applying them. Also starts a retrying coroutine to override any
+    /// post-load UI hiding performed by Naninovel.
+    /// Can be called externally (for example, by other systems after a load) to force restore.
+    /// </summary>
+    public void RestoreSavedWebsite()
+    {
         if (_savedWebsite != null)
         {
             // Ensure saved website/page GameObjects are enabled in case they were disabled in the scene
@@ -291,14 +303,14 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
             catch (Exception) { /* ignore if references lost */ }
 
-                // Ensure the whole web panel is visible and interactive
-                EnsurePanelVisible();
+            // Ensure the whole web panel is visible and interactive
+            EnsurePanelVisible();
 
-                ChangeWebsite(_savedWebsite);
-                ChangeWebsitePage(_savedPage);
+            ChangeWebsite(_savedWebsite);
+            ChangeWebsitePage(_savedPage);
 
-                // Start coroutine to reapply saved website/page after a frame (Naninovel may hide UIs during load)
-                StartCoroutine(ReapplySavedWebsiteAfterLoad());
+            // Start coroutine to reapply saved website/page after a frame (Naninovel may hide UIs during load)
+            StartCoroutine(ReapplySavedWebsiteAfterLoad());
             return;
         }
 
@@ -307,27 +319,35 @@ public class WebBehavior : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private IEnumerator ReapplySavedWebsiteAfterLoad()
     {
-        // wait one frame to allow Naninovel to finish any post-load hide/show logic
-        yield return null;
-
-        try
+        // Try multiple times (frames + short waits) to survive Naninovel post-load UI hiding.
+        const int attempts = 5;
+        for (int i = 0; i < attempts; i++)
         {
-            if (_savedWebsite != null)
-            {
-                EnsurePanelVisible();
-                _savedWebsite.SetActive(true);
-                ChangeWebsite(_savedWebsite);
-            }
+            // wait a frame and a small real-time delay to allow engine/UI to finish
+            yield return null;
+            yield return new WaitForSeconds(0.03f);
 
-            if (_savedPage != null)
+            try
             {
-                _savedPage.SetActive(true);
-                ChangeWebsitePage(_savedPage);
+                if (_savedWebsite != null)
+                {
+                    EnsurePanelVisible();
+                    _savedWebsite.SetActive(true);
+                    ChangeWebsite(_savedWebsite);
+                }
+
+                if (_savedPage != null)
+                {
+                    _savedPage.SetActive(true);
+                    ChangeWebsitePage(_savedPage);
+                }
+
+                Debug.Log($"[WebBehavior] ReapplySavedWebsiteAfterLoad attempt {i + 1}/{attempts} applied.");
             }
-        }
-        catch (Exception e)
-        {
-            Debug.LogWarning($"[WebBehavior] ReapplySavedWebsiteAfterLoad failed: {e}");
+            catch (Exception e)
+            {
+                Debug.LogWarning($"[WebBehavior] ReapplySavedWebsiteAfterLoad attempt {i + 1} failed: {e}");
+            }
         }
     }
 
