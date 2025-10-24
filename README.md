@@ -3,7 +3,6 @@
 
 
 # Story
-Welcome to the internet of the future! Free of any upsetting content! It’s everything we all have ever wanted. Or is it?
 
 <img src="https://github.com/user-attachments/assets/aba23d26-6db9-4ec7-aec3-3d131f499098" alt="drawing" width="500"/>
 <br>
@@ -22,4 +21,24 @@ Welcome to the internet of the future! Free of any upsetting content! It’s eve
 - Gameplay time ~ 1 hour 
 
 - Cute and lovable mascot!
+
+# Screenshots
+<img src="https://github.com/user-attachments/assets/5f542d71-c834-45d6-b64e-792feaa3ceab" alt="drawing" width="400"/>
+<br>
+
+<img src="https://github.com/user-attachments/assets/f4ced75a-560f-4338-ba56-f0d7ace30f3c" alt="drawing" width="400"/>
+<br>
+
+<img src="https://github.com/user-attachments/assets/aec1a64a-6607-4eba-b12a-c32cf9e20ac0" alt="drawing" width="400"/>
+<br>
+
+<img src="https://github.com/user-attachments/assets/36cb89e5-7a44-46bf-9be1-f775fbdd2321" alt="drawing" width="400"/>
+<br>
+
+<img src="https://github.com/user-attachments/assets/e0497765-937d-45b9-81dd-bbaa52c4611c" alt="drawing" width="400"/>
+<br>
+
+
+
+
 
