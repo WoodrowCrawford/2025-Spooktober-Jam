@@ -22,6 +22,12 @@
 
 - Cute and lovable mascot!
 
+## Technical Implementation
+- **Visual Novel Framework** — Built using Naninovel, a Unity based visual novel engine, for dialogue management, scene transitions, and branching narrative
+- **Event System** — Custom C# scripts handling narrative events, triggers, and gameplay state changes within the Naninovel framework
+- **Custom Shaders** — ShaderLab and HLSL shaders for visual effects and atmosphere
+- **Game Jam Context** — Designed, built, and shipped within the Spooktober Jam time constraints
+
 # Screenshots
 <img src="https://github.com/user-attachments/assets/5f542d71-c834-45d6-b64e-792feaa3ceab" alt="drawing" width="400"/>
 <br>
